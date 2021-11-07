@@ -10,6 +10,7 @@ public class Lote {
 	private int numeroDeLote;
 	// id de la maquina debido a la relacion entre maquina y lote
 	private Maquina[] maquinas;
+	private Departamento[] departamentos; 
 
 	public Lote() {
 		numLotes = numLotes + 1;
@@ -58,9 +59,18 @@ public class Lote {
 		this.numeroDeLote = numeroDeLote;
 	}
 
+	public Departamento[] getDepartamentos() {
+		return departamentos;
+	}
+
+	public void setDepartamentos(Departamento[] departamentos) {
+		this.departamentos = departamentos;
+	}
+
+	@Override
 	public String toString() {
 		return "Lote [idLote=" + idLote + ", numeroDeLote=" + numeroDeLote + ", maquinas=" + Arrays.toString(maquinas)
-				+ "]";
+				+ ", departamentos=" + Arrays.toString(departamentos) + "]";
 	}
 
 }

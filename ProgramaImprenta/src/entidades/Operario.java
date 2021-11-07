@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Operario {
@@ -11,7 +12,7 @@ public class Operario {
 	protected long num_telefono;
 	private String direccion;
 	public boolean senior;
-	protected char departamento;
+	protected Departamento[] departamentos;
 
 //constructor por defecto del operario
 	public Operario() {
@@ -50,11 +51,6 @@ public class Operario {
 		System.out.println("Introduce el NIF:");
 		senior = teclado4.nextBoolean();
 		setSenior(senior);
-
-		Scanner teclado5 = new Scanner(System.in);
-		System.out.println("Introduce el departamento:");
-		departamento = teclado5.nextLine().charAt(0);
-		setDepartamento(departamento);
 
 	}
 
@@ -114,17 +110,18 @@ public class Operario {
 		this.senior = senior;
 	}
 
-	public char getDepartamento() {
-		return departamento;
+	public Departamento[] getDepartamentos() {
+		return departamentos;
 	}
 
-	public void setDepartamento(char departamento) {
-		this.departamento = departamento;
+	public void setDepartamentos(Departamento[] departamentos) {
+		this.departamentos = departamentos;
 	}
 
+	@Override
 	public String toString() {
 		return "Operario [idOperario=" + idOperario + ", NIF=" + NIF + ", nombreApellido=" + nombreApellido
 				+ ", num_telefono=" + num_telefono + ", direccion=" + direccion + ", senior=" + senior
-				+ ", departamento=" + departamento + "]";
+				+ ", departamentos=" + Arrays.toString(departamentos) + "]";
 	}
 }
