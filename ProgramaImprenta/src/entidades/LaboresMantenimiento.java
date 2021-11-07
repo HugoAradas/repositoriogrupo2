@@ -32,6 +32,7 @@ public class LaboresMantenimiento {
 	public LaboresMantenimiento() {
 
 	}
+	
 
 	public LaboresMantenimiento(long idLab, LocalDate FechaReal, String Consistio, String Maquina) {
 		numLab = numLab + 1;

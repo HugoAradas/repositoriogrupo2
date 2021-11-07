@@ -21,7 +21,6 @@ public class Poster extends Trabajo {
 
 	public static Poster nuevoPoster() {
 		Poster ret = new Poster();
-		ret = (Poster) Poster.nuevoPoster();
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce el ancho del nuevo poster");
 		ret.ancho = teclado.nextDouble();

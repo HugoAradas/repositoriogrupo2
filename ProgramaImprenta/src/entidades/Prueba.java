@@ -23,13 +23,13 @@ public class Prueba {
 		Prueba ret = new Prueba();
 		ret.idPrueba = numPrueba;
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce la explicaciÃ³n de la prueba");
+		System.out.println("Introduce la explicación de la prueba");
 		ret.Explicacion = teclado.next();
 		ret.setExplicacion(ret.Explicacion);
-		System.out.println("Introduce la explicaciÃ³n de la prueban");
+		System.out.println("Introduce la explicación de la prueban");
 		ret.Resultado = teclado.next();
 		ret.setResultado(ret.Resultado);
-		System.out.println("Introduce el id de la mÃ¡quina sobre la que se realiza la prueba");
+		System.out.println("Introduce el id de la máquina sobre la que se realiza la prueba");
 		ret.idMaquina = teclado.nextLong();
 		ret.setidMaquina(ret.idMaquina);
 

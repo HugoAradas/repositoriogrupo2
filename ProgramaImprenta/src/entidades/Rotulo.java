@@ -15,13 +15,6 @@ public class Rotulo extends Trabajo {
 
 	}
 
-//Constructor por defecto de la clase Rótulo
-	public Rotulo() {
-		super();
-		numRotulos = numRotulos + 1;
-		this.idRotulo = numRotulos;
-	}
-
 	public static Rotulo nuevoRotulo() {
 		Rotulo ret = new Rotulo();
 		ret = (Rotulo) Rotulo.nuevoRotulo();
@@ -31,6 +24,13 @@ public class Rotulo extends Trabajo {
 		ret.setCentroComercial(ret.centroComercial);
 		return ret;
 
+	}
+
+//Constructor por defecto de la clase Rótulo
+	public Rotulo() {
+		super();
+		numRotulos = numRotulos + 1;
+		this.idRotulo = numRotulos;
 	}
 
 	public Rotulo(long idRotulo, String centroComercial) {

@@ -76,6 +76,22 @@ public class ReglaCalidad {
 		this.operarios = operarios;
 	}
 
+	public long getIdPrueba() {
+		return idPrueba;
+	}
+
+	public void setIdPrueba(long idPrueba) {
+		this.idPrueba = idPrueba;
+	}
+
+	public long getIdRegla() {
+		return idRegla;
+	}
+
+	public void setIdRegla(long idRegla) {
+		this.idRegla = idRegla;
+	}
+
 	@Override
 	public String toString() {
 		return "ReglaCalidad [idPrueba=" + idPrueba + ", idRegla=" + idRegla + ", NombreRegla=" + NombreRegla

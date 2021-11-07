@@ -19,12 +19,6 @@ public class Trabajo {
 		this.idTrabajo = numTrabajos;
 	}
 
-//Constructor por atributos de Trabajo
-	public Trabajo(long idTrabajo, LocalDate fechaTrabajo, Cliente[] clientes) {
-		numTrabajos = numTrabajos + 1;
-		this.idTrabajo = numTrabajos;
-	}
-
 	public static Trabajo nuevoTrabajo() {
 		numTrabajos = numTrabajos + 1;
 		Trabajo ret = new Trabajo();
@@ -36,6 +30,12 @@ public class Trabajo {
 
 		return ret;
 
+	}
+
+//Constructor por atributos de Trabajo
+	public Trabajo(long idTrabajo, LocalDate fechaTrabajo, Cliente[] clientes) {
+		numTrabajos = numTrabajos + 1;
+		this.idTrabajo = numTrabajos;
 	}
 
 	public Trabajo(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve) {
