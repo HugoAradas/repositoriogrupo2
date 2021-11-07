@@ -19,6 +19,24 @@ public class Poster extends Trabajo {
 
 	}
 
+	public static Poster nuevoPoster() {
+		Poster ret = new Poster();
+		ret = (Poster) Poster.nuevoPoster();
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el ancho del nuevo poster");
+		ret.ancho = teclado.nextDouble();
+		ret.setAncho(ret.ancho);
+		System.out.println("Introduce el alto del nuevo poster");
+		ret.alto = teclado.nextDouble();
+		ret.setAlto(ret.alto);
+		System.out.println("Introduce el numero de copias del nuevo poster");
+		ret.numCopiasPoster = teclado.nextInt();
+		ret.setNumCopiasPoster(ret.numCopiasPoster);
+
+		return ret;
+
+	}
+
 	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster) {
 		super();
 		numPoster = numPoster + 1;

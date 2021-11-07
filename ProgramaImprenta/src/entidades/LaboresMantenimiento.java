@@ -2,6 +2,7 @@ package entidades;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class LaboresMantenimiento {
 	private static int numLab = 0;
@@ -11,9 +12,24 @@ public class LaboresMantenimiento {
 	private String Maquina;
 	private OpMaquina[] operarios;
 
-	public LaboresMantenimiento() {
+	public static LaboresMantenimiento nuevoLaboresMantenimiento() {
+		LaboresMantenimiento ret = new LaboresMantenimiento();
 		numLab = numLab + 1;
-		this.idLab = numLab;
+		ret.idLab = numLab;
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el Consistio:");
+		ret.Consistio = teclado.nextLine();
+		ret.setConsistio(ret.Consistio);
+
+		Scanner teclado1 = new Scanner(System.in);
+		System.out.println("Introduce la maquina:");
+		ret.Maquina = teclado1.nextLine();
+		ret.setMaquina(ret.Maquina);
+		return ret;
+
+	}
+
+	public LaboresMantenimiento() {
 
 	}
 

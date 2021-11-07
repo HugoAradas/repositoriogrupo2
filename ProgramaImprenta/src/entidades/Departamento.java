@@ -1,13 +1,20 @@
 package entidades;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Departamento {
 	private Lote[] lotes;
 	private Operario[] Operarios;
-	private char Lugardeps;
+	private char Lugardep;
 
-	public Departamento() {
+	public static Departamento nuevoDepartamento() {
+		Departamento ret = new Departamento();
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el LugarDeps:");
+		ret.Lugardep = teclado.nextLine().charAt(0);
+		ret.setLugardep(ret.Lugardep);
+		return ret;
 
 	}
 
@@ -28,17 +35,16 @@ public class Departamento {
 	}
 
 	public char getLugardep() {
-		return Lugardeps;
+		return Lugardep;
 	}
 
 	public void setLugardep(char lugardep) {
-		Lugardeps = lugardep;
+		Lugardep = lugardep;
 	}
 
-	@Override
 	public String toString() {
 		return "Departamento [lotes=" + Arrays.toString(lotes) + ", Operarios=" + Arrays.toString(Operarios)
-				+ ", Lugardep=" + Lugardeps + "]";
+				+ ", Lugardep=" + Lugardep + "]";
 	}
 
 }

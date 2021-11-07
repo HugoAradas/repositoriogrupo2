@@ -21,6 +21,43 @@ public class Operario {
 
 	}
 
+	public static Operario nuevoOperario() {
+		Operario ret = new Operario();
+		numOperario = numOperario + 1;
+		ret.idOperario = numOperario;
+
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el NIF:");
+		ret.NIF = teclado.nextLine();
+		ret.setNIF(ret.NIF);
+
+		Scanner teclado1 = new Scanner(System.in);
+		System.out.println("Introduce el nombreApellido:");
+		ret.nombreApellido = teclado1.nextLine();
+		ret.setNIF(ret.nombreApellido);
+
+		Scanner teclado2 = new Scanner(System.in);
+		System.out.println("Introduce el num_telefono:");
+		ret.num_telefono = teclado2.nextLong();
+		ret.setNum_telefono(ret.num_telefono);
+
+		Scanner teclado3 = new Scanner(System.in);
+		System.out.println("Introduce la direccion:");
+		ret.direccion = teclado3.nextLine();
+		ret.setDireccion(ret.direccion);
+
+		Scanner teclado4 = new Scanner(System.in);
+		System.out.println("Introduce el NIF:");
+		ret.senior = teclado4.nextBoolean();
+		ret.setSenior(ret.senior);
+		return ret;
+	}
+
+	public Operario(long idOperario, int i) {
+		this.idOperario = idOperario;
+		this.NIF = NIF;
+	}
+
 //constructor por atributos del operario
 	public Operario(long idOperario, String NIF, String nombreApellido, long num_telefono, String direccion,
 			boolean senior, char departamento) {

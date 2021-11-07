@@ -22,11 +22,38 @@ public class Maquina {
 
 	}
 
+	public static Maquina nuevaMaquina() {
+		Maquina ret = new Maquina();
+		numMaquinas = numMaquinas + 1;
+		ret.idMaquina = numMaquinas;
+
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce la ubicacion:");
+		ret.ubicacion = teclado.nextLong();
+		ret.setUbicacion(ret.ubicacion);
+
+		Scanner teclado1 = new Scanner(System.in);
+		System.out.println("Introduce tipoImpresion:");
+		ret.tipoImpresion = teclado1.nextLine();
+		ret.setTipoImpresion(ret.tipoImpresion);
+
+		Scanner teclado2 = new Scanner(System.in);
+		System.out.println("Introduce modoImpresion:");
+		ret.modoImpresion = teclado2.nextLine();
+		ret.setModoImpresion(ret.modoImpresion);
+
+		Scanner teclado3 = new Scanner(System.in);
+		System.out.println("Introduce volumenTinta:");
+		ret.volumenTinta = teclado3.nextDouble();
+		ret.setVolumenTinta(ret.volumenTinta);
+		return ret;
+	}
+
 //Constructor por atributos de Maquina
 	public Maquina(long idMaquina, LocalDate fecha_compra, long ubicacion) {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;
-		
+
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce la ubicacion:");
 		ubicacion = teclado.nextLong();

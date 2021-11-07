@@ -13,9 +13,16 @@ public class Cliente {
 	private Trabajo[] trabajos;
 
 //Constructor por defecto de la clase cliente
-	public Cliente() {
+	public static Cliente nuevoCliente() {
 		numClientes = numClientes + 1;
-		this.idCliente = numClientes;
+		Cliente ret = new Cliente();
+		ret.idCliente = numClientes;
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el NombreApellido:");
+		ret.nombreApellido = teclado.nextLine();
+		ret.setNombreApellido(ret.nombreApellido);
+		return ret;
+		
 	}
 
 //Constructor con atributos de la calse cliente
@@ -29,6 +36,10 @@ public class Cliente {
 		setNombreApellido(nombreApellido);
 
 	}
+
+	public Cliente() {
+	// TODO Auto-generated constructor stub
+}
 
 	public static int getNumClientes() {
 		return numClientes;

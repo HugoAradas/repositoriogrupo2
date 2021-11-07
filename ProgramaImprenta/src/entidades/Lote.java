@@ -10,11 +10,22 @@ public class Lote {
 	private int numeroDeLote;
 	// id de la maquina debido a la relacion entre maquina y lote
 	private Maquina[] maquinas;
-	private Departamento[] departamentos; 
+	private Departamento[] departamentos;
 
 	public Lote() {
 		numLotes = numLotes + 1;
 		this.idLote = numLotes;
+	}
+
+	public static Lote nuevoLote() {
+		Lote ret = new Lote();
+		numLotes = numLotes + 1;
+		ret.idLote = numLotes;
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el numeroDeLote");
+		ret.numeroDeLote = teclado.nextInt();
+		ret.setNumeroDeLote(ret.numeroDeLote);
+		return ret;
 	}
 
 	public Lote(long idLote, int numeroDeLote) {

@@ -25,6 +25,19 @@ public class Trabajo {
 		this.idTrabajo = numTrabajos;
 	}
 
+	public static Trabajo nuevoTrabajo() {
+		numTrabajos = numTrabajos + 1;
+		Trabajo ret = new Trabajo();
+		ret.idTrabajo = numTrabajos;
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Dume la fecha que se solicito el trabajo");
+		ret.tipoRelieve = teclado.nextLine();
+		ret.setTipoRelieve(ret.tipoRelieve);
+
+		return ret;
+
+	}
+
 	public Trabajo(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve) {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;

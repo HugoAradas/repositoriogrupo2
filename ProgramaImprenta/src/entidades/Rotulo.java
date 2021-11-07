@@ -22,6 +22,17 @@ public class Rotulo extends Trabajo {
 		this.idRotulo = numRotulos;
 	}
 
+	public static Rotulo nuevoRotulo() {
+		Rotulo ret = new Rotulo();
+		ret = (Rotulo) Rotulo.nuevoRotulo();
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el centro comercial");
+		ret.centroComercial = teclado.nextLine();
+		ret.setCentroComercial(ret.centroComercial);
+		return ret;
+
+	}
+
 	public Rotulo(long idRotulo, String centroComercial) {
 		super();
 		numRotulos = numRotulos + 1;

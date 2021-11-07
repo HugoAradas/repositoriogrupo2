@@ -4,13 +4,12 @@ import java.time.LocalDate;
 
 import java.util.Scanner;
 
-
 public class Libro extends Trabajo {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numLibros = 0;
-	private long idLibro; 
-	private String colorTapa; // para saber el color de su tapa 
-	private int numCopias; // el numero de copias es entero 
+	private long idLibro;
+	private String colorTapa; // para saber el color de su tapa
+	private int numCopias; // el numero de copias es entero
 
 //Constructor por defecto de la clase Libro
 	public Libro() {
@@ -19,25 +18,47 @@ public class Libro extends Trabajo {
 		this.idLibro = numLibros;
 
 	}
-	
+
+	public static Libro nuevoLibro() {
+		Libro ret = new Libro();
+		numLibros = numLibros + 1;
+		ret.idLibro = numLibros;
+
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el colorTapa:");
+		ret.colorTapa = teclado.nextLine();
+		ret.setColorTapa(ret.colorTapa);
+
+		Scanner teclado1 = new Scanner(System.in);
+		System.out.println("Introduce el numcopias:");
+		ret.numCopias = teclado1.nextInt();
+		ret.setColorTapa(ret.colorTapa);
+
+		Scanner teclado2 = new Scanner(System.in);
+		System.out.println("Introduce el tipoRelieve:");
+		ret.tipoRelieve = teclado2.nextLine();
+		ret.setColorTapa(ret.tipoRelieve);
+		return ret;
+	}
+
 	public Libro(long idLibro, String colorTapa, int numCopias) {
 		super();
 		numLibros = numLibros + 1;
 		this.idLibro = numLibros;
-		
+
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce el colorTapa:");
-		colorTapa=teclado.nextLine();
+		colorTapa = teclado.nextLine();
 		setColorTapa(colorTapa);
-		
+
 		Scanner teclado1 = new Scanner(System.in);
 		System.out.println("Introduce el numcopias:");
-		numCopias=teclado1.nextInt();
+		numCopias = teclado1.nextInt();
 		setColorTapa(colorTapa);
-		
+
 		Scanner teclado2 = new Scanner(System.in);
 		System.out.println("Introduce el tipoRelieve:");
-		tipoRelieve=teclado2.nextLine();
+		tipoRelieve = teclado2.nextLine();
 		setColorTapa(tipoRelieve);
 	}
 
@@ -53,9 +74,6 @@ public class Libro extends Trabajo {
 		super();
 		numLibros = numLibros + 1;
 		this.idLibro = numLibros;
-		
-		
-		
 
 	}
 

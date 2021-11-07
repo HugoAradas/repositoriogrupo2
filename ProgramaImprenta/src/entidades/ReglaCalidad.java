@@ -1,6 +1,7 @@
 package entidades;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ReglaCalidad {
 	private static int numRegla = 0;
@@ -12,6 +13,20 @@ public class ReglaCalidad {
 	public ReglaCalidad() {
 		numRegla = numRegla + 1;
 		this.idRegla = numRegla;
+	}
+
+	public static ReglaCalidad nuevaRegla() {
+		numRegla = numRegla + 1;
+		ReglaCalidad ret = new ReglaCalidad();
+		ret.idRegla = numRegla;
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el nombre de la nueva regla");
+		ret.NombreRegla = teclado.nextLine();
+		System.out.println("Introduce el id de la prueba sobre la que se realizo la regla de calidad");
+		ret.idPrueba = teclado.nextLong();
+		ret.setidPrueba(ret.idPrueba);
+
+		return ret;
 	}
 
 	public ReglaCalidad(String NombreRegla, long idPrueba, long idRegla) {
@@ -28,7 +43,7 @@ public class ReglaCalidad {
 	public void setidRegla(long idRegla) {
 		this.idRegla = idRegla;
 	}
-	
+
 	public long getidPrueba() {
 		return idPrueba;
 	}
@@ -36,7 +51,7 @@ public class ReglaCalidad {
 	public void setidPrueba(long idPrueba) {
 		this.idPrueba = idPrueba;
 	}
-	
+
 	public String getNombreRegla() {
 		return NombreRegla;
 	}

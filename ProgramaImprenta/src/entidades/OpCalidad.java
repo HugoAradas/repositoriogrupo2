@@ -1,6 +1,7 @@
 package entidades;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class OpCalidad extends Operario {
 	// Variable para asignar el id automaticamente
@@ -14,6 +15,16 @@ public class OpCalidad extends Operario {
 		super();
 		numPol = numPol + 1;
 		this.NombrePolitica = numPol;
+	}
+
+	public static OpCalidad nuevoOpCalidad() {
+
+		OpCalidad ret = new OpCalidad();
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el NombrePolitica:");
+		ret.NombrePolitica = teclado.nextLong();
+		ret.setNombrePolitica(ret.NombrePolitica);
+		return ret;
 	}
 
 	// Constructor del Operario de Calidad unicamente con atributo de la superclase
