@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Departamento {
 	private Lote[] lotes;
 	private Operario[] Operarios;
-	private char Lugardep;
+	private char Lugardeps;
 
 	public Departamento() {
 
@@ -28,17 +28,17 @@ public class Departamento {
 	}
 
 	public char getLugardep() {
-		return Lugardep;
+		return Lugardeps;
 	}
 
 	public void setLugardep(char lugardep) {
-		Lugardep = lugardep;
+		Lugardeps = lugardep;
 	}
 
 	@Override
 	public String toString() {
 		return "Departamento [lotes=" + Arrays.toString(lotes) + ", Operarios=" + Arrays.toString(Operarios)
-				+ ", Lugardep=" + Lugardep + "]";
+				+ ", Lugardep=" + Lugardeps + "]";
 	}
 
 }
