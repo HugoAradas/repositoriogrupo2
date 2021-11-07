@@ -18,6 +18,18 @@ public class Trabajo {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;
 	}
+	public static Trabajo nuevoTrabajo() {
+		numTrabajos = numTrabajos + 1;
+		Trabajo ret = new Trabajo();
+		ret.idTrabajo= numTrabajos;
+		Scanner teclado = new Scanner (System.in);
+		System.out.println("Dume la fecha que se solicito el trabajo");
+		ret.tipoRelieve = teclado.nextLine();
+		ret.setTipoRelieve(ret.tipoRelieve);
+		
+		return ret;
+		
+	}
 
 //Constructor por atributos de Trabajo
 	public Trabajo(long idTrabajo, LocalDate fechaTrabajo, Cliente[] clientes) {

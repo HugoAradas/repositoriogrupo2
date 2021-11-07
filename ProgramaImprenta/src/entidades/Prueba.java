@@ -2,6 +2,7 @@ package entidades;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Prueba {
 	private static int numPrueba = 0;
@@ -16,7 +17,24 @@ public class Prueba {
 		numPrueba = numPrueba + 1;
 		this.idPrueba = numPrueba;
 	}
-
+	public static Prueba nuevaPrueba() {
+		numPrueba = numPrueba + 1;
+		Prueba ret = new Prueba();
+		ret.idPrueba = numPrueba;
+		Scanner teclado = new Scanner (System.in);
+		System.out.println("Introduce la explicación de la prueba");
+		ret.Explicacion = teclado.next();
+		ret.setExplicacion(ret.Explicacion);
+		System.out.println("Introduce la explicación de la prueban");
+		ret.Resultado= teclado.next();
+		ret.setResultado(ret.Resultado);
+		System.out.println("Introduce el id de la máquina sobre la que se realiza la prueba");
+		ret.idMaquina= teclado.nextLong();
+		ret.setidMaquina(ret.idMaquina);
+		
+		
+		return ret;
+	}
 	public Prueba(LocalDate Fecha, String Explicacion, String Resultado, long idMaquina, long idPrueba) {
 		numPrueba = numPrueba + 1;
 		this.idPrueba = numPrueba;

@@ -15,6 +15,17 @@ public class Rotulo extends Trabajo {
 
 	}
 
+	
+	public static Rotulo nuevoRotulo(){
+		Rotulo ret = new Rotulo ();
+		ret = (Rotulo) Rotulo.nuevoRotulo();
+		Scanner teclado = new Scanner (System.in);
+		System.out.println("Introduce el centro comercial");
+		ret.centroComercial = teclado.nextLine();
+		ret.setCentroComercial(ret.centroComercial);
+		return ret;
+		
+	}
 //Constructor por defecto de la clase Rótulo
 	public Rotulo() {
 		super();

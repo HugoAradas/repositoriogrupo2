@@ -16,6 +16,7 @@ public class LaboresMantenimiento {
 		this.idLab = numLab;
 
 	}
+	
 
 	public LaboresMantenimiento(long idLab, LocalDate FechaReal, String Consistio, String Maquina) {
 		numLab = numLab + 1;
