@@ -3,12 +3,14 @@ package entidades;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Maquina {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numMaquinas = 0;
 	private long idMaquina;
 	private LocalDate fecha_compra;
-	private long ubicacion;
+	private String ubicacion;
 	public String tipoImpresion;
 	public String modoImpresion;
 	public double volumenTinta;
@@ -24,39 +26,61 @@ public class Maquina {
 
 	public static Maquina nuevaMaquina() {
 		Maquina ret = new Maquina();
-		numMaquinas = numMaquinas + 1;
-		ret.idMaquina = numMaquinas;
-
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce la ubicacion:");
-		ret.ubicacion = teclado.nextLong();
-		ret.setUbicacion(ret.ubicacion);
+		long id = -1;
+		boolean validaid = false;
+		do {
+			System.out.println("introduce un id de maquina (>0)");
+			id = teclado.nextLong();
+			validaid = validador.validarId(id);
+		} while (!validaid);
+		ret.setIdMaquina(id);
 
-		Scanner teclado1 = new Scanner(System.in);
-		System.out.println("Introduce tipoImpresion:");
-		ret.tipoImpresion = teclado1.nextLine();
-		ret.setTipoImpresion(ret.tipoImpresion);
+		String ubicacion = "";
+		boolean validarUbi = false;
+		do {
+			System.out.println("introduce una ubi (> 10 y <20 palabras)");
+			ubicacion = teclado.nextLine();
+			validarUbi = validador.validaubicacion(ubicacion);
+		} while (!validarUbi);
+		ret.setUbicacion(ubicacion);
 
-		Scanner teclado2 = new Scanner(System.in);
-		System.out.println("Introduce modoImpresion:");
-		ret.modoImpresion = teclado2.nextLine();
-		ret.setModoImpresion(ret.modoImpresion);
+		String tipoImpresion = "";
+		boolean validaImpresion = false;
+		do {
+			System.out.println("introduce el tipo de impresion (>5 y <10 palabras)");
+			tipoImpresion = teclado.nextLine();
+			validaImpresion = validador.validamodoimpresion(tipoImpresion);
+		} while (!validaImpresion);
+		ret.setTipoImpresion(tipoImpresion);
 
-		Scanner teclado3 = new Scanner(System.in);
-		System.out.println("Introduce volumenTinta:");
-		ret.volumenTinta = teclado3.nextDouble();
-		ret.setVolumenTinta(ret.volumenTinta);
+		String modoImpresion = "";
+		boolean validamodoImpresion = false;
+		do {
+			System.out.println("introduce el modo de impresion que se llevo a cabo (>5 y <10 palabras)");
+			modoImpresion = teclado.nextLine();
+			validamodoImpresion = validador.validamodoimpresion(modoImpresion);
+		} while (!validamodoImpresion);
+		ret.setModoImpresion(modoImpresion);
+		double volumenTinta = -1.0;
+		boolean validavolumen = false;
+		do {
+			System.out.println("introduce un volumen de tinta >0.0");
+			volumenTinta = teclado.nextDouble();
+			validavolumen = validador.validavolumentinta(volumenTinta);
+		}while (!validavolumen);
+		ret.setVolumenTinta(volumenTinta);
 		return ret;
 	}
 
 //Constructor por atributos de Maquina
-	public Maquina(long idMaquina, LocalDate fecha_compra, long ubicacion) {
+	public Maquina(long idMaquina, LocalDate fecha_compra, String ubicacion) {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;
 
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce la ubicacion:");
-		ubicacion = teclado.nextLong();
+		ubicacion = teclado.nextLine();
 		setUbicacion(ubicacion);
 	}
 
@@ -82,11 +106,11 @@ public class Maquina {
 		this.fecha_compra = fecha_compra;
 	}
 
-	public long getUbicacion() {
+	public 	String getUbicacion() {
 		return ubicacion;
 	}
 
-	public void setUbicacion(long ubicacion) {
+	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
 	}
 

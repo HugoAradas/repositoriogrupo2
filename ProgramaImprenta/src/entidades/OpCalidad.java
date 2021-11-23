@@ -3,6 +3,8 @@ package entidades;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class OpCalidad extends Operario {
 	// Variable para asignar el id automaticamente
 	public static int numPol = 0;
@@ -21,9 +23,22 @@ public class OpCalidad extends Operario {
 
 		OpCalidad ret = new OpCalidad();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el NombrePolitica:");
-		ret.NombrePolitica = teclado.nextLong();
-		ret.setNombrePolitica(ret.NombrePolitica);
+		long id= -1;
+		boolean validaid = false;
+		do {
+			System.out.println("introduce un id del operario de calidad (>0)");
+			id = teclado.nextLong();
+			validaid = validador.validarId(id);
+		} while (!validaid);
+		ret.setIdOperario(id);
+		String NombrePolitica = " ";
+		boolean validanombre= false;
+		do {
+			System.out.println("Introdocue el nombre de la política (<6 y > 14 palabras)");
+			NombrePolitica = teclado.next();
+			validanombre = validador.validapolitica(NombrePolitica);
+		} while (!validanombre);
+		ret.setNombrePolitica(id);
 		return ret;
 	}
 

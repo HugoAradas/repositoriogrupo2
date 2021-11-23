@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class LaboresMantenimiento {
 	private static int numLab = 0;
 	private long idLab;
@@ -14,17 +16,28 @@ public class LaboresMantenimiento {
 
 	public static LaboresMantenimiento nuevoLaboresMantenimiento() {
 		LaboresMantenimiento ret = new LaboresMantenimiento();
-		numLab = numLab + 1;
-		ret.idLab = numLab;
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el Consistio:");
-		ret.Consistio = teclado.nextLine();
+		System.out.println("Introduce el id de la Labor:");
+		long id = -1;
+		boolean validarId = false;
+		do {
+			System.out.println("introduce el id (>0)");
+			id = teclado.nextLong();
+			validarId = validador.validarId(id);
+		} while (!validarId);
+		ret.setIdLab(id);
+		Scanner Teclado = new Scanner (System.in);
+		System.out.println("introduce en que consistio la labor");
+		ret.Consistio = Teclado.nextLine();
 		ret.setConsistio(ret.Consistio);
-
-		Scanner teclado1 = new Scanner(System.in);
-		System.out.println("Introduce la maquina:");
-		ret.Maquina = teclado1.nextLine();
-		ret.setMaquina(ret.Maquina);
+		String maquina = "";
+		boolean validamaquina = false;
+		do {
+			System.out.println("La maquina tiene que ser mas grande de 3 y menos de 15 carácteres");
+			maquina = teclado.nextLine();
+			validamaquina= validador.validarmaquina(maquina);
+		} while (!validamaquina);
+		ret.setMaquina(maquina);
 		return ret;
 
 	}

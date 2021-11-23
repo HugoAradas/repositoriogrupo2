@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Libro extends Trabajo {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numLibros = 0;
@@ -21,23 +23,40 @@ public class Libro extends Trabajo {
 
 	public static Libro nuevoLibro() {
 		Libro ret = new Libro();
-		numLibros = numLibros + 1;
-		ret.idLibro = numLibros;
+		Scanner teclado = new Scanner (System.in);
+		long id = -1;
+		boolean validId = false; 
+		do {
+			System.out.println("introduce un id mayor que 0");
+			id = teclado.nextLong();
+			validId = validador.validarId(id);
+		} while (!validId);
+		ret.setIdLibro(id);
+		String color=" ";
+		boolean validacolor= false;
+		do {
+			System.out.println("Introduce el color de la tapa ( más de 4 letras y menos de 10)");
+			color = teclado.nextLine();
+			validacolor= validador.validarmaquina(color);
+		} while (!validacolor);
+		ret.setColorTapa(color);
+		int numcopias = -1;
+		boolean validacopias= false;
+		do {
+			System.out.println("introduce un numero de copias (mayor que 0 )");
+			numcopias = teclado.nextInt();
+			validacopias = validador.validarnumcopias(numcopias);
+		} while (!validacopias);
+		ret.setNumCopias(numcopias);
 
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el colorTapa:");
-		ret.colorTapa = teclado.nextLine();
-		ret.setColorTapa(ret.colorTapa);
-
-		Scanner teclado1 = new Scanner(System.in);
-		System.out.println("Introduce el numcopias:");
-		ret.numCopias = teclado1.nextInt();
-		ret.setColorTapa(ret.colorTapa);
-
-		Scanner teclado2 = new Scanner(System.in);
-		System.out.println("Introduce el tipoRelieve:");
-		ret.tipoRelieve = teclado2.nextLine();
-		ret.setColorTapa(ret.tipoRelieve);
+		String tipo ="";
+		boolean validatipo = false;
+		do {
+			System.out.println("introduce un tipo de relieve ( más de 4 letras y menos de 10)");
+			tipo = teclado.nextLine();
+			validatipo = validador.validarColorTapa(tipo);
+		} while (!validatipo);
+		ret.setTipoRelieve(tipo);
 		return ret;
 	}
 

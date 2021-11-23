@@ -11,7 +11,7 @@ public class Departamento {
 	public static Departamento nuevoDepartamento() {
 		Departamento ret = new Departamento();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el LugarDeps:");
+		System.out.println("Introduce el Lugar del departamento:");
 		ret.Lugardep = teclado.nextLine().charAt(0);
 		ret.setLugardep(ret.Lugardep);
 		return ret;

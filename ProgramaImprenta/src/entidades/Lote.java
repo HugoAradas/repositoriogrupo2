@@ -3,6 +3,8 @@ package entidades;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Lote {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numLotes = 0;
@@ -19,12 +21,32 @@ public class Lote {
 
 	public static Lote nuevoLote() {
 		Lote ret = new Lote();
-		numLotes = numLotes + 1;
-		ret.idLote = numLotes;
 		Scanner teclado = new Scanner(System.in);
+		long id = -1;
+		boolean validaId = false;
+		do {
+			System.out.println("introduce el id del lote (>0)");
+			id = teclado.nextInt();
+			validaId = validador.validarId(id);
+		} while (!validaId);
+		ret.setIdLote(id);
+		int numlote = -1;
+		boolean validanumlote = false;
+		do {
+			System.out.println("introduce un numero de lote (>0)");
+			numlote = teclado.nextInt();
+			validanumlote = validador.validarnumcopias(numlote);
+		} while (!validanumlote);
 		System.out.println("Introduce el numeroDeLote");
 		ret.numeroDeLote = teclado.nextInt();
 		ret.setNumeroDeLote(ret.numeroDeLote);
+		long idmaquina = -1;
+		boolean validaid= false;
+		do {
+			System.out.println("introduce el id donde esta asociada la maquina");
+			idmaquina = teclado.nextInt();
+			validaid = validador.validarId(idmaquina);
+		} while (!validaid);
 		return ret;
 	}
 
