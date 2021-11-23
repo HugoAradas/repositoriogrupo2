@@ -11,8 +11,8 @@ public class validador {
 	}
 
 	public static boolean validarnombre(String nombre) {
-		int tamañonombre = nombre.length();
-		if (tamañonombre >= 3 & tamañonombre <= 13) {
+		int tamanonombre = nombre.length();
+		if (tamanonombre >= 3 & tamanonombre <= 13) {
 
 			return true;
 
@@ -32,8 +32,8 @@ public class validador {
 	}
 
 	public static boolean validarmaquina(String maquina) {
-		int tamañomaquina = maquina.length();
-		if (tamañomaquina >= 10 & tamañomaquina <= 20) {
+		int tamanomaquina = maquina.length();
+		if (tamanomaquina >= 10 & tamanomaquina <= 20) {
 			return true;
 		} else {
 			return false;
@@ -41,8 +41,8 @@ public class validador {
 	}
 
 	public static boolean validarColorTapa(String color) {
-		int tamañotapa = color.length();
-		if (tamañotapa >= 4 & tamañotapa <= 10) {
+		int tamanotapa = color.length();
+		if (tamanotapa >= 4 & tamanotapa <= 10) {
 			return true;
 		} else {
 			return false;
@@ -59,8 +59,8 @@ public class validador {
 	}
 
 	public static boolean validaubicacion(String ubicacion) {
-		int tamañoubi = ubicacion.length();
-		if (tamañoubi > 10 & tamañoubi < 20) {
+		int tamanoubi = ubicacion.length();
+		if (tamanoubi > 10 & tamanoubi < 20) {
 			return true;
 		} else {
 			return false;
@@ -68,8 +68,8 @@ public class validador {
 	}
 
 	public static boolean validamodoimpresion(String impresion) {
-		int tamañoimpr = impresion.length();
-		if (tamañoimpr > 5 & tamañoimpr < 10) {
+		int tamanoimpr = impresion.length();
+		if (tamanoimpr > 5 & tamanoimpr < 10) {
 			return true;
 		} else {
 			return false;
@@ -85,8 +85,8 @@ public class validador {
 	}
 
 	public static boolean validapolitica(String nombre) {
-		int tamañovalida = nombre.length();
-		if (tamañovalida > 6 & tamañovalida > 14) {
+		int tamanovalida = nombre.length();
+		if (tamanovalida > 6 & tamanovalida > 14) {
 			return true;
 		} else {
 			return false;

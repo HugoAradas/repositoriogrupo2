@@ -10,7 +10,7 @@ public class LaboresMantenimiento {
 	private static int numLab = 0;
 	private long idLab;
 	private LocalDate FechaReal;
-	private String Consistio;
+	private String Descripcion;
 	private String Maquina;
 	private OpMaquina[] operarios;
 
@@ -28,12 +28,12 @@ public class LaboresMantenimiento {
 		ret.setIdLab(id);
 		Scanner Teclado = new Scanner (System.in);
 		System.out.println("introduce en que consistio la labor");
-		ret.Consistio = Teclado.nextLine();
-		ret.setConsistio(ret.Consistio);
+		ret.Descripcion = Teclado.nextLine();
+		ret.setConsistio(ret.Descripcion);
 		String maquina = "";
 		boolean validamaquina = false;
 		do {
-			System.out.println("La maquina tiene que ser mas grande de 3 y menos de 15 carácteres");
+			System.out.println("La maquina tiene que ser mas grande de 3 y menos de 15 caracteres");
 			maquina = teclado.nextLine();
 			validamaquina= validador.validarmaquina(maquina);
 		} while (!validamaquina);
@@ -47,11 +47,11 @@ public class LaboresMantenimiento {
 	}
 	
 
-	public LaboresMantenimiento(long idLab, LocalDate FechaReal, String Consistio, String Maquina) {
+	public LaboresMantenimiento(long idLab, LocalDate FechaReal, String descripcion, String Maquina) {
 		numLab = numLab + 1;
 		this.idLab = numLab;
 		this.FechaReal = FechaReal;
-		this.Consistio = Consistio;
+		this.Descripcion = descripcion;
 		this.Maquina = Maquina;
 
 	}
@@ -73,11 +73,11 @@ public class LaboresMantenimiento {
 	}
 
 	public String getConsistio() {
-		return Consistio;
+		return Descripcion;
 	}
 
 	public void setConsistio(String consistio) {
-		Consistio = consistio;
+		Descripcion = consistio;
 	}
 
 	public String getMaquina() {
@@ -106,7 +106,7 @@ public class LaboresMantenimiento {
 
 	@Override
 	public String toString() {
-		return "LaboresMantenimiento [idLab=" + idLab + ", FechaReal=" + FechaReal + ", Consistio=" + Consistio
+		return "LaboresMantenimiento [idLab=" + idLab + ", FechaReal=" + FechaReal + ", Descripcion=" + Descripcion
 				+ ", Maquina=" + Maquina + ", operarios=" + Arrays.toString(operarios) + "]";
 	}
 
