@@ -8,7 +8,8 @@ import validacion.validador;
 public class OpCalidad extends Operario {
 	// Variable para asignar el id automaticamente
 	public static int numPol = 0;
-	protected long NombrePolitica;
+	protected long idpolitica;
+	protected long NombrePolitica;// 
 	// multiplicidad varios a varios, OperarioCalidad y PoliticaCalidad
 	private PoliticaCalidad[] politica;
 
@@ -16,7 +17,7 @@ public class OpCalidad extends Operario {
 	public OpCalidad() {
 		super();
 		numPol = numPol + 1;
-		this.NombrePolitica = numPol;
+		this.idpolitica = numPol;
 	}
 
 	public static OpCalidad nuevoOpCalidad() {
@@ -55,7 +56,7 @@ public class OpCalidad extends Operario {
 	public OpCalidad(long idOperario, String NIF, String nombreApellido, long NombrePolitica) {
 		super();
 		numPol = numPol + 1;
-		this.NombrePolitica = numPol;
+		this.idpolitica = numPol;
 	}
 
 	public String toString() {
