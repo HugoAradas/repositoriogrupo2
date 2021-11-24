@@ -92,4 +92,31 @@ public class validador {
 			return false;
 		}
 	}
+
+	public static boolean validaNif(String nif) {
+		int tamañoNif = nif.length();
+		if (tamañoNif == 9) {
+			return true;
+
+		} else {
+			return false;
+		}
+	}
+
+	public static boolean validanumtf(long telefono) {
+		if (telefono <= 999999999 & telefono >= 900000000) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public static boolean validardireccion(String direccion) {
+		int tamañodireccion = direccion.length();
+		if (tamañodireccion > 5 & tamañodireccion < 10) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

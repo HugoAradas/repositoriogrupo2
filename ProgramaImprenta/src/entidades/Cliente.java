@@ -33,7 +33,7 @@ public class Cliente {
 		String nombre = "";
 		boolean nombrevalido = false;
 		do {
-			System.out.println("introduce el nombre del cliente (mayor que 3 letras y menor que 15");
+			System.out.println("introduce   nombre del cliente (mayor que 3 letras y menor que 15)");
 			nombre = teclado.nextLine();
 			nombrevalido = validador.validarnombre(nombre);
 		} while (!nombrevalido);
