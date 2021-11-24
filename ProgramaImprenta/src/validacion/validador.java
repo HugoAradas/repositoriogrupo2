@@ -119,4 +119,53 @@ public class validador {
 			return false;
 		}
 	}
+	
+	public static boolean validarTipoRelieve(String tipoRelieve) {
+		int tamanonombre = tipoRelieve.length();
+		if (tamanonombre >= 3 & tamanonombre <= 25) {
+
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
+
+	public static boolean validarCentroComercial(String centroComercial) {
+		int tamanonombre = centroComercial.length();
+		if (tamanonombre >= 3 & tamanonombre <= 25) {
+
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
+
+	public static boolean validarExplicacion(String Explicacion) {
+		int tamanonombre = Explicacion.length();
+		if (tamanonombre >= 3 & tamanonombre <= 120) {
+
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
+
+	public static boolean validarResultado(String Resultado) {
+		int tamanonombre = Resultado.length();
+		if (tamanonombre >= 3 & tamanonombre <= 25) {
+
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
+
 }

@@ -1,15 +1,20 @@
 package entidades;
 
+import validacion.*;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Trabajo {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numTrabajos = 0;
+	// valor mínimo 1
 	protected long idTrabajo;
 	protected LocalDate fechaSolicitud;
 	protected LocalDate fechaEntrega;
+	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
 	private Cliente[] clientes;
 
@@ -23,10 +28,17 @@ public class Trabajo {
 		numTrabajos = numTrabajos + 1;
 		Trabajo ret = new Trabajo();
 		ret.idTrabajo = numTrabajos;
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Dume la fecha que se solicito el trabajo");
-		ret.tipoRelieve = teclado.nextLine();
-		ret.setTipoRelieve(ret.tipoRelieve);
+		boolean fechavalida = false;
+
+		System.out.println("Dime la fecha que se solicito el trabajo");
+
+		boolean relievevalido = false;
+		do {
+			Scanner teclado = new Scanner(System.in);
+			ret.tipoRelieve = teclado.nextLine();
+			relievevalido = validador.validarTipoRelieve(ret.tipoRelieve);
+
+		} while (!relievevalido);
 
 		return ret;
 

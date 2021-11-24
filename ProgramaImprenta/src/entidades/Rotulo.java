@@ -3,10 +3,14 @@ package entidades;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Rotulo extends Trabajo {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numRotulos = 0;
+	// valor mínimo 1
 	private long idRotulo;
+	// mínimo 3 caracters, máximo 25
 	private String centroComercial;
 
 //Constructor con atributos de la clase trabajo
@@ -19,10 +23,13 @@ public class Rotulo extends Trabajo {
 		Rotulo ret = new Rotulo();
 		ret = (Rotulo) Rotulo.nuevoRotulo();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el centro comercial");
-		ret.centroComercial = teclado.nextLine();
-		ret.setCentroComercial(ret.centroComercial);
-		return ret;
+		boolean centroComercialValido = false;
+		do {
+			System.out.println("Introduce el centro comercial");
+			ret.centroComercial = teclado.nextLine();
+			centroComercialValido = validador.validarCentroComercial(ret.centroComercial);
+			return ret;
+		} while (!centroComercialValido);
 
 	}
 

@@ -1,12 +1,18 @@
 package entidades;
 
+import validacion.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class ReglaCalidad {
 	private static int numRegla = 0;
+	// mínimo 3 caracteres, máximo 25
 	private String NombreRegla;
+	// valor mínimo 1
 	private long idPrueba;
+	// valor mínimo 1
 	private long idRegla;
 	private OpCalidad[] operarios;
 
@@ -20,11 +26,13 @@ public class ReglaCalidad {
 		ReglaCalidad ret = new ReglaCalidad();
 		ret.idRegla = numRegla;
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el nombre de la nueva regla");
-		ret.NombreRegla = teclado.nextLine();
-		System.out.println("Introduce el id de la prueba sobre la que se realizo la regla de calidad");
-		ret.idPrueba = teclado.nextLong();
-		ret.setidPrueba(ret.idPrueba);
+
+		boolean nombreReglaValido = false;
+		do {
+			System.out.println("Introduce el nombre de la nueva regla");
+			ret.NombreRegla = teclado.nextLine();
+			nombreReglaValido = validador.validarnombre(ret.NombreRegla);
+		} while (!nombreReglaValido);
 
 		return ret;
 	}

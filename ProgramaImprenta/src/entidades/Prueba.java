@@ -4,12 +4,18 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Prueba {
 	private static int numPrueba = 0;
 	private LocalDate Fecha;
+	// entre 3 y 120 caracteres
 	private String Explicacion;
+	// entre 3 y 120 caracteres
 	private String Resultado;
+	// valor mínimo 1
 	private long idMaquina;
+	// valor mínimo 1
 	private long idPrueba;
 	private OpCalidad[] operarios;
 
@@ -23,15 +29,27 @@ public class Prueba {
 		Prueba ret = new Prueba();
 		ret.idPrueba = numPrueba;
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce la explicacion de la prueba");
-		ret.Explicacion = teclado.next();
-		ret.setExplicacion(ret.Explicacion);
-		System.out.println("Introduce la explicacion de la prueban");
-		ret.Resultado = teclado.next();
-		ret.setResultado(ret.Resultado);
-		System.out.println("Introduce el id de la maquina sobre la que se realiza la prueba");
-		ret.idMaquina = teclado.nextLong();
-		ret.setidMaquina(ret.idMaquina);
+
+		boolean explicacionValida = false;
+		do {
+			System.out.println("Introduce la explicacion de la prueba");
+			ret.Explicacion = teclado.next();
+			explicacionValida = validador.validarExplicacion(ret.Explicacion);
+		} while (!explicacionValida);
+
+		boolean resultadoValido = false;
+		do {
+			System.out.println("Introduce el resultado de la prueban");
+			ret.Resultado = teclado.next();
+			resultadoValido = validador.validarResultado(ret.Resultado);
+		} while (!resultadoValido);
+
+		boolean idValido = false;
+		do {
+			System.out.println("Introduce el id de la maquina sobre la que se realiza la prueba");
+			ret.idMaquina = teclado.nextLong();
+			idValido = validador.validarId(ret.idMaquina);
+		} while (!idValido);
 
 		return ret;
 	}
