@@ -85,9 +85,13 @@ public class Operario {
 		return ret;
 	}
 
-	public Operario(long idOperario, int i) {
+	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion) {
 		this.idOperario = idOperario;
 		this.NIF = NIF;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.num_telefono = num_telefono;
+		this.direccion = direccion;
 	}
 
 //constructor por atributos del operario
