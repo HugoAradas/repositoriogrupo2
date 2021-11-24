@@ -22,12 +22,12 @@ public class Cliente {
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("introduce un id valido para el cliente");
 		long id = -1;
-		boolean nifvalido = false;
+		boolean validaid = false;
 		do {
 			System.out.println("El id del cliente tiene que ser siempre mayor que cero");
 			id = teclado.nextLong();
-			nifvalido = validador.validarId(id);
-		} while (!nifvalido);
+			validaid= validador.validarId(id);
+		} while (!validaid);
 		ret.setIdCliente(id);
 
 		String nombre = "";

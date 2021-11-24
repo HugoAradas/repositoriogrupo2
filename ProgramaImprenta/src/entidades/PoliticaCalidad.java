@@ -4,9 +4,12 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class PoliticaCalidad {
+	private long id;
 	private static int numPol = 0;
-	private String NombrePolitica;
+	private String nombrePolitica;
 	private LocalDate FechaVig;
 	private String Descripcion;
 	private OpCalidad[] operarios;
@@ -19,28 +22,57 @@ public class PoliticaCalidad {
 	public static PoliticaCalidad nuevaPolitica() {
 		PoliticaCalidad ret = new PoliticaCalidad();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el nombre de la politica");
-		ret.NombrePolitica = teclado.nextLine();
-		ret.setNombrePolitica(ret.NombrePolitica);
-		System.out.println("Introduce la descripcion de la politica de calidad");
-		ret.Descripcion = teclado.next();
-		ret.setDescripcion(ret.Descripcion);
+		long id = -1;
+		boolean validaid = false;
+		do {
+			System.out.println("El id del cliente tiene que ser siempre mayor que cero");
+			id = teclado.nextLong();
+			validaid = validador.validarId(id);
+		}while (!validaid);
+		ret.setId(id);
+		String nombrePolitica = "";
+		boolean validanombre = false; 
+		do {
+			System.out.println("introduce un nombre de politica (>= 3 o <=13 palabras)");
+			nombrePolitica = teclado.nextLine();
+			validanombre = validador.validarnombre(nombrePolitica);
+		} while (!validanombre);
+		ret.setNombrePolitica(nombrePolitica);
+		
+		String descripcion = "";
+		boolean validadescripcion = false; 
+		do {
+			System.out.println("introduce una descripcion de mas de 3 letras y menos de 120");
+			descripcion = teclado.next();
+			validadescripcion = validador.validarExplicacion(descripcion);
+		} while (!validadescripcion);
+		ret.setDescripcion(descripcion);
+		
 		return ret;
 	}
 
 	public PoliticaCalidad(long idPol, LocalDate FechaVig, String Descripcion, String Resultado) {
 		numPol = numPol + 1;
-		this.NombrePolitica = NombrePolitica;
+		this.nombrePolitica = nombrePolitica;
 		this.FechaVig = FechaVig;
 		this.Descripcion = Descripcion;
 	}
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNombrePolitica() {
-		return NombrePolitica;
+		return nombrePolitica;
 	}
 
 	public void setNombrePolitica(String nombrePolitica2) {
-		this.NombrePolitica = nombrePolitica2;
+		this.nombrePolitica = nombrePolitica2;
 	}
 
 	public LocalDate getFechaVig() {
@@ -77,7 +109,7 @@ public class PoliticaCalidad {
 
 	@Override
 	public String toString() {
-		return "PoliticaCalidad [NombrePolitica=" + NombrePolitica + ", FechaVig=" + FechaVig + ", Descripcion="
+		return "PoliticaCalidad [NombrePolitica=" + nombrePolitica + ", FechaVig=" + FechaVig + ", Descripcion="
 				+ Descripcion + ", operarios=" + Arrays.toString(operarios) + "]";
 	}
 }

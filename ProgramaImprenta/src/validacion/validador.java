@@ -119,7 +119,7 @@ public class validador {
 			return false;
 		}
 	}
-	
+
 	public static boolean validarTipoRelieve(String tipoRelieve) {
 		int tamanonombre = tipoRelieve.length();
 		if (tamanonombre >= 3 & tamanonombre <= 25) {
@@ -168,4 +168,19 @@ public class validador {
 
 	}
 
+	public static boolean validaancho(double ancho) {
+		if (ancho < 100) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public static boolean validaralto(double ancho) {
+		if (ancho < 100) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

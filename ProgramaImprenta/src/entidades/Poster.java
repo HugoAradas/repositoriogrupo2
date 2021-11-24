@@ -3,6 +3,8 @@ package entidades;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import validacion.validador;
+
 public class Poster extends Trabajo {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numPoster = 0;
@@ -22,15 +24,41 @@ public class Poster extends Trabajo {
 	public static Poster nuevoPoster() {
 		Poster ret = new Poster();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el ancho del nuevo poster");
-		ret.ancho = teclado.nextDouble();
-		ret.setAncho(ret.ancho);
-		System.out.println("Introduce el alto del nuevo poster");
-		ret.alto = teclado.nextDouble();
-		ret.setAlto(ret.alto);
-		System.out.println("Introduce el numero de copias del nuevo poster");
-		ret.numCopiasPoster = teclado.nextInt();
-		ret.setNumCopiasPoster(ret.numCopiasPoster);
+		long idPoster = -1;
+		boolean validaid = false;
+		do {
+			System.out.println("El id del cliente tiene que ser siempre mayor que cero");
+			idPoster = teclado.nextLong();
+			validaid = validador.validarId(idPoster);
+
+		} while (!validaid);
+		ret.setIdPoster(idPoster);
+
+		// la medida del poster esta en metros el ancho y el alto
+		double ancho = 0.00;
+		boolean validaancho = false;
+		do {
+			System.out.println("introduce un ancho de menor de 100 metros");
+			ancho = teclado.nextDouble();
+			validaancho = validador.validaancho(ancho);
+		} while (!validaancho);
+		ret.setAncho(ancho);
+		double alto = 0.00;
+		boolean validaalto = false;
+		do {
+			System.out.println("introduce un alto de menor de 100 metros");
+			alto = teclado.nextDouble();
+			validaalto = validador.validaralto(ancho);
+		} while (!validaalto);
+		ret.setAncho(alto);
+		int numcopias = -1 ;
+		boolean validacopias = false;
+		do {
+			System.out.println("introduce un numero de copias mayor que 0");
+			numcopias = teclado.nextInt();
+			validacopias = validador.validarnumcopias(numcopias);
+		} while (!validacopias);
+		ret.setNumCopiasPoster(numcopias);
 
 		return ret;
 
