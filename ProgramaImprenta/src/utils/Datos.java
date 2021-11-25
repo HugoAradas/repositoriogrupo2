@@ -58,9 +58,9 @@ public class Datos {
     
     
     public static final LaboresMantenimiento LABORES[] = {
-            new LaboresMantenimiento(1, "25-11-2021", "Descripcion", "Maquina"),
-            new LaboresMantenimiento(2, "25-11-2021", "Descripcion", "Maquina"),
-            new LaboresMantenimiento(3, "25-11-2021", "Descripcion", "Maquina")
+//            new LaboresMantenimiento(1, "25-11-2021", "Descripcion", "Maquina"),
+//            new LaboresMantenimiento(2, "25-11-2021", "Descripcion", "Maquina"),
+//            new LaboresMantenimiento(3, "25-11-2021", "Descripcion", "Maquina")
     };
     public static final int numLabor = LABORES.length;
 }
