@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Departamento {
-	private Lote[] lotes;
-	private Operario[] Operarios;
 	private char Lugardep;
 
 	public static Departamento nuevoDepartamento() {
@@ -17,21 +15,13 @@ public class Departamento {
 		return ret;
 
 	}
-	
-	public Lote[] getLotes() {
-		return lotes;
+
+	public Departamento() {
+		this.Lugardep = Lugardep;
 	}
 
-	public void setLotes(Lote[] lotes) {
-		this.lotes = lotes;
-	}
-
-	public Operario[] getOperarios() {
-		return Operarios;
-	}
-
-	public void setOperarios(Operario[] operarios) {
-		Operarios = operarios;
+	public Departamento(char Lugardep) {
+		this.Lugardep = Lugardep;
 	}
 
 	public char getLugardep() {
@@ -43,8 +33,7 @@ public class Departamento {
 	}
 
 	public String toString() {
-		return "Departamento [lotes=" + Arrays.toString(lotes) + ", Operarios=" + Arrays.toString(Operarios)
-				+ ", Lugardep=" + Lugardep + "]";
+		return "Departamento [lotes=" + ", Operarios=" + ", Lugardep=" + Lugardep + "]";
 	}
 
 }

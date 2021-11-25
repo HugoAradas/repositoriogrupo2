@@ -22,7 +22,7 @@ public class OpImpresion extends Operario {
 
 	// Constructor por atributos del Operario de Impresion y la superclase Operario,
 	// con los valores obligatorios parq crear un Operario de Impresion
-	public OpImpresion(long idOperario, String NIF, String nombreApellido, long NombrePolitica) {
+	public OpImpresion(long idOperario, String NIF, String nombreApellido, long idMod) {
 		super();
 		numIm = numIm + 1;
 		this.idMod = numIm;

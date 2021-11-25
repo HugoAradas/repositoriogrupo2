@@ -12,9 +12,6 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 
-	// Array de trabajos, debido a la relacion varios a varios entre cliente y
-	// trabajo
-	private Trabajo[] trabajos;
 
 //Constructor por defecto de la clase cliente
 	public static Cliente nuevoCliente() {
@@ -103,17 +100,8 @@ public class Cliente {
 		apellido = apellido;
 	}
 
-	public Trabajo[] getTrabajos() {
-		return trabajos;
-	}
-
-	public void setTrabajos(Trabajo[] trabajos) {
-		this.trabajos = trabajos;
-	}
-
 	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nombreApellido=" + nombre + ", trabajos="
-				+ Arrays.toString(trabajos) + "]";
+		return "Cliente [idCliente=" + idCliente + ", nombreApellido=" + nombre + "]";
 	}
 
 }

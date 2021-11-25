@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class OpMaquina extends Operario {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numLabores = 0;
-	protected long idLabor;
 	// multiplicidad varios a varios, operarios de maquinas y labores de mantenimiento
 	private LaboresMantenimiento[] labores;
 
@@ -13,7 +12,6 @@ public class OpMaquina extends Operario {
 	public OpMaquina() {
 		super();
 		numLabores = numLabores + 1;
-		this.idLabor = numLabores;
 	}
 
 //Constructor del Operario de máquinas únicamente con atributo de la superclase operario
@@ -27,20 +25,11 @@ public class OpMaquina extends Operario {
 	public OpMaquina(long idOperario, String NIF, String nombreApellido, long idLabor) {
 		super();
 		numLabores = numLabores + 1;
-		this.idLabor = numLabores;
 	}
 
 	@Override
 	public String toString() {
-		return "OpMaquina [idLabor=" + idLabor + ", labores=" + Arrays.toString(labores) + "]";
-	}
-
-	public long getId_labor() {
-		return idLabor;
-	}
-
-	public void setId_labor(long idLabor) {
-		this.idLabor = idLabor;
+		return "OpMaquina [labores=" + Arrays.toString(labores) + "]";
 	}
 
 	public static int getNumLabores() {
@@ -50,15 +39,7 @@ public class OpMaquina extends Operario {
 	public static void setNumLabores(int numLabores) {
 		OpMaquina.numLabores = numLabores;
 	}
-
-	public long getIdLabor() {
-		return idLabor;
-	}
-
-	public void setIdLabor(long idLabor) {
-		this.idLabor = idLabor;
-	}
-
+	
 	public LaboresMantenimiento[] getLabores() {
 		return labores;
 	}

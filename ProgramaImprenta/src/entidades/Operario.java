@@ -85,7 +85,7 @@ public class Operario {
 		return ret;
 	}
 
-	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion) {
+	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion, char departamentos) {
 		this.idOperario = idOperario;
 		this.NIF = NIF;
 		this.nombre = nombre;
