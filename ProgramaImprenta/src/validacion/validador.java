@@ -31,9 +31,8 @@ public class validador {
 		return espacio;
 	}
 
-	public static boolean validarmaquina(String maquina) {
-		int tamanomaquina = maquina.length();
-		if (tamanomaquina >= 10 & tamanomaquina <= 20) {
+	public static boolean validarmaquina(long maquina) {
+		if (maquina > 0) {
 			return true;
 		} else {
 			return false;
@@ -94,8 +93,8 @@ public class validador {
 	}
 
 	public static boolean validaNif(String nif) {
-		int tamañoNif = nif.length();
-		if (tamañoNif == 9) {
+		int tamanoNif = nif.length();
+		if (tamanoNif == 9) {
 			return true;
 
 		} else {
@@ -112,8 +111,8 @@ public class validador {
 	}
 
 	public static boolean validardireccion(String direccion) {
-		int tamañodireccion = direccion.length();
-		if (tamañodireccion > 5 & tamañodireccion < 10) {
+		int tamanodireccion = direccion.length();
+		if (tamanodireccion > 5 & tamanodireccion < 10) {
 			return true;
 		} else {
 			return false;

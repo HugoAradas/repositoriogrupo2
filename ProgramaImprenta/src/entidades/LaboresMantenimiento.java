@@ -1,6 +1,5 @@
 package entidades;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -9,9 +8,9 @@ import validacion.validador;
 public class LaboresMantenimiento {
 	private static int numLab = 0;
 	private long idLab;
-	private LocalDate FechaReal;
+	private int FechaReal;
 	private String Descripcion;
-	private String Maquina;
+	private Maquina[] idMaquina;
 	private OpMaquina[] operarios;
 
 	public static LaboresMantenimiento nuevoLaboresMantenimiento() {
@@ -30,29 +29,21 @@ public class LaboresMantenimiento {
 		System.out.println("introduce en que consistio la labor");
 		ret.Descripcion = Teclado.nextLine();
 		ret.setConsistio(ret.Descripcion);
-		String maquina = "";
-		boolean validamaquina = false;
-		do {
-			System.out.println("La maquina tiene que ser mas grande de 3 y menos de 15 caracteres");
-			maquina = teclado.nextLine();
-			validamaquina= validador.validarmaquina(maquina);
-		} while (!validamaquina);
-		ret.setMaquina(maquina);
 		return ret;
 
 	}
 
 	public LaboresMantenimiento() {
-
+		numLab = numLab + 1;
+		this.idLab = numLab;
 	}
 	
 
-	public LaboresMantenimiento(long idLab, LocalDate FechaReal, String descripcion, String Maquina) {
+	public LaboresMantenimiento(long idLab, int FechaReal, String descripcion, long idMaquina) {
 		numLab = numLab + 1;
-		this.idLab = numLab;
+		this.idLab = idLab;
 		this.FechaReal = FechaReal;
 		this.Descripcion = descripcion;
-		this.Maquina = Maquina;
 
 	}
 
@@ -64,11 +55,11 @@ public class LaboresMantenimiento {
 		this.idLab = idLab;
 	}
 
-	public LocalDate getFechaReal() {
+	public int getFechaReal() {
 		return FechaReal;
 	}
 
-	public void setFechaReal(LocalDate fechaReal) {
+	public void setFechaReal(int fechaReal) {
 		FechaReal = fechaReal;
 	}
 
@@ -78,14 +69,6 @@ public class LaboresMantenimiento {
 
 	public void setConsistio(String consistio) {
 		Descripcion = consistio;
-	}
-
-	public String getMaquina() {
-		return Maquina;
-	}
-
-	public void setMaquina(String maquina) {
-		Maquina = maquina;
 	}
 
 	public static int getNumLab() {
@@ -107,7 +90,7 @@ public class LaboresMantenimiento {
 	@Override
 	public String toString() {
 		return "LaboresMantenimiento [idLab=" + idLab + ", FechaReal=" + FechaReal + ", Descripcion=" + Descripcion
-				+ ", Maquina=" + Maquina + ", operarios=" + Arrays.toString(operarios) + "]";
+				+ ", Maquina=" + Arrays.toString(idMaquina) + ", operarios=" + Arrays.toString(operarios) + "]";
 	}
 
 }

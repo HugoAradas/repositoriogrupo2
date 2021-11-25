@@ -57,10 +57,40 @@ public class Datos {
     public static final int numOpMaquina = OPSMAQUINA.length;
     
     
+    public static final Maquina MAQUINAS[] = {
+            new Maquina(1, 25112021, "Sotano"),
+            new Maquina(2, 25112021, "P1"),
+            new Maquina(3, 25112021, "P2")
+    };
+    public static final int numMaquina = MAQUINAS.length;
+    
+    
     public static final LaboresMantenimiento LABORES[] = {
-//            new LaboresMantenimiento(1, "25-11-2021", "Descripcion", "Maquina"),
-//            new LaboresMantenimiento(2, "25-11-2021", "Descripcion", "Maquina"),
-//            new LaboresMantenimiento(3, "25-11-2021", "Descripcion", "Maquina")
+            new LaboresMantenimiento(1, 25112021, "Descripcion", 1),
+            new LaboresMantenimiento(2, 25112021, "Descripcion", 3),
+            new LaboresMantenimiento(3, 25112021, "Descripcion", 2),
+            new LaboresMantenimiento(4, 25112021, "Descripcion", 3),
+            new LaboresMantenimiento(5, 25112021, "Descripcion", 1),
+            new LaboresMantenimiento(6, 25112021, "Descripcion", 2)
     };
     public static final int numLabor = LABORES.length;
+    
+    
+    public static final OpCalidad OPSCALIDAD[] = {
+            new OpCalidad(1, "83492590M", "BenitoGarcia"),
+            new OpCalidad(4, "25840183M", "SandraMartinez"),
+            new OpCalidad(5, "72675927F", "BorjaRojo")
+    };
+    public static final int numOpCalidad = OPSCALIDAD.length;
+    
+    
+    public static final PoliticaCalidad POLITICAS[] = {
+            new PoliticaCalidad(1, "Numero1", 25112021, "Descripcion", "Resultado", 1),
+            new PoliticaCalidad(2, "Numero2", 25112021, "Descripcion", "Resultado", 5),
+            new PoliticaCalidad(3, "Numero3", 25112021, "Descripcion", "Resultado", 5),
+            new PoliticaCalidad(4, "Numero4", 25112021, "Descripcion", "Resultado", 1),
+            new PoliticaCalidad(5, "Numero5", 25112021, "Descripcion", "Resultado", 4),
+            new PoliticaCalidad(6, "Numero6", 25112021, "Descripcion", "Resultado", 1)
+    };
+    public static final int numPolitica = POLITICAS.length;
 }

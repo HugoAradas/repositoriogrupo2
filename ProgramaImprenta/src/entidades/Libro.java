@@ -37,7 +37,7 @@ public class Libro extends Trabajo {
 		do {
 			System.out.println("Introduce el color de la tapa ( mas de 4 letras y menos de 10)");
 			color = teclado.nextLine();
-			validacolor= validador.validarmaquina(color);
+			validacolor= validador.validarColorTapa(color);
 		} while (!validacolor);
 		ret.setColorTapa(color);
 		int numcopias = -1;
@@ -54,7 +54,7 @@ public class Libro extends Trabajo {
 		do {
 			System.out.println("introduce un tipo de relieve ( mas de 4 letras y menos de 10)");
 			tipo = teclado.nextLine();
-			validatipo = validador.validarColorTapa(tipo);
+			validatipo = validador.validarTipoRelieve(tipo);
 		} while (!validatipo);
 		ret.setTipoRelieve(tipo);
 		return ret;

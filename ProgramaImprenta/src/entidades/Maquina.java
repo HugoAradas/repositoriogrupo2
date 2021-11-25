@@ -8,8 +8,8 @@ import validacion.validador;
 public class Maquina {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numMaquinas = 0;
-	private long idMaquina;
-	private LocalDate fecha_compra;
+	protected long idMaquina;
+	private int fecha_compra;
 	private String ubicacion;
 	public String tipoImpresion;
 	public String modoImpresion;
@@ -28,12 +28,12 @@ public class Maquina {
 		Maquina ret = new Maquina();
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
-		boolean validaid = false;
+		boolean validaidMaquina = false;
 		do {
 			System.out.println("introduce un id de maquina (>0)");
 			id = teclado.nextLong();
-			validaid = validador.validarId(id);
-		} while (!validaid);
+			validaidMaquina = validador.validarmaquina(id);
+		} while (!validaidMaquina);
 		ret.setIdMaquina(id);
 
 		String ubicacion = "";
@@ -74,7 +74,7 @@ public class Maquina {
 	}
 
 //Constructor por atributos de Maquina
-	public Maquina(long idMaquina, LocalDate fecha_compra, String ubicacion) {
+	public Maquina(long idMaquina, int fecha_compra, String ubicacion) {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;
 
@@ -98,11 +98,11 @@ public class Maquina {
 		this.idMaquina = idMaquina;
 	}
 
-	public LocalDate getFecha_compra() {
+	public int getFecha_compra() {
 		return fecha_compra;
 	}
 
-	public void setFecha_compra(LocalDate fecha_compra) {
+	public void setFecha_compra(int fecha_compra) {
 		this.fecha_compra = fecha_compra;
 	}
 

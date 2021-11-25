@@ -8,8 +8,6 @@ import validacion.validador;
 public class OpCalidad extends Operario {
 	// Variable para asignar el id automaticamente
 	public static int numPol = 0;
-	protected long idpolitica;
-	protected long NombrePolitica;// 
 	// multiplicidad varios a varios, OperarioCalidad y PoliticaCalidad
 	private PoliticaCalidad[] politica;
 
@@ -17,7 +15,6 @@ public class OpCalidad extends Operario {
 	public OpCalidad() {
 		super();
 		numPol = numPol + 1;
-		this.idpolitica = numPol;
 	}
 
 	public static OpCalidad nuevoOpCalidad() {
@@ -32,16 +29,8 @@ public class OpCalidad extends Operario {
 			validaid = validador.validarId(id);
 		} while (!validaid);
 		ret.setIdOperario(id);
-		String NombrePolitica = " ";
-		boolean validanombre= false;
-		do {
-			System.out.println("Introdocue el nombre de la política (<6 y > 14 palabras)");
-			NombrePolitica = teclado.next();
-			validanombre = validador.validapolitica(NombrePolitica);
-		} while (!validanombre);
-		ret.setNombrePolitica(id);
 		return ret;
-	}
+		}
 
 	// Constructor del Operario de Calidad unicamente con atributo de la superclase
 	// operario
@@ -53,24 +42,15 @@ public class OpCalidad extends Operario {
 
 	// Constructor por atributos del Operario de Calidad y la superclase Operario,
 	// con los valores obligatorios parq crear un Operario de Calidad
-	public OpCalidad(long idOperario, String NIF, String nombreApellido, long NombrePolitica) {
+	public OpCalidad(long idOperario, String NIF, String nombreApellido) {
 		super();
 		numPol = numPol + 1;
-		this.idpolitica = numPol;
 	}
 
 	public String toString() {
-		return "OpPolitica [NombrePolitica=" + NombrePolitica + ", politica=" + Arrays.toString(politica) + "]";
+		return "OpPolitica [politica=" + Arrays.toString(politica) + "]";
 	}
-
-	public long getNombrePolitica() {
-		return NombrePolitica;
-	}
-
-	public void setNombrePolitica(long NombrePolitica) {
-		this.NombrePolitica = NombrePolitica;
-	}
-
+	
 	public static int getNumPol() {
 		return numPol;
 	}

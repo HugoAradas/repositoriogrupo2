@@ -1,16 +1,15 @@
 package entidades;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
 import validacion.validador;
 
 public class PoliticaCalidad {
-	private long id;
+	private long idPolitica;
 	private static int numPol = 0;
 	private String nombrePolitica;
-	private LocalDate FechaVig;
+	private int FechaVig;
 	private String Descripcion;
 	private OpCalidad[] operarios;
 
@@ -51,7 +50,7 @@ public class PoliticaCalidad {
 		return ret;
 	}
 
-	public PoliticaCalidad(long idPol, LocalDate FechaVig, String Descripcion, String Resultado) {
+	public PoliticaCalidad(long idPol, String nombrePolitica, int FechaVig, String Descripcion, String Resultado, long idOperario) {
 		numPol = numPol + 1;
 		this.nombrePolitica = nombrePolitica;
 		this.FechaVig = FechaVig;
@@ -60,11 +59,11 @@ public class PoliticaCalidad {
 	
 
 	public long getId() {
-		return id;
+		return idPolitica;
 	}
 
 	public void setId(long id) {
-		this.id = id;
+		this.idPolitica = id;
 	}
 
 	public String getNombrePolitica() {
@@ -75,11 +74,11 @@ public class PoliticaCalidad {
 		this.nombrePolitica = nombrePolitica2;
 	}
 
-	public LocalDate getFechaVig() {
+	public int getFechaVig() {
 		return FechaVig;
 	}
 
-	public void setFechaVig(LocalDate fechaVig) {
+	public void setFechaVig(int fechaVig) {
 		FechaVig = fechaVig;
 	}
 
