@@ -16,7 +16,16 @@ public class Trabajo {
 	protected LocalDate fechaEntrega;
 	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
+	private long idClientes;
 	private Cliente[] clientes;
+
+	public Cliente[] getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Cliente[] clientes) {
+		this.clientes = clientes;
+	}
 
 	// Constructor por defecto de la clase Trabajo
 	public Trabajo() {
@@ -25,20 +34,32 @@ public class Trabajo {
 	}
 
 	public static Trabajo nuevoTrabajo() {
-		numTrabajos = numTrabajos + 1;
 		Trabajo ret = new Trabajo();
-		ret.idTrabajo = numTrabajos;
-		boolean fechavalida = false;
-
-		System.out.println("Dime la fecha que se solicito el trabajo");
-
-		boolean relievevalido = false;
+		Scanner teclado = new Scanner(System.in);
+		long idTrabajo = -1;
+		boolean validaid = false;
 		do {
-			Scanner teclado = new Scanner(System.in);
-			ret.tipoRelieve = teclado.nextLine();
-			relievevalido = validador.validarTipoRelieve(ret.tipoRelieve);
-
-		} while (!relievevalido);
+			System.out.println("El id del trabajo tiene que ser siempre mayor que cero");
+			idTrabajo = teclado.nextLong();
+			validaid = validador.validarId(idTrabajo);
+		} while (!validaid);
+		ret.setIdTrabajo(idTrabajo);
+		String tipoRelieve = "";
+		boolean validarelieve = false;
+		do {
+			System.out.println("Introduce el tipo de relieve");
+			tipoRelieve = teclado.next();
+			validarelieve = validador.validarTipoRelieve(tipoRelieve);
+		} while (!validarelieve);
+		ret.setTipoRelieve(tipoRelieve);
+		long idClientes = -1;
+		boolean validacliente = false;
+		do {
+			System.out.println("Introduce el id del cliente que solicita el trabajo (mayor que 0) ");
+			idClientes = teclado.nextLong();
+			validacliente = validador.validarId(idClientes);
+		} while (!validacliente);
+		ret.setIdClientes(idClientes);
 
 		return ret;
 
@@ -97,18 +118,19 @@ public class Trabajo {
 		this.tipoRelieve = tipoRelieve;
 	}
 
-	public Cliente[] getClientes() {
-		return clientes;
+	public long getIdClientes() {
+		return idClientes;
 	}
 
-	public void setClientes(Cliente[] clientes) {
-		this.clientes = clientes;
+	public void setIdClientes(long idClientes) {
+		this.idClientes = idClientes;
 	}
 
 	@Override
 	public String toString() {
 		return "Trabajo [idTrabajo=" + idTrabajo + ", fechaSolicitud=" + fechaSolicitud + ", fechaEntrega="
-				+ fechaEntrega + ", tipoRelieve=" + tipoRelieve + ", clientes=" + Arrays.toString(clientes) + "]";
+				+ fechaEntrega + ", tipoRelieve=" + tipoRelieve + ", idClientes=" + idClientes + ", clientes="
+				+ Arrays.toString(clientes) + "]";
 	}
 
 }
