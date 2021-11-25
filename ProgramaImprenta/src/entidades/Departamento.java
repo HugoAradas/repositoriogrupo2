@@ -17,7 +17,7 @@ public class Departamento {
 		return ret;
 
 	}
-
+	
 	public Lote[] getLotes() {
 		return lotes;
 	}
