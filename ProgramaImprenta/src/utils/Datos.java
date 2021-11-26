@@ -124,4 +124,12 @@ public class Datos {
             new Prueba(26112021, "Explicacion", "Resultado", 18, 5),
     };
     public static final int numPrueba = PRUEBAS.length;
+    
+    
+    public static final Trabajo TRABAJOS[] = {
+ //           new Trabajo(1, "Numero1", 25112021, "Descripcion", "Resultado", 1, 1, 2),
+ //           new Trabajo(2, "Numero2", 25112021, "Descripcion", "Resultado", 4, 3, 4),
+ //           new Trabajo(3, "Numero3", 25112021, "Descripcion", "Resultado", 5, 5, 6),
+    };
+    public static final int numTrabajos = TRABAJOS.length;
 }

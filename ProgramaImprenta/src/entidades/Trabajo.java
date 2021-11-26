@@ -1,7 +1,6 @@
 package entidades;
 
 import validacion.*;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,12 +11,13 @@ public class Trabajo {
 	public static int numTrabajos = 0;
 	// valor mínimo 1
 	protected long idTrabajo;
-	protected LocalDate fechaSolicitud;
-	protected LocalDate fechaEntrega;
+	protected int fechaSolicitud;
+	protected int fechaEntrega;
 	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
 	private long idClientes;
 	private Cliente[] clientes;
+	private Maquina[] idMaquina;
 
 	public Cliente[] getClientes() {
 		return clientes;
@@ -66,12 +66,12 @@ public class Trabajo {
 	}
 
 //Constructor por atributos de Trabajo
-	public Trabajo(long idTrabajo, LocalDate fechaTrabajo, Cliente[] clientes) {
+	public Trabajo(long idTrabajo, int fechaTrabajo, Cliente[] clientes, Maquina[] idMaquina) {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;
 	}
 
-	public Trabajo(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve) {
+	public Trabajo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;
 
@@ -94,19 +94,19 @@ public class Trabajo {
 		this.idTrabajo = idTrabajo;
 	}
 
-	public LocalDate getFechaEntrega() {
+	public int getFechaEntrega() {
 		return fechaEntrega;
 	}
 
-	public void setFechaEntrega(LocalDate fechaEntrega) {
+	public void setFechaEntrega(int fechaEntrega) {
 		this.fechaEntrega = fechaEntrega;
 	}
 
-	public LocalDate getFechaSolicitud() {
+	public int getFechaSolicitud() {
 		return fechaSolicitud;
 	}
 
-	public void setFechaSolicitud(LocalDate fechaSolicitud) {
+	public void setFechaSolicitud(int fechaSolicitud) {
 		this.fechaSolicitud = fechaSolicitud;
 	}
 
@@ -126,11 +126,19 @@ public class Trabajo {
 		this.idClientes = idClientes;
 	}
 
+	public Maquina[] getidMaquina() {
+		return idMaquina;
+	}
+
+	public void setidMaquina(Maquina[] idMaquina) {
+		this.idMaquina = idMaquina;
+	}
+
 	@Override
 	public String toString() {
 		return "Trabajo [idTrabajo=" + idTrabajo + ", fechaSolicitud=" + fechaSolicitud + ", fechaEntrega="
 				+ fechaEntrega + ", tipoRelieve=" + tipoRelieve + ", idClientes=" + idClientes + ", clientes="
-				+ Arrays.toString(clientes) + "]";
+				+ Arrays.toString(clientes) + ", idMaquina=" + Arrays.toString(idMaquina) + "]";
 	}
 
 }

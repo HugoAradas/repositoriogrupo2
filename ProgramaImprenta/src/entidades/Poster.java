@@ -1,6 +1,5 @@
 package entidades;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 import validacion.validador;
@@ -87,14 +86,14 @@ public class Poster extends Trabajo {
 	}
 
 //Constructor por atributos de la clase Trabajo
-	public Poster(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve) {
+	public Poster(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve);
 
 	}
 
 //Constructor con atributos de la clase póster y la superclase Trabajo
-	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster, long idTrabajo, LocalDate fechaEntrega,
-			LocalDate fechaSolicitud) {
+	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster, long idTrabajo, int fechaEntrega,
+			int fechaSolicitud) {
 		super();
 		numPoster = numPoster + 1;
 		this.idPoster = numPoster;

@@ -1,6 +1,5 @@
 package entidades;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 import validacion.validador;
@@ -14,7 +13,7 @@ public class Rotulo extends Trabajo {
 	private String centroComercial;
 
 //Constructor con atributos de la clase trabajo
-	public Rotulo(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve) {
+	public Rotulo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve);
 
 	}
@@ -53,8 +52,8 @@ public class Rotulo extends Trabajo {
 	}
 
 //Constructor con atributos de la clase rotulo y la superclase Trabajo
-	public Rotulo(long idRotulo, String centroComercial, long idTrabajo, LocalDate fechaSolicitud,
-			LocalDate fechaEntrega, String tipoRelieve) {
+	public Rotulo(long idRotulo, String centroComercial, long idTrabajo, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve) {
 		super();
 		numRotulos = numRotulos + 1;
 		this.idRotulo = numRotulos;

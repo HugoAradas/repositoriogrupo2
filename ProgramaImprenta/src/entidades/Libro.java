@@ -1,7 +1,5 @@
 package entidades;
 
-import java.time.LocalDate;
-
 import java.util.Scanner;
 
 import validacion.validador;
@@ -82,14 +80,14 @@ public class Libro extends Trabajo {
 	}
 
 //Constructor con atributos de la superclase Trabajo
-	public Libro(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve) {
+	public Libro(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve);
 
 	}
 
 	// Conatructor con atributos de la clase Libro y la superclase Trbajo
-	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, LocalDate fechaSolicitud,
-			LocalDate fechaEntrega, String tipoRelieve) {
+	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve) {
 		super();
 		numLibros = numLibros + 1;
 		this.idLibro = numLibros;
