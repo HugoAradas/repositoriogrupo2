@@ -85,12 +85,43 @@ public class Datos {
     
     
     public static final PoliticaCalidad POLITICAS[] = {
-            new PoliticaCalidad(1, "Numero1", 25112021, "Descripcion", "Resultado", 1),
-            new PoliticaCalidad(2, "Numero2", 25112021, "Descripcion", "Resultado", 5),
-            new PoliticaCalidad(3, "Numero3", 25112021, "Descripcion", "Resultado", 5),
-            new PoliticaCalidad(4, "Numero4", 25112021, "Descripcion", "Resultado", 1),
-            new PoliticaCalidad(5, "Numero5", 25112021, "Descripcion", "Resultado", 4),
-            new PoliticaCalidad(6, "Numero6", 25112021, "Descripcion", "Resultado", 1)
+            new PoliticaCalidad(1, "Numero1", 25112021, "Descripcion", "Resultado", 1, 1, 2),
+            new PoliticaCalidad(2, "Numero2", 25112021, "Descripcion", "Resultado", 4, 3, 4),
+            new PoliticaCalidad(3, "Numero3", 25112021, "Descripcion", "Resultado", 5, 5, 6),
     };
     public static final int numPolitica = POLITICAS.length;
+    
+    
+    public static final ReglaCalidad REGLAS[] = {
+            new ReglaCalidad("Regla1", 1, 1, 2, 3),
+            new ReglaCalidad("Regla2", 2, 4, 5, 6),
+            new ReglaCalidad("Regla3", 3, 7, 8, 9),
+            new ReglaCalidad("Regla4", 4, 10, 11, 12),
+            new ReglaCalidad("Regla3", 5, 13, 14, 15),
+            new ReglaCalidad("Regla3", 6, 16, 17, 18),
+    };
+    public static final int numRegla = REGLAS.length;
+    
+    
+    public static final Prueba PRUEBAS[] = {
+            new Prueba(26112021, "Explicacion", "Resultado", 1, 4),
+            new Prueba(26112021, "Explicacion", "Resultado", 2, 1),
+            new Prueba(26112021, "Explicacion", "Resultado", 3, 5),
+            new Prueba(26112021, "Explicacion", "Resultado", 4, 4),
+            new Prueba(26112021, "Explicacion", "Resultado", 5, 1),
+            new Prueba(26112021, "Explicacion", "Resultado", 6, 5),
+            new Prueba(26112021, "Explicacion", "Resultado", 7, 4),
+            new Prueba(26112021, "Explicacion", "Resultado", 8, 1),
+            new Prueba(26112021, "Explicacion", "Resultado", 9, 5),
+            new Prueba(26112021, "Explicacion", "Resultado", 10, 4),
+            new Prueba(26112021, "Explicacion", "Resultado", 11, 1),
+            new Prueba(26112021, "Explicacion", "Resultado", 12, 5),
+            new Prueba(26112021, "Explicacion", "Resultado", 13, 4),
+            new Prueba(26112021, "Explicacion", "Resultado", 14, 1),
+            new Prueba(26112021, "Explicacion", "Resultado", 15, 5),
+            new Prueba(26112021, "Explicacion", "Resultado", 16, 4),
+            new Prueba(26112021, "Explicacion", "Resultado", 17, 1),
+            new Prueba(26112021, "Explicacion", "Resultado", 18, 5),
+    };
+    public static final int numPrueba = PRUEBAS.length;
 }

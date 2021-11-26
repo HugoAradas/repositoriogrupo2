@@ -12,6 +12,7 @@ public class PoliticaCalidad {
 	private int FechaVig;
 	private String Descripcion;
 	private OpCalidad[] operarios;
+	private ReglaCalidad[] idRegla;
 
 	public PoliticaCalidad() {
 		numPol = numPol + 1;
@@ -50,7 +51,8 @@ public class PoliticaCalidad {
 		return ret;
 	}
 
-	public PoliticaCalidad(long idPol, String nombrePolitica, int FechaVig, String Descripcion, String Resultado, long idOperario) {
+	public PoliticaCalidad(long idPol, String nombrePolitica, int FechaVig, String Descripcion, String Resultado, long idOperario,
+			long idRegla, long idRegla1) {
 		numPol = numPol + 1;
 		this.nombrePolitica = nombrePolitica;
 		this.FechaVig = FechaVig;
@@ -106,9 +108,17 @@ public class PoliticaCalidad {
 		this.operarios = operarios;
 	}
 
+	public ReglaCalidad[] getidRegla() {
+		return idRegla;
+	}
+
+	public void setidRegla(ReglaCalidad[] idRegla) {
+		this.idRegla = idRegla;
+	}
+
 	@Override
 	public String toString() {
 		return "PoliticaCalidad [NombrePolitica=" + nombrePolitica + ", FechaVig=" + FechaVig + ", Descripcion="
-				+ Descripcion + ", operarios=" + Arrays.toString(operarios) + "]";
+				+ Descripcion + ", operarios=" + Arrays.toString(operarios) + ", idRegla=" + Arrays.toString(idRegla) + "]";
 	}
 }

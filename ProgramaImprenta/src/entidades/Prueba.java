@@ -1,6 +1,5 @@
 package entidades;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,16 +7,15 @@ import validacion.validador;
 
 public class Prueba {
 	private static int numPrueba = 0;
-	private LocalDate Fecha;
+	private int Fecha;
 	// entre 3 y 120 caracteres
 	private String Explicacion;
 	// entre 3 y 120 caracteres
 	private String Resultado;
 	// valor mínimo 1
-	private long idMaquina;
-	// valor mínimo 1
-	private long idPrueba;
-	private OpCalidad[] operarios;
+	protected long idPrueba;
+	private OpCalidad[] idOperario;
+	private Maquina [] idMaquina;
 
 	public Prueba() {
 		numPrueba = numPrueba + 1;
@@ -44,23 +42,15 @@ public class Prueba {
 			resultadoValido = validador.validarResultado(ret.Resultado);
 		} while (!resultadoValido);
 
-		boolean idValido = false;
-		do {
-			System.out.println("Introduce el id de la maquina sobre la que se realiza la prueba");
-			ret.idMaquina = teclado.nextLong();
-			idValido = validador.validarId(ret.idMaquina);
-		} while (!idValido);
-
 		return ret;
 	}
 
-	public Prueba(LocalDate Fecha, String Explicacion, String Resultado, long idMaquina, long idPrueba) {
+	public Prueba(int Fecha, String Explicacion, String Resultado, long idPrueba, long idOperario) {
 		numPrueba = numPrueba + 1;
 		this.idPrueba = numPrueba;
 		this.Fecha = Fecha;
 		this.Explicacion = Explicacion;
 		this.Resultado = Resultado;
-		this.idMaquina = idMaquina;
 	}
 
 	public long getidPrueba() {
@@ -71,19 +61,19 @@ public class Prueba {
 		this.idPrueba = idPrueba;
 	}
 
-	public long getidMaquina() {
+	public Maquina[] getidMaquina() {
 		return idMaquina;
 	}
 
-	public void setidMaquina(long idMaquina) {
+	public void setidMaquina(Maquina[] idMaquina) {
 		this.idMaquina = idMaquina;
 	}
 
-	public LocalDate getFecha() {
+	public int getFecha() {
 		return Fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(int fecha) {
 		Fecha = fecha;
 	}
 
@@ -111,17 +101,17 @@ public class Prueba {
 		Prueba.numPrueba = numPrueba;
 	}
 
-	public OpCalidad[] getOperarios() {
-		return operarios;
+	public OpCalidad[] getidOperario() {
+		return idOperario;
 	}
 
-	public void setOperarios(OpCalidad[] operarios) {
-		this.operarios = operarios;
+	public void setidOperario(OpCalidad[] idOperario) {
+		this.idOperario = idOperario;
 	}
 
 	@Override
 	public String toString() {
 		return "Prueba [idPrueba=" + idPrueba + ", idMaquina=" + idMaquina + ", Fecha=" + Fecha + ", Explicacion="
-				+ Explicacion + ", Resultado=" + Resultado + ", operarios=" + Arrays.toString(operarios) + "]";
+				+ Explicacion + ", Resultado=" + Resultado + ", idOperario=" + Arrays.toString(idOperario) + "]";
 	}
 }

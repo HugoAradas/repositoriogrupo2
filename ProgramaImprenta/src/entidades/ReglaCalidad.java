@@ -11,10 +11,9 @@ public class ReglaCalidad {
 	// mínimo 3 caracteres, máximo 25
 	private String NombreRegla;
 	// valor mínimo 1
-	private long idPrueba;
-	// valor mínimo 1
-	private long idRegla;
+	protected long idRegla;
 	private OpCalidad[] operarios;
+	private Prueba[] idPrueba;
 
 	public ReglaCalidad() {
 		numRegla = numRegla + 1;
@@ -37,11 +36,10 @@ public class ReglaCalidad {
 		return ret;
 	}
 
-	public ReglaCalidad(String NombreRegla, long idPrueba, long idRegla) {
+	public ReglaCalidad(String NombreRegla, long idRegla, long idPrueba, long idPrueba1, long idPrueba2) {
 		numRegla = numRegla + 1;
 		this.idRegla = numRegla;
 		this.NombreRegla = NombreRegla;
-		this.idPrueba = idPrueba;
 	}
 
 	public long getidRegla() {
@@ -50,14 +48,6 @@ public class ReglaCalidad {
 
 	public void setidRegla(long idRegla) {
 		this.idRegla = idRegla;
-	}
-
-	public long getidPrueba() {
-		return idPrueba;
-	}
-
-	public void setidPrueba(long idPrueba) {
-		this.idPrueba = idPrueba;
 	}
 
 	public String getNombreRegla() {
@@ -84,14 +74,6 @@ public class ReglaCalidad {
 		this.operarios = operarios;
 	}
 
-	public long getIdPrueba() {
-		return idPrueba;
-	}
-
-	public void setIdPrueba(long idPrueba) {
-		this.idPrueba = idPrueba;
-	}
-
 	public long getIdRegla() {
 		return idRegla;
 	}
@@ -100,9 +82,17 @@ public class ReglaCalidad {
 		this.idRegla = idRegla;
 	}
 
+	public Prueba[] getidPrueba() {
+		return idPrueba;
+	}
+
+	public void setidPrueba(Prueba[] idPrueba) {
+		this.idPrueba = idPrueba;
+	}
+
 	@Override
 	public String toString() {
-		return "ReglaCalidad [idPrueba=" + idPrueba + ", idRegla=" + idRegla + ", NombreRegla=" + NombreRegla
-				+ ", operarios=" + Arrays.toString(operarios) + "]";
+		return "ReglaCalidad [idRegla=" + idRegla + ", NombreRegla=" + NombreRegla
+				+ ", operarios=" + Arrays.toString(operarios) + ", idPrueba=" + Arrays.toString(idPrueba) + "]";
 	}
 }

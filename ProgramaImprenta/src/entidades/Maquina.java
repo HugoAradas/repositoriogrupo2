@@ -15,7 +15,7 @@ public class Maquina {
 	public String modoImpresion;
 	public double volumenTinta;
 	// Identificadro del lote, debido a la relacion entre maquina y lote
-	private long idLote;
+	private Lote[] idLote;
 
 //Constructor por defecto de Maquina
 	public Maquina() {
