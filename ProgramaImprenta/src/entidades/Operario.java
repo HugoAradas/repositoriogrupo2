@@ -1,8 +1,10 @@
 package entidades;
 
 import java.util.Arrays;
+
 import java.util.Scanner;
 
+import validacion.DNIException;
 import validacion.validador;
 
 public class Operario {
@@ -24,6 +26,24 @@ public class Operario {
 
 	}
 
+	
+	private static void validarDNI(String string) throws DNIException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static void validaDNI(String NIF){
+		try {
+            validarDNI("08941001G");
+            //Si veo este mensaje es que no ha saltado ninguna excepcion
+            System.out.println("El DNI esta bien"); 
+        } catch (DNIException ex) {
+            //Muestro el error concretamente
+            System.out.println(ex.getMessage());
+        }
+	}
+	
+
 	public static Operario nuevoOperario() {
 		Operario ret = new Operario();
 		Scanner teclado = new Scanner(System.in);
@@ -35,15 +55,7 @@ public class Operario {
 			validaid = validador.validarId(id);
 		} while (!validaid);
 		ret.setIdOperario(id);
-		
-		String NIF = "";
-		boolean validanif = false;
-		do {
-			System.out.println ( "introduce el NIF tiene que tener longitud 9");
-			NIF = teclado.nextLine();
-			validanif = validador.validaNif(NIF);
-		} while (!validanif);
-		ret.setNIF(NIF);
+
 		
 		String nombre ="";
 		boolean validanombre = false; 

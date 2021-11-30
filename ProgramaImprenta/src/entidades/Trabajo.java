@@ -1,6 +1,5 @@
 package entidades;
 
-import validacion.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,16 +14,15 @@ public class Trabajo {
 	protected int fechaEntrega;
 	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
-	private long idClientes;
-	private Cliente[] clientes;
-	private Maquina[] idMaquina;
+	protected static Cliente[] idCliente;
+	protected static Maquina[] idMaquina;
 
-	public Cliente[] getClientes() {
-		return clientes;
+	public Cliente[] getCliente() {
+		return idCliente;
 	}
 
-	public void setClientes(Cliente[] clientes) {
-		this.clientes = clientes;
+	public void setClientes(Cliente[] idCliente) {
+		this.idCliente = idCliente;
 	}
 
 	// Constructor por defecto de la clase Trabajo
@@ -52,30 +50,20 @@ public class Trabajo {
 			validarelieve = validador.validarTipoRelieve(tipoRelieve);
 		} while (!validarelieve);
 		ret.setTipoRelieve(tipoRelieve);
-		long idClientes = -1;
-		boolean validacliente = false;
-		do {
-			System.out.println("Introduce el id del cliente que solicita el trabajo (mayor que 0) ");
-			idClientes = teclado.nextLong();
-			validacliente = validador.validarId(idClientes);
-		} while (!validacliente);
-		ret.setIdClientes(idClientes);
 
 		return ret;
 
 	}
 
-//Constructor por atributos de Trabajo
-	public Trabajo(long idTrabajo, int fechaTrabajo, Cliente[] clientes, Maquina[] idMaquina) {
+//Constructor por atributos de Trabajo	
+	public Trabajo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;
+		this.fechaSolicitud = fechaSolicitud;
+		this.fechaEntrega = fechaEntrega;
+		this.tipoRelieve = tipoRelieve;
 	}
 
-	public Trabajo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
-		numTrabajos = numTrabajos + 1;
-		this.idTrabajo = numTrabajos;
-
-	}
 
 	public static int getNumTrabajos() {
 		return numTrabajos;
@@ -118,27 +106,11 @@ public class Trabajo {
 		this.tipoRelieve = tipoRelieve;
 	}
 
-	public long getIdClientes() {
-		return idClientes;
-	}
-
-	public void setIdClientes(long idClientes) {
-		this.idClientes = idClientes;
-	}
-
-	public Maquina[] getidMaquina() {
-		return idMaquina;
-	}
-
-	public void setidMaquina(Maquina[] idMaquina) {
-		this.idMaquina = idMaquina;
-	}
-
 	@Override
 	public String toString() {
 		return "Trabajo [idTrabajo=" + idTrabajo + ", fechaSolicitud=" + fechaSolicitud + ", fechaEntrega="
-				+ fechaEntrega + ", tipoRelieve=" + tipoRelieve + ", idClientes=" + idClientes + ", clientes="
-				+ Arrays.toString(clientes) + ", idMaquina=" + Arrays.toString(idMaquina) + "]";
+				+ fechaEntrega + ", tipoRelieve=" + tipoRelieve + ", clientes="
+				+ Arrays.toString(idCliente) + ", idMaquina=" + Arrays.toString(idMaquina) + "]";
 	}
 
 }

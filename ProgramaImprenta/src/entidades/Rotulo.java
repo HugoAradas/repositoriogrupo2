@@ -14,7 +14,7 @@ public class Rotulo extends Trabajo {
 
 //Constructor con atributos de la clase trabajo
 	public Rotulo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
-		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve);
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, null, null);
 
 	}
 

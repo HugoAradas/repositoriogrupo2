@@ -87,7 +87,7 @@ public class Poster extends Trabajo {
 
 //Constructor por atributos de la clase Trabajo
 	public Poster(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
-		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve);
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, null, null);
 
 	}
 

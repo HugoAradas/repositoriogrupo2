@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import validacion.validador;
@@ -10,7 +11,8 @@ public class Libro extends Trabajo {
 	private long idLibro;
 	private String colorTapa; // para saber el color de su tapa
 	private int numCopias; // el numero de copias es entero
-
+	private Trabajo[] idTrabajo;
+	
 //Constructor por defecto de la clase Libro
 	public Libro() {
 		super();
@@ -80,18 +82,23 @@ public class Libro extends Trabajo {
 	}
 
 //Constructor con atributos de la superclase Trabajo
-	public Libro(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
-		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve);
+	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve) {
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, null, null);
 
 	}
 
 	// Conatructor con atributos de la clase Libro y la superclase Trbajo
-	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud,
+	public Libro(long idLibro, String colorTapa, int numCopias, Trabajo idTrabajo, int fechaSolicitud,
 			int fechaEntrega, String tipoRelieve) {
 		super();
 		numLibros = numLibros + 1;
 		this.idLibro = numLibros;
-
+		this.colorTapa = colorTapa;
+		this.numCopias = numCopias;
+		this.fechaSolicitud = fechaSolicitud;
+		this.fechaEntrega = fechaEntrega;
+		this.tipoRelieve = tipoRelieve;
 	}
 
 	public static int getNumLibros() {
@@ -126,8 +133,17 @@ public class Libro extends Trabajo {
 		this.numCopias = numCopias;
 	}
 
+	public Trabajo[] getidTrabajo() {
+		return idTrabajo;
+	}
+
+	public void setidTrabajo(Trabajo[] idTrabajo) {
+		this.idTrabajo = idTrabajo;
+	}
+	
 	public String toString() {
-		return "Libro [idLibro=" + idLibro + ", colorTapa=" + colorTapa + ", numCopias=" + numCopias + "]";
+		return "Libro [idLibro=" + idLibro + ", colorTapa=" + colorTapa + ", numCopias=" + numCopias + ", "
+				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "]";
 	}
 
 }

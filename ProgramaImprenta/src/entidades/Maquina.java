@@ -8,7 +8,7 @@ import validacion.validador;
 public class Maquina {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numMaquinas = 0;
-	protected long idMaquina;
+	public long idMaquina;
 	private int fecha_compra;
 	private String ubicacion;
 	public String tipoImpresion;

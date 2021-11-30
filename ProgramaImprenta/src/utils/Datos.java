@@ -1,15 +1,8 @@
 package utils;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import entidades.*;
 
 public class Datos {
-
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
     
     public static final Cliente CLIENTES[] = {
         new Cliente(1, "Juan", "Golondrina"),
@@ -127,9 +120,22 @@ public class Datos {
     
     
     public static final Trabajo TRABAJOS[] = {
- //           new Trabajo(1, "Numero1", 25112021, "Descripcion", "Resultado", 1, 1, 2),
- //           new Trabajo(2, "Numero2", 25112021, "Descripcion", "Resultado", 4, 3, 4),
- //           new Trabajo(3, "Numero3", 25112021, "Descripcion", "Resultado", 5, 5, 6),
+            new Trabajo(1, 25112021, 25112021, "Liso", CLIENTES[1], MAQUINAS[1]),
+            new Trabajo(2, 25112021, 25112021, "Rugoso", CLIENTES[1], MAQUINAS[3]),
+            new Trabajo(3, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[3]),
+            new Trabajo(4, 25112021, 25112021, "Rugoso", CLIENTES[1], MAQUINAS[1]),
+            new Trabajo(5, 25112021, 25112021, "Liso", CLIENTES[2], MAQUINAS[3]),
+            new Trabajo(6, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[2]),
+            new Trabajo(1, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[1]),
+            new Trabajo(2, 25112021, 25112021, "Rugoso", CLIENTES[2], MAQUINAS[1]),
+            new Trabajo(3, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[2]),
     };
     public static final int numTrabajos = TRABAJOS.length;
+    
+    public static final Libro LIBROS[] = {
+//            new Libro(1, "Rojo", 6, TRABAJOS[1], 25112021, 25112021, 25112021, "Liso"),
+//            new Trabajo(2, 25112021, 25112021, "Rugoso", CLIENTES[1], MAQUINAS[3]),
+//           new Trabajo(3, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[3])
+    };
+    public static final int numLibros = LIBROS.length;
 }
