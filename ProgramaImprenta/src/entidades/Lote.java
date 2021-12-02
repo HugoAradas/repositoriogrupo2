@@ -9,10 +9,8 @@ public class Lote {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numLotes = 0;
 	private long idLote;
-	private int numeroDeLote;
-	// id de la maquina debido a la relacion entre maquina y lote
-	private Maquina[] maquinas;
-	private Departamento[] departamentos;
+	private String nombreLote;
+	private Departamento[] Lugardep;
 
 	public Lote() {
 		numLotes = numLotes + 1;
@@ -30,16 +28,17 @@ public class Lote {
 			validaId = validador.validarId(id);
 		} while (!validaId);
 		ret.setIdLote(id);
-		int numlote = -1;
-		boolean validanumlote = false;
+		
+		String nombreLote ="";
+		boolean validanombre = false; 
 		do {
-			System.out.println("introduce un numero de lote (>0)");
-			numlote = teclado.nextInt();
-			validanumlote = validador.validarnumcopias(numlote);
-		} while (!validanumlote);
-		System.out.println("Introduce el numeroDeLote");
-		ret.numeroDeLote = teclado.nextInt();
-		ret.setNumeroDeLote(ret.numeroDeLote);
+			System.out.println("introduce el nombre del lote (mayor que 3 letras y menor que 15)");
+			nombreLote = teclado.nextLine();
+			validanombre = validador.validarnombre(nombreLote);
+			
+		} while (!validanombre);
+		ret.setnombreLote(nombreLote);
+		
 		long idmaquina = -1;
 		boolean validaid= false;
 		do {
@@ -50,14 +49,9 @@ public class Lote {
 		return ret;
 	}
 
-	public Lote(long idLote, int numeroDeLote) {
+	public Lote(long idLote, String nombreLote, Departamento Lugardep) {
 		numLotes = numLotes + 1;
 		this.idLote = numLotes;
-
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el numeroDeLote");
-		numeroDeLote = teclado.nextInt();
-		setNumeroDeLote(numeroDeLote);
 	}
 
 	public static int getNumLotes() {
@@ -76,34 +70,25 @@ public class Lote {
 		this.idLote = idLote;
 	}
 
-	public Maquina[] getMaquinas() {
-		return maquinas;
+	public String getnombreLote() {
+		return nombreLote;
 	}
 
-	public void setMaquinas(Maquina[] maquinas) {
-		this.maquinas = maquinas;
+	public void setnombreLote(String nombreLote) {
+		this.nombreLote = nombreLote;
 	}
 
-	public int getNumeroDeLote() {
-		return numeroDeLote;
+	public Departamento[] getLugardep() {
+		return Lugardep;
 	}
 
-	public void setNumeroDeLote(int numeroDeLote) {
-		this.numeroDeLote = numeroDeLote;
-	}
-
-	public Departamento[] getDepartamentos() {
-		return departamentos;
-	}
-
-	public void setDepartamentos(Departamento[] departamentos) {
-		this.departamentos = departamentos;
+	public void setLugardep(Departamento[] Lugardep) {
+		this.Lugardep = Lugardep;
 	}
 
 	@Override
 	public String toString() {
-		return "Lote [idLote=" + idLote + ", numeroDeLote=" + numeroDeLote + ", maquinas=" + Arrays.toString(maquinas)
-				+ ", departamentos=" + Arrays.toString(departamentos) + "]";
+		return "Lote [idLote=" + idLote + ", nombreLote=" + nombreLote + ", Lugardep=" + Arrays.toString(Lugardep) + "]";
 	}
 
 }

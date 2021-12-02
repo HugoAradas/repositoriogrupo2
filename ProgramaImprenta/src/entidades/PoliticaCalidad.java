@@ -51,8 +51,8 @@ public class PoliticaCalidad {
 		return ret;
 	}
 
-	public PoliticaCalidad(long idPol, String nombrePolitica, int FechaVig, String Descripcion, String Resultado, long idOperario,
-			long idRegla, long idRegla1) {
+	public PoliticaCalidad(long idPol, String nombrePolitica, int FechaVig, String Descripcion, String Resultado, OpCalidad idOperario,
+			ReglaCalidad idRegla, ReglaCalidad idRegla1) {
 		numPol = numPol + 1;
 		this.nombrePolitica = nombrePolitica;
 		this.FechaVig = FechaVig;

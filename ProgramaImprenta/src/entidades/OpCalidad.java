@@ -1,20 +1,15 @@
 package entidades;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import validacion.validador;
 
 public class OpCalidad extends Operario {
-	// Variable para asignar el id automaticamente
-	public static int numPol = 0;
-	// multiplicidad varios a varios, OperarioCalidad y PoliticaCalidad
-	private PoliticaCalidad[] politica;
+	protected Operario[] idOperario;
 
 	// Constructor por defecto del Operario de Calidad
 	public OpCalidad() {
 		super();
-		numPol = numPol + 1;
 	}
 
 	public static OpCalidad nuevoOpCalidad() {
@@ -42,28 +37,7 @@ public class OpCalidad extends Operario {
 
 	// Constructor por atributos del Operario de Calidad y la superclase Operario,
 	// con los valores obligatorios parq crear un Operario de Calidad
-	public OpCalidad(long idOperario, String NIF, String nombreApellido) {
+	public OpCalidad(Operario idOperario, String NIF, String nombreApellido) {
 		super();
-		numPol = numPol + 1;
-	}
-
-	public String toString() {
-		return "OpPolitica [politica=" + Arrays.toString(politica) + "]";
-	}
-	
-	public static int getNumPol() {
-		return numPol;
-	}
-
-	public static void setNumPol(int numPol) {
-		OpCalidad.numPol = numPol;
-	}
-
-	public PoliticaCalidad[] getpolitica() {
-		return politica;
-	}
-
-	public void setPoliticaCalidad(PoliticaCalidad[] politica) {
-		this.politica = politica;
 	}
 }

@@ -12,6 +12,7 @@ public class Libro extends Trabajo {
 	private String colorTapa; // para saber el color de su tapa
 	private int numCopias; // el numero de copias es entero
 	private Trabajo[] idTrabajo;
+	private Trabajo[] idCliente;
 	
 //Constructor por defecto de la clase Libro
 	public Libro() {
@@ -89,8 +90,8 @@ public class Libro extends Trabajo {
 	}
 
 	// Conatructor con atributos de la clase Libro y la superclase Trbajo
-	public Libro(long idLibro, String colorTapa, int numCopias, Trabajo idTrabajo, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve) {
+	public Libro(long idLibro, String colorTapa, int numCopias, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Trabajo idCliente) {
 		super();
 		numLibros = numLibros + 1;
 		this.idLibro = numLibros;
@@ -140,10 +141,18 @@ public class Libro extends Trabajo {
 	public void setidTrabajo(Trabajo[] idTrabajo) {
 		this.idTrabajo = idTrabajo;
 	}
+
+	public Trabajo[] getididCliente() {
+		return idCliente;
+	}
+
+	public void setidCliente(Trabajo[] idCliente) {
+		this.idCliente = idCliente;
+	}
 	
 	public String toString() {
 		return "Libro [idLibro=" + idLibro + ", colorTapa=" + colorTapa + ", numCopias=" + numCopias + ", "
-				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "]";
+				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
 	}
 
 }

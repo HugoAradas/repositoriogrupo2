@@ -74,7 +74,7 @@ public class Maquina {
 	}
 
 //Constructor por atributos de Maquina
-	public Maquina(long idMaquina, int fecha_compra, String ubicacion) {
+	public Maquina(long idMaquina, int fecha_compra, String ubicacion, Lote idLote) {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;
 
@@ -152,6 +152,14 @@ public class Maquina {
 
 	public void setVolumenTinta(double volumenTinta) {
 		this.volumenTinta = volumenTinta;
+	}
+
+	public Lote[] getdLote() {
+		return idLote;
+	}
+
+	public void setidLote(Lote[] idLote) {
+		this.idLote = idLote;
 	}
 
 }

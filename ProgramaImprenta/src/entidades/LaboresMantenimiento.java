@@ -11,7 +11,7 @@ public class LaboresMantenimiento {
 	private int FechaReal;
 	private String Descripcion;
 	private Maquina[] idMaquina;
-	private OpMaquina[] operarios;
+	private OpMaquina[] idOperario;
 
 	public static LaboresMantenimiento nuevoLaboresMantenimiento() {
 		LaboresMantenimiento ret = new LaboresMantenimiento();
@@ -39,7 +39,7 @@ public class LaboresMantenimiento {
 	}
 	
 
-	public LaboresMantenimiento(long idLab, int FechaReal, String descripcion, long idMaquina) {
+	public LaboresMantenimiento(long idLab, int FechaReal, String descripcion, Maquina idMaquina, OpMaquina idOperario) {
 		numLab = numLab + 1;
 		this.idLab = idLab;
 		this.FechaReal = FechaReal;
@@ -79,18 +79,18 @@ public class LaboresMantenimiento {
 		LaboresMantenimiento.numLab = numLab;
 	}
 
-	public OpMaquina[] getOperarios() {
-		return operarios;
+	public OpMaquina[] getidOperario() {
+		return idOperario;
 	}
 
-	public void setOperarios(OpMaquina[] operarios) {
-		this.operarios = operarios;
+	public void setidOperario(OpMaquina[] idOperario) {
+		this.idOperario = idOperario;
 	}
 
 	@Override
 	public String toString() {
 		return "LaboresMantenimiento [idLab=" + idLab + ", FechaReal=" + FechaReal + ", Descripcion=" + Descripcion
-				+ ", Maquina=" + Arrays.toString(idMaquina) + ", operarios=" + Arrays.toString(operarios) + "]";
+				+ ", Maquina=" + Arrays.toString(idMaquina) + ", idOperario=" + Arrays.toString(idOperario) + "]";
 	}
 
 }

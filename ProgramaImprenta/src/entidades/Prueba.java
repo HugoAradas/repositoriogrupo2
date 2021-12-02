@@ -45,7 +45,7 @@ public class Prueba {
 		return ret;
 	}
 
-	public Prueba(int Fecha, String Explicacion, String Resultado, long idPrueba, long idOperario) {
+	public Prueba(long idPrueba, OpCalidad idOperario, int Fecha, String Explicacion, String Resultado, Maquina idMaquina) {
 		numPrueba = numPrueba + 1;
 		this.idPrueba = numPrueba;
 		this.Fecha = Fecha;

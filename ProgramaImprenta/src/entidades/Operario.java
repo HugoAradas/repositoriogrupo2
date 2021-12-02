@@ -17,7 +17,7 @@ public class Operario {
 	protected long num_telefono;
 	private String direccion;
 	public boolean senior;
-	protected Departamento[] departamentos;
+	protected Departamento[] Lugardep;
 
 //constructor por defecto del operario
 	public Operario() {
@@ -97,7 +97,7 @@ public class Operario {
 		return ret;
 	}
 
-	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion, char departamentos) {
+	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion, Departamento Lugardep) {
 		this.idOperario = idOperario;
 		this.NIF = NIF;
 		this.nombre = nombre;
@@ -203,18 +203,18 @@ public class Operario {
 		this.senior = senior;
 	}
 
-	public Departamento[] getDepartamentos() {
-		return departamentos;
+	public Departamento[] getLugardep() {
+		return Lugardep;
 	}
 
-	public void setDepartamentos(Departamento[] departamentos) {
-		this.departamentos = departamentos;
+	public void setLugardep(Departamento[] Lugardep) {
+		this.Lugardep = Lugardep;
 	}
 
 	@Override
 	public String toString() {
 		return "Operario [idOperario=" + idOperario + ", NIF=" + NIF + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", num_telefono=" + num_telefono + ", direccion=" + direccion + ", senior=" + senior
-				+ ", departamentos=" + Arrays.toString(departamentos) + "]";
+				+ ", Lugardep=" + Arrays.toString(Lugardep) + "]";
 	}
 }
