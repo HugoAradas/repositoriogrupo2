@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import validacion.validador;
@@ -11,6 +12,8 @@ public class Poster extends Trabajo {
 	private double ancho; // dado que nos pide que es en centimetros
 	private double alto; // lo mismo
 	private int numCopiasPoster; // El número de copias es entero
+	private Trabajo[] idTrabajo;
+	private Cliente[] idCliente;
 
 //Constructor por defecto de la clase Póster
 	public Poster() {
@@ -86,14 +89,15 @@ public class Poster extends Trabajo {
 	}
 
 //Constructor por atributos de la clase Trabajo
-	public Poster(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
-		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, null, null);
+	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster, long idTrabajo, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 
 	}
 
 //Constructor con atributos de la clase póster y la superclase Trabajo
-	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster, long idTrabajo, int fechaEntrega,
-			int fechaSolicitud) {
+	public Poster(long idPoster, double ancho, double largo, int numCopiasPoster, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
 		numPoster = numPoster + 1;
 		this.idPoster = numPoster;
@@ -139,9 +143,25 @@ public class Poster extends Trabajo {
 		this.numCopiasPoster = numCopiasPoster;
 	}
 
+	public Trabajo[] getidTrabajo() {
+		return idTrabajo;
+	}
+
+	public void setidTrabajo(Trabajo[] idTrabajo) {
+		this.idTrabajo = idTrabajo;
+	}
+
+	public Cliente[] getidCliente() {
+		return idCliente;
+	}
+
+	public void setidCliente(Cliente[] idCliente) {
+		this.idCliente = idCliente;
+	}
+
 	public String toString() {
 		return "Poster [idPoster=" + idPoster + ", ancho=" + ancho + ", alto=" + alto + ", numCopiasPoster="
-				+ numCopiasPoster + "]";
+				+ numCopiasPoster + "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
 	}
 
 }

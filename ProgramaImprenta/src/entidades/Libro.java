@@ -12,7 +12,7 @@ public class Libro extends Trabajo {
 	private String colorTapa; // para saber el color de su tapa
 	private int numCopias; // el numero de copias es entero
 	private Trabajo[] idTrabajo;
-	private Trabajo[] idCliente;
+	private Cliente[] idCliente;
 	
 //Constructor por defecto de la clase Libro
 	public Libro() {
@@ -84,22 +84,17 @@ public class Libro extends Trabajo {
 
 //Constructor con atributos de la superclase Trabajo
 	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve) {
-		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, null, null);
+			int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 
 	}
 
 	// Conatructor con atributos de la clase Libro y la superclase Trbajo
 	public Libro(long idLibro, String colorTapa, int numCopias, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Trabajo idCliente) {
+			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
 		numLibros = numLibros + 1;
 		this.idLibro = numLibros;
-		this.colorTapa = colorTapa;
-		this.numCopias = numCopias;
-		this.fechaSolicitud = fechaSolicitud;
-		this.fechaEntrega = fechaEntrega;
-		this.tipoRelieve = tipoRelieve;
 	}
 
 	public static int getNumLibros() {
@@ -142,11 +137,11 @@ public class Libro extends Trabajo {
 		this.idTrabajo = idTrabajo;
 	}
 
-	public Trabajo[] getididCliente() {
+	public Cliente[] getidCliente() {
 		return idCliente;
 	}
 
-	public void setidCliente(Trabajo[] idCliente) {
+	public void setidCliente(Cliente[] idCliente) {
 		this.idCliente = idCliente;
 	}
 	

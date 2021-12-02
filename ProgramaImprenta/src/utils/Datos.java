@@ -134,16 +134,33 @@ public class Datos {
             new Trabajo(4, 25112021, 25112021, "Rugoso", CLIENTES[1], MAQUINAS[1]),
             new Trabajo(5, 25112021, 25112021, "Liso", CLIENTES[2], MAQUINAS[3]),
             new Trabajo(6, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[2]),
-            new Trabajo(1, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[1]),
-            new Trabajo(2, 25112021, 25112021, "Rugoso", CLIENTES[2], MAQUINAS[1]),
-            new Trabajo(3, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[2]),
+            new Trabajo(7, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[1]),
+            new Trabajo(8, 25112021, 25112021, "Rugoso", CLIENTES[2], MAQUINAS[1]),
+            new Trabajo(9, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[2]),
     };
     public static final int numTrabajos = TRABAJOS.length;
     
+    
     public static final Libro LIBROS[] = {
-//           new Libro(1, "Rojo", 6, 25112021, 25112021, "Liso", TRABAJOS[1], CLIENTES[1]),
-//            new Trabajo(2, 25112021, 25112021, "Rugoso", CLIENTES[1], MAQUINAS[3]),
-//           new Trabajo(3, 25112021, 25112021, "Liso", CLIENTES[3], MAQUINAS[3])
+           new Libro(1, "Rojo", 6, 25112021, 25112021, "Liso", TRABAJOS[1], CLIENTES[1]),
+           new Libro(2, "Rojo", 10, 25112021, 25112021, "Liso", TRABAJOS[3], CLIENTES[2]),
+           new Libro(3, "Rojo", 3, 25112021, 25112021, "Liso", TRABAJOS[4], CLIENTES[2])
     };
     public static final int numLibros = LIBROS.length;
+    
+    
+    public static final Poster POSTERS[] = {
+           new Poster(1, 4.5, 6.8, 9, 25112021, 25112021, "Liso", TRABAJOS[5], CLIENTES[3]),
+           new Poster(2, 10, 9.3, 3, 25112021, 25112021, "Liso", TRABAJOS[8], CLIENTES[2]),
+           new Poster(3, 3.2, 4.7, 2, 25112021, 25112021, "Rugoso", TRABAJOS[9], CLIENTES[1])
+    };
+    public static final int numPoster = POSTERS.length;
+    
+    
+    public static final Rotulo ROTULOS[] = {
+           new Rotulo(1, "LosFresnos", 25112021, 25112021, "Liso", TRABAJOS[2], CLIENTES[2]),
+           new Rotulo(2, "ElCorteIngles", 25112021, 25112021, "Liso", TRABAJOS[6], CLIENTES[2]),
+           new Rotulo(3, "AlCampo", 25112021, 25112021, "Liso", TRABAJOS[7], CLIENTES[3])
+    };
+    public static final int numRotulos = ROTULOS.length;
 }

@@ -14,8 +14,8 @@ public class Trabajo {
 	protected int fechaEntrega;
 	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
-	protected static Cliente[] idCliente;
-	protected static Maquina[] idMaquina;
+	protected Cliente[] idCliente;
+	protected Maquina[] idMaquina;
 
 	public Cliente[] getCliente() {
 		return idCliente;

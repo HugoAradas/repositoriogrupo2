@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import validacion.validador;
@@ -11,17 +12,29 @@ public class Rotulo extends Trabajo {
 	private long idRotulo;
 	// mínimo 3 caracters, máximo 25
 	private String centroComercial;
+	private Trabajo[] idTrabajo;
+	private Cliente[] idCliente;
+	
 
-//Constructor con atributos de la clase trabajo
-	public Rotulo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve) {
-		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, null, null);
-
+//Constructor por defecto de la clase Rótulo
+	public Rotulo() {
+		super();
+		numRotulos = numRotulos + 1;
+		this.idRotulo = numRotulos;
 	}
 
 	public static Rotulo nuevoRotulo() {
 		Rotulo ret = new Rotulo();
-		ret = (Rotulo) Rotulo.nuevoRotulo();
 		Scanner teclado = new Scanner(System.in);
+		long id = -1;
+		boolean validId = false; 
+		do {
+			System.out.println("introduce un id mayor que 0");
+			id = teclado.nextLong();
+			validId = validador.validarId(id);
+		} while (!validId);
+		ret.setIdRotulo(id);
+		
 		boolean centroComercialValido = false;
 		do {
 			System.out.println("Introduce el centro comercial");
@@ -32,14 +45,15 @@ public class Rotulo extends Trabajo {
 
 	}
 
-//Constructor por defecto de la clase Rótulo
-	public Rotulo() {
-		super();
-		numRotulos = numRotulos + 1;
-		this.idRotulo = numRotulos;
+//Constructor con atributos de la clase trabajo
+	public Rotulo(long idRotulo, String centroComercial,  long idTrabajo, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
+
 	}
 
-	public Rotulo(long idRotulo, String centroComercial) {
+	public Rotulo(long idRotulo, String centroComercial, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
 		numRotulos = numRotulos + 1;
 		this.idRotulo = numRotulos;
@@ -83,8 +97,25 @@ public class Rotulo extends Trabajo {
 		this.centroComercial = centroComercial;
 	}
 
+	public Trabajo[] getidTrabajo() {
+		return idTrabajo;
+	}
+
+	public void setidTrabajo(Trabajo[] idTrabajo) {
+		this.idTrabajo = idTrabajo;
+	}
+
+	public Cliente[] getidCliente() {
+		return idCliente;
+	}
+
+	public void setidCliente(Cliente[] idCliente) {
+		this.idCliente = idCliente;
+	}
+
 	public String toString() {
-		return "Rotulos [idRotulos=" + idRotulo + ", centroComercial=" + centroComercial + "]";
+		return "Rotulos [idRotulos=" + idRotulo + ", centroComercial=" + centroComercial 
+				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
 	}
 
 }
