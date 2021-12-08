@@ -37,6 +37,8 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 1.1. Ver trabajos");
+						System.out.println("----------------------------");
+						Trabajo.mostrarTrabajo();
 
 						break;
 					case 2:
