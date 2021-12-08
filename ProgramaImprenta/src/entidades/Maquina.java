@@ -3,6 +3,7 @@ package entidades;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import utils.Datos;
 import validacion.validador;
 
 public class Maquina {
@@ -68,9 +69,16 @@ public class Maquina {
 			System.out.println("introduce un volumen de tinta >0.0");
 			volumenTinta = teclado.nextDouble();
 			validavolumen = validador.validavolumentinta(volumenTinta);
-		}while (!validavolumen);
+		} while (!validavolumen);
 		ret.setVolumenTinta(volumenTinta);
 		return ret;
+	}
+
+	public static void mostrarmaquina() {
+		for (int i = 0; i < Datos.numMaquina; i++) {
+			Maquina m = Datos.MAQUINAS[i];
+			System.out.println(m.toString());
+		}
 	}
 
 //Constructor por atributos de Maquina
@@ -106,7 +114,7 @@ public class Maquina {
 		this.fecha_compra = fecha_compra;
 	}
 
-	public 	String getUbicacion() {
+	public String getUbicacion() {
 		return ubicacion;
 	}
 

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import java.util.Scanner;
 
+import utils.Datos;
 import validacion.DNIException;
 import validacion.validador;
 
@@ -26,23 +27,21 @@ public class Operario {
 
 	}
 
-	
 	private static void validarDNI(String string) throws DNIException {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	public static void validaDNI(String NIF){
+
+	public static void validaDNI(String NIF) {
 		try {
-            validarDNI("08941001G");
-            //Si veo este mensaje es que no ha saltado ninguna excepcion
-            System.out.println("El DNI esta bien"); 
-        } catch (DNIException ex) {
-            //Muestro el error concretamente
-            System.out.println(ex.getMessage());
-        }
+			validarDNI("08941001G");
+			// Si veo este mensaje es que no ha saltado ninguna excepcion
+			System.out.println("El DNI esta bien");
+		} catch (DNIException ex) {
+			// Muestro el error concretamente
+			System.out.println(ex.getMessage());
+		}
 	}
-	
 
 	public static Operario nuevoOperario() {
 		Operario ret = new Operario();
@@ -56,35 +55,34 @@ public class Operario {
 		} while (!validaid);
 		ret.setIdOperario(id);
 
-		
-		String nombre ="";
-		boolean validanombre = false; 
+		String nombre = "";
+		boolean validanombre = false;
 		do {
 			System.out.println("introduce el nombre del cliente (mayor que 3 letras y menor que 15)");
 			nombre = teclado.nextLine();
 			validanombre = validador.validarnombre(nombre);
-			
+
 		} while (!validanombre);
 		ret.setNombre(nombre);
-		
+
 		String apellido = "";
 		boolean validaapellido = false;
 		do {
 			System.out.println("introduce el apellido, tiene que contener espacio entre los 2 apellidos");
-			apellido= teclado.nextLine();
+			apellido = teclado.nextLine();
 			validaapellido = validador.validarapellido(apellido);
 		} while (!validaapellido);
 		ret.setApellido(apellido);
-		
+
 		long num_telefono = -1;
 		boolean validatlf = false;
 		do {
-			System.out.println ( "introduce un numero de telefono mayor de 900000000"); 
-			num_telefono =  teclado.nextLong();
+			System.out.println("introduce un numero de telefono mayor de 900000000");
+			num_telefono = teclado.nextLong();
 			validatlf = validador.validanumtf(num_telefono);
 		} while (!validatlf);
 		ret.setNum_telefono(num_telefono);
-		
+
 		String direccion = "";
 		boolean validadireccion = false;
 		do {
@@ -93,11 +91,19 @@ public class Operario {
 			validadireccion = validador.validardireccion(direccion);
 		} while (!validadireccion);
 		ret.setDireccion(direccion);
-		
+
 		return ret;
 	}
 
-	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion, Departamento Lugardep) {
+	public static void mostraroperario() {
+		for (int i = 0; i < Datos.numOperarios; i++) {
+			Operario o = Datos.OPERARIOS[i];
+			System.out.println(o.toString());
+		}
+	}
+
+	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
+			Departamento Lugardep) {
 		this.idOperario = idOperario;
 		this.NIF = NIF;
 		this.nombre = nombre;
@@ -214,7 +220,7 @@ public class Operario {
 	@Override
 	public String toString() {
 		return "Operario [idOperario=" + idOperario + ", NIF=" + NIF + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", num_telefono=" + num_telefono + ", direccion=" + direccion + ", senior=" + senior
-				+ ", Lugardep=" + Arrays.toString(Lugardep) + "]";
+				+ ", num_telefono=" + num_telefono + ", direccion=" + direccion + ", senior=" + senior + ", Lugardep="
+				+ Arrays.toString(Lugardep) + "]";
 	}
 }

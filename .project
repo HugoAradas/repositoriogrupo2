@@ -3,6 +3,7 @@
 	<name>repositoriogrupo2</name>
 	<comment></comment>
 	<projects>
+		<project>ProgramaImprenta</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

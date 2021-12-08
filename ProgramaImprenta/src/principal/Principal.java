@@ -37,6 +37,7 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 1.1. Ver trabajos");
+						System.out.println("LOS TRABAJOS SON LOS SIGUIENTES");
 						System.out.println("----------------------------");
 						Trabajo.mostrarTrabajo();
 
@@ -71,6 +72,9 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 2.1. Ver máquinas");
+						System.out.println("LAS MÁQUINAS SON LAS SIGUIENTES");
+						System.out.println("-------------------------------");
+						Maquina.mostrarmaquina();
 
 						break;
 					case 2:
@@ -110,22 +114,22 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 3.1. Ver operario");
-
+						System.out.println("LOS OPERARIOS SON LOS SIGUIENTES");
+						System.out.println("--------------------------------");
+						Operario.mostraroperario();
 						break;
 					case 2:
 						System.out.println("Ha elegido 3.2. Nuevo operario \n");
-						
+
 						Operario operario1 = new Operario();
 						operario1 = Operario.nuevoOperario();
-						
+
 						System.out.println("Has elegido el siguiente operario" + operario1);
-						
-						
+
 						break;
 					case 3:
 						System.out.println("Ha elegido 3.3. Buscar operario");
-						
-						
+
 						break;
 					case 4:
 						System.out.println("Ha elegido 3.4. Volver atrás");
