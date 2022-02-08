@@ -1,34 +1,53 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import utils.Utilidades;
 import validacion.validador;
 
 public class LaboresMantenimiento {
 	private static int numLab = 0;
 	private long idLab;
-	private int FechaReal;
-	private String Descripcion;
+	private LocalDate fechaReal;
+	private String descripcion;
 	private Maquina[] idMaquina;
 	private OpMaquina[] idOperario;
 
 	public static LaboresMantenimiento nuevoLaboresMantenimiento() {
-		LaboresMantenimiento ret = new LaboresMantenimiento();
+		LaboresMantenimiento ret = null;
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce el id de la Labor:");
 		long id = -1;
+		String descripcion = "";
+		LocalDate fechaReal = null;
+		Maquina idMaquina = null;
+		OpMaquina idOperario = null;
+		
+		
 		boolean validarId = false;
 		do {
 			System.out.println("introduce el id (>0)");
 			id = teclado.nextLong();
 			validarId = validador.validarId(id);
 		} while (!validarId);
-		ret.setIdLab(id);
-		Scanner Teclado = new Scanner (System.in);
-		System.out.println("introduce en que consistio la labor");
-		ret.Descripcion = Teclado.nextLine();
-		ret.setConsistio(ret.Descripcion);
+		System.out.println("Introduce la fecha en la que se ejecutó la labor del matenimiento");
+		LocalDate fecaReal = Utilidades.leerFecha();
+
+		boolean validades = false;
+		do {
+			System.out.println("introduce una descripción valida");
+			descripcion = teclado.next();
+			validades = validador.validarExplicacion(descripcion);
+		} while (!validades);
+
+		System.out.println("introduce el id de la maquina a la que se la hace la labor");
+		idMaquina = Maquina.nuevaMaquina();
+		
+		System.out.println("introduce el id del operario que lleva a cabo esta labor");
+		idOperario = (OpMaquina) OpMaquina.nuevoOperario();
+		ret = new LaboresMantenimiento (id, descripcion, fechaReal, idMaquina, idOperario);
 		return ret;
 
 	}
@@ -37,15 +56,15 @@ public class LaboresMantenimiento {
 		numLab = numLab + 1;
 		this.idLab = numLab;
 	}
-	
 
-	public LaboresMantenimiento(long idLab, int FechaReal, String descripcion, Maquina idMaquina, OpMaquina idOperario) {
-		numLab = numLab + 1;
-		this.idLab = idLab;
-		this.FechaReal = FechaReal;
-		this.Descripcion = descripcion;
+	public LaboresMantenimiento(long id, String descripcion, LocalDate FechaReal, Maquina idMaquina,
+			OpMaquina idOperario) {
+		this.idLab = id;
+		this.fechaReal = fechaReal;
+		this.descripcion = descripcion;
 
 	}
+
 
 	public long getIdLab() {
 		return idLab;
@@ -55,20 +74,20 @@ public class LaboresMantenimiento {
 		this.idLab = idLab;
 	}
 
-	public int getFechaReal() {
-		return FechaReal;
+	public LocalDate getFechaReal() {
+		return fechaReal;
 	}
 
-	public void setFechaReal(int fechaReal) {
-		FechaReal = fechaReal;
+	public void setFechaReal(LocalDate fechaReal) {
+		this.fechaReal = fechaReal;
 	}
 
 	public String getConsistio() {
-		return Descripcion;
+		return descripcion;
 	}
 
 	public void setConsistio(String consistio) {
-		Descripcion = consistio;
+		descripcion = consistio;
 	}
 
 	public static int getNumLab() {
@@ -89,8 +108,8 @@ public class LaboresMantenimiento {
 
 	@Override
 	public String toString() {
-		return "LaboresMantenimiento [idLab=" + idLab + ", FechaReal=" + FechaReal + ", Descripcion=" + Descripcion
-				+ ", Maquina=" + Arrays.toString(idMaquina) + ", idOperario=" + Arrays.toString(idOperario) + "]";
+		return "LaboresMantenimiento [idLab=" + idLab + ", fechaReal=" + fechaReal + ", descripcion=" + descripcion
+				+ ", idMaquina=" + Arrays.toString(idMaquina) + ", idOperario=" + Arrays.toString(idOperario) + "]";
 	}
 
 }

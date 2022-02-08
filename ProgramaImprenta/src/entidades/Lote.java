@@ -8,8 +8,8 @@ import validacion.validador;
 public class Lote {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numLotes = 0;
-	private long idLote;
-	private String nombreLote;
+	protected long idLote;
+	protected String nombreLote;
 	private Departamento[] Lugardep;
 
 	public Lote() {
@@ -18,40 +18,35 @@ public class Lote {
 	}
 
 	public static Lote nuevoLote() {
-		Lote ret = new Lote();
+		Lote ret = null;
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
+		Departamento lugarDep = null;
 		boolean validaId = false;
 		do {
 			System.out.println("introduce el id del lote (>0)");
 			id = teclado.nextInt();
 			validaId = validador.validarId(id);
 		} while (!validaId);
-		ret.setIdLote(id);
-		
-		String nombreLote ="";
-		boolean validanombre = false; 
+
+		String nombreLote = "";
+		boolean validanombre = false;
 		do {
 			System.out.println("introduce el nombre del lote (mayor que 3 letras y menor que 15)");
 			nombreLote = teclado.nextLine();
 			validanombre = validador.validarnombre(nombreLote);
-			
+
 		} while (!validanombre);
-		ret.setnombreLote(nombreLote);
-		
-		long idmaquina = -1;
-		boolean validaid= false;
-		do {
-			System.out.println("introduce el id donde esta asociada la maquina");
-			idmaquina = teclado.nextInt();
-			validaid = validador.validarId(idmaquina);
-		} while (!validaid);
+
+		System.out.println("Introduce el departamento al que va a ir el lote");
+		lugarDep = Departamento.nuevoDepartamento();
+
+		ret = new Lote(id, nombreLote, lugarDep);
 		return ret;
 	}
 
 	public Lote(long idLote, String nombreLote, Departamento Lugardep) {
-		numLotes = numLotes + 1;
-		this.idLote = numLotes;
+
 	}
 
 	public static int getNumLotes() {
@@ -88,7 +83,8 @@ public class Lote {
 
 	@Override
 	public String toString() {
-		return "Lote [idLote=" + idLote + ", nombreLote=" + nombreLote + ", Lugardep=" + Arrays.toString(Lugardep) + "]";
+		return "Lote [idLote=" + idLote + ", nombreLote=" + nombreLote + ", Lugardep=" + Arrays.toString(Lugardep)
+				+ "]";
 	}
 
 }

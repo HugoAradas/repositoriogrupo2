@@ -1,22 +1,24 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Scanner;
 
-import utils.Datos;
+import utils.Utilidades;
+//import utils.Datos;
 import validacion.validador;
 
 public class Maquina {
 	// Variable auxiliar para asignar el id automaticamente
 	public static int numMaquinas = 0;
-	public long idMaquina;
-	private int fecha_compra;
+	private long idMaquina;
+	private LocalDate fechaCompra;
 	private String ubicacion;
-	public String tipoImpresion;
-	public String modoImpresion;
-	public double volumenTinta;
+	private String tipoImpresion;
+	private String modoImpresion;
+	private double volumenTinta;
 	// Identificadro del lote, debido a la relacion entre maquina y lote
-	private Lote[] idLote;
+	private Lote idLote;
 
 //Constructor por defecto de Maquina
 	public Maquina() {
@@ -26,16 +28,21 @@ public class Maquina {
 	}
 
 	public static Maquina nuevaMaquina() {
-		Maquina ret = new Maquina();
+		Maquina ret = null;
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
+		LocalDate fechaCompra = null;
+		Lote idLote = null;
 		boolean validaidMaquina = false;
+
 		do {
 			System.out.println("introduce un id de maquina (>0)");
 			id = teclado.nextLong();
 			validaidMaquina = validador.validarmaquina(id);
 		} while (!validaidMaquina);
-		ret.setIdMaquina(id);
+
+		System.out.println("Introduce la fecha de la compra");
+		fechaCompra = Utilidades.leerFecha();
 
 		String ubicacion = "";
 		boolean validarUbi = false;
@@ -44,7 +51,6 @@ public class Maquina {
 			ubicacion = teclado.nextLine();
 			validarUbi = validador.validaubicacion(ubicacion);
 		} while (!validarUbi);
-		ret.setUbicacion(ubicacion);
 
 		String tipoImpresion = "";
 		boolean validaImpresion = false;
@@ -53,7 +59,6 @@ public class Maquina {
 			tipoImpresion = teclado.nextLine();
 			validaImpresion = validador.validamodoimpresion(tipoImpresion);
 		} while (!validaImpresion);
-		ret.setTipoImpresion(tipoImpresion);
 
 		String modoImpresion = "";
 		boolean validamodoImpresion = false;
@@ -62,7 +67,7 @@ public class Maquina {
 			modoImpresion = teclado.nextLine();
 			validamodoImpresion = validador.validamodoimpresion(modoImpresion);
 		} while (!validamodoImpresion);
-		ret.setModoImpresion(modoImpresion);
+
 		double volumenTinta = -1.0;
 		boolean validavolumen = false;
 		do {
@@ -70,15 +75,29 @@ public class Maquina {
 			volumenTinta = teclado.nextDouble();
 			validavolumen = validador.validavolumentinta(volumenTinta);
 		} while (!validavolumen);
-		ret.setVolumenTinta(volumenTinta);
+
+		System.out.println("introduce el lote donde esta la máquina");
+		idLote = Lote.nuevoLote();
+		ret = new Maquina(id, fechaCompra, ubicacion, tipoImpresion, modoImpresion, volumenTinta, idLote);
 		return ret;
 	}
 
-	public static void mostrarmaquina() {
-		for (int i = 0; i < Datos.numMaquina; i++) {
-			Maquina m = Datos.MAQUINAS[i];
-			System.out.println(m.toString());
-		}
+//	public static void mostrarmaquina() {
+//		for (int i = 0; i < Datos.numMaquina; i++) {
+//			Maquina m = Datos.MAQUINAS[i];
+//			System.out.println(m.toString());
+//		}
+//	}
+
+	public Maquina(long id, LocalDate fechaCompra, String ubicacion, String tipoImpresion, String modoImpresion,
+			double volumenTinta, Lote idLote) {
+		this.idMaquina = id;
+		this.fechaCompra = fechaCompra;
+		this.ubicacion = ubicacion;
+		this.tipoImpresion = tipoImpresion;
+		this.modoImpresion = modoImpresion;
+		this.volumenTinta = volumenTinta;
+		this.idLote = idLote;
 	}
 
 //Constructor por atributos de Maquina
@@ -92,10 +111,12 @@ public class Maquina {
 		setUbicacion(ubicacion);
 	}
 
-	public String toString() {
-		return "Maquina [idMaquina=" + idMaquina + ", fecha_compra=" + fecha_compra + ", ubicacion=" + ubicacion
-				+ ", tipoImpresion=" + tipoImpresion + ", modoImpresion=" + modoImpresion + ", volumenTinta="
-				+ volumenTinta + "]";
+	public LocalDate getFechaCompra() {
+		return fechaCompra;
+	}
+
+	public void setFechaCompra(LocalDate fechaCompra) {
+		this.fechaCompra = fechaCompra;
 	}
 
 	public long getId_maquina() {
@@ -104,14 +125,6 @@ public class Maquina {
 
 	public void setId_maquina(long idMaquina) {
 		this.idMaquina = idMaquina;
-	}
-
-	public int getFecha_compra() {
-		return fecha_compra;
-	}
-
-	public void setFecha_compra(int fecha_compra) {
-		this.fecha_compra = fecha_compra;
 	}
 
 	public String getUbicacion() {
@@ -162,12 +175,19 @@ public class Maquina {
 		this.volumenTinta = volumenTinta;
 	}
 
-	public Lote[] getdLote() {
+	public Lote getIdLote() {
 		return idLote;
 	}
 
-	public void setidLote(Lote[] idLote) {
+	public void setIdLote(Lote idLote) {
 		this.idLote = idLote;
+	}
+
+	@Override
+	public String toString() {
+		return "Maquina [idMaquina=" + idMaquina + ", fechaCompra=" + fechaCompra + ", ubicacion=" + ubicacion
+				+ ", tipoImpresion=" + tipoImpresion + ", modoImpresion=" + modoImpresion + ", volumenTinta="
+				+ volumenTinta + ", idLote=" + idLote + "]";
 	}
 
 }

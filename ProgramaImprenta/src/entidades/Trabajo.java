@@ -3,7 +3,7 @@ package entidades;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import utils.Datos;
+//import utils.Datos;
 import validacion.validador;
 
 public class Trabajo {
@@ -56,13 +56,13 @@ public class Trabajo {
 
 	}
 
-	public static void mostrarTrabajo() {
-		System.out.println("Lista de trabajos disponibles");
-		for (int i = 0; i < Datos.numTrabajos; i++) {
-			Trabajo t = Datos.TRABAJOS[i];
-			System.out.println(t);
-		}
-	}
+//	public static void mostrarTrabajo() {
+//		System.out.println("Lista de trabajos disponibles");
+//		for (int i = 0; i < Datos.numTrabajos; i++) {
+//			Trabajo t = Datos.TRABAJOS[i];
+//			System.out.println(t);
+//		}
+//	}
 
 //Constructor por atributos de Trabajo	
 	public Trabajo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve, Cliente idCliente,

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import java.util.Scanner;
 
-import utils.Datos;
+//import utils.Datos;
 import validacion.DNIException;
 import validacion.validador;
 
@@ -15,10 +15,10 @@ public class Operario {
 	protected String NIF;
 	protected String nombre;
 	protected String apellido;
-	protected long num_telefono;
+	protected long numTelefono;
 	private String direccion;
 	public boolean senior;
-	protected Departamento[] Lugardep;
+	protected Departamento[] lugardep;
 
 //constructor por defecto del operario
 	public Operario() {
@@ -44,16 +44,16 @@ public class Operario {
 	}
 
 	public static Operario nuevoOperario() {
-		Operario ret = new Operario();
+		Operario ret = null;
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
+		Departamento lugarDep = null;
 		boolean validaid = false;
 		do {
 			System.out.println("introduce el id >0");
 			id = teclado.nextInt();
 			validaid = validador.validarId(id);
 		} while (!validaid);
-		ret.setIdOperario(id);
 
 		String nombre = "";
 		boolean validanombre = false;
@@ -63,7 +63,6 @@ public class Operario {
 			validanombre = validador.validarnombre(nombre);
 
 		} while (!validanombre);
-		ret.setNombre(nombre);
 
 		String apellido = "";
 		boolean validaapellido = false;
@@ -72,16 +71,14 @@ public class Operario {
 			apellido = teclado.nextLine();
 			validaapellido = validador.validarapellido(apellido);
 		} while (!validaapellido);
-		ret.setApellido(apellido);
 
-		long num_telefono = -1;
+		long numTelefono = -1;
 		boolean validatlf = false;
 		do {
 			System.out.println("introduce un numero de telefono mayor de 900000000");
-			num_telefono = teclado.nextLong();
-			validatlf = validador.validanumtf(num_telefono);
+			numTelefono = teclado.nextLong();
+			validatlf = validador.validanumtf(numTelefono);
 		} while (!validatlf);
-		ret.setNum_telefono(num_telefono);
 
 		String direccion = "";
 		boolean validadireccion = false;
@@ -90,17 +87,19 @@ public class Operario {
 			direccion = teclado.nextLine();
 			validadireccion = validador.validardireccion(direccion);
 		} while (!validadireccion);
-		ret.setDireccion(direccion);
+
+		System.out.println("Introduce el departamento en  el que trabaja el operario");
+		lugarDep = Departamento.nuevoDepartamento();
 
 		return ret;
 	}
 
-	public static void mostraroperario() {
-		for (int i = 0; i < Datos.numOperarios; i++) {
-			Operario o = Datos.OPERARIOS[i];
-			System.out.println(o.toString());
-		}
-	}
+//	public static void mostraroperario() {
+//		for (int i = 0; i < Datos.numOperarios; i++) {
+//			Operario o = Datos.OPERARIOS[i];
+//			System.out.println(o.toString());
+//		}
+//	}
 
 	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
 			Departamento Lugardep) {
@@ -108,7 +107,7 @@ public class Operario {
 		this.NIF = NIF;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.num_telefono = num_telefono;
+		this.numTelefono = num_telefono;
 		this.direccion = direccion;
 	}
 
@@ -131,7 +130,7 @@ public class Operario {
 		Scanner teclado2 = new Scanner(System.in);
 		System.out.println("Introduce el num_telefono:");
 		num_telefono = teclado2.nextLong();
-		setNum_telefono(num_telefono);
+		setNumTelefono(numTelefono);
 
 		Scanner teclado3 = new Scanner(System.in);
 		System.out.println("Introduce la direccion:");
@@ -185,14 +184,6 @@ public class Operario {
 		this.apellido = apellido;
 	}
 
-	public long getNum_telefono() {
-		return num_telefono;
-	}
-
-	public void setNum_telefono(long num_telefono) {
-		this.num_telefono = num_telefono;
-	}
-
 	public String getDireccion() {
 		return direccion;
 	}
@@ -209,18 +200,27 @@ public class Operario {
 		this.senior = senior;
 	}
 
-	public Departamento[] getLugardep() {
-		return Lugardep;
+	public long getNumTelefono() {
+		return numTelefono;
 	}
 
-	public void setLugardep(Departamento[] Lugardep) {
-		this.Lugardep = Lugardep;
+	public void setNumTelefono(long numTelefono) {
+		this.numTelefono = numTelefono;
+	}
+
+	public Departamento[] getLugardep() {
+		return lugardep;
+	}
+
+	public void setLugardep(Departamento[] lugardep) {
+		this.lugardep = lugardep;
 	}
 
 	@Override
 	public String toString() {
 		return "Operario [idOperario=" + idOperario + ", NIF=" + NIF + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", num_telefono=" + num_telefono + ", direccion=" + direccion + ", senior=" + senior + ", Lugardep="
-				+ Arrays.toString(Lugardep) + "]";
+				+ ", numTelefono=" + numTelefono + ", direccion=" + direccion + ", senior=" + senior + ", lugardep="
+				+ Arrays.toString(lugardep) + "]";
 	}
+
 }

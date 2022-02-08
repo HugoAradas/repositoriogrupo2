@@ -12,10 +12,9 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 
-
 //Constructor por defecto de la clase cliente
 	public static Cliente nuevoCliente() {
-		Cliente ret = new Cliente();
+		Cliente ret = null;
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("introduce un id valido para el cliente");
 		long id = -1;
@@ -23,9 +22,8 @@ public class Cliente {
 		do {
 			System.out.println("El id del cliente tiene que ser siempre mayor que cero");
 			id = teclado.nextLong();
-			validaid= validador.validarId(id);
+			validaid = validador.validarId(id);
 		} while (!validaid);
-		ret.setIdCliente(id);
 
 		String nombre = "";
 		boolean nombrevalido = false;
@@ -34,17 +32,16 @@ public class Cliente {
 			nombre = teclado.nextLine();
 			nombrevalido = validador.validarnombre(nombre);
 		} while (!nombrevalido);
-		ret.setNombre(nombre);
-		
-		String apellido ="";
-		boolean apellidovalido = false; 
+
+		String apellido = "";
+		boolean apellidovalido = false;
 		do {
 			System.out.println("introduce el apellido, tiene que contener espacio entre los 2 apellidos");
-			apellido= teclado.nextLine();
+			apellido = teclado.nextLine();
 			apellidovalido = validador.validarapellido(apellido);
 		} while (!apellidovalido);
-		ret.setApellido(apellido);
-		
+
+		ret = new Cliente(id, nombre, apellido);
 		return ret;
 
 	}
@@ -58,9 +55,9 @@ public class Cliente {
 		System.out.println("Introduce el NombreApellido:");
 		nombre = teclado.nextLine();
 		setNombre(nombre);
-		System.out.println ("introduce el apellido");
+		System.out.println("introduce el apellido");
 		apellido = teclado.nextLine();
-		setApellido (apellido);
+		setApellido(apellido);
 
 	}
 

@@ -13,51 +13,54 @@ public class Libro extends Trabajo {
 	private int numCopias; // el numero de copias es entero
 	private Trabajo[] idTrabajo;
 	private Cliente[] idCliente;
-	
+
 //Constructor por defecto de la clase Libro
 	public Libro() {
 		super();
-		numLibros = numLibros + 1;
-		this.idLibro = numLibros;
-
 	}
 
 	public static Libro nuevoLibro() {
-		Libro ret = new Libro();
-		Scanner teclado = new Scanner (System.in);
+		Libro ret =null;
+		Scanner teclado = new Scanner(System.in);
 		long id = -1;
-		boolean validId = false; 
+		Trabajo idTrabajo = null;
+		Cliente idCliente = null;
+		boolean validId = false;
 		do {
 			System.out.println("introduce un id mayor que 0");
 			id = teclado.nextLong();
 			validId = validador.validarId(id);
 		} while (!validId);
-		ret.setIdLibro(id);
-		String color=" ";
-		boolean validacolor= false;
+		String color = " ";
+		boolean validacolor = false;
 		do {
 			System.out.println("Introduce el color de la tapa ( mas de 4 letras y menos de 10)");
 			color = teclado.nextLine();
-			validacolor= validador.validarColorTapa(color);
+			validacolor = validador.validarColorTapa(color);
 		} while (!validacolor);
-		ret.setColorTapa(color);
 		int numcopias = -1;
-		boolean validacopias= false;
+		boolean validacopias = false;
 		do {
 			System.out.println("introduce un numero de copias (mayor que 0 )");
 			numcopias = teclado.nextInt();
 			validacopias = validador.validarnumcopias(numcopias);
 		} while (!validacopias);
-		ret.setNumCopias(numcopias);
 
-		String tipo ="";
+		String tipo = "";
 		boolean validatipo = false;
 		do {
 			System.out.println("introduce un tipo de relieve ( mas de 4 letras y menos de 10)");
 			tipo = teclado.nextLine();
 			validatipo = validador.validarTipoRelieve(tipo);
 		} while (!validatipo);
-		ret.setTipoRelieve(tipo);
+		
+		System.out.println("introduce el trabajo para realizar el libro");
+		idTrabajo = Trabajo.nuevoTrabajo();
+		
+		System.out.println("introduce el cliente que quiere el libro");
+		idCliente = Cliente.nuevoCliente();
+		
+		ret =new Libro (id, color, numcopias, tipo, idTrabajo, idCliente);
 		return ret;
 	}
 
@@ -83,18 +86,15 @@ public class Libro extends Trabajo {
 	}
 
 //Constructor con atributos de la superclase Trabajo
-	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
+	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud, int fechaEntrega,
+			String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 
 	}
 
 	// Conatructor con atributos de la clase Libro y la superclase Trbajo
-	public Libro(long idLibro, String colorTapa, int numCopias, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
+	public Libro(long idLibro, String colorTapa, int numCopias, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
-		numLibros = numLibros + 1;
-		this.idLibro = numLibros;
 	}
 
 	public static int getNumLibros() {
@@ -144,7 +144,7 @@ public class Libro extends Trabajo {
 	public void setidCliente(Cliente[] idCliente) {
 		this.idCliente = idCliente;
 	}
-	
+
 	public String toString() {
 		return "Libro [idLibro=" + idLibro + ", colorTapa=" + colorTapa + ", numCopias=" + numCopias + ", "
 				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
