@@ -98,7 +98,7 @@ public class Cliente {
 	}
 
 	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nombreApellido=" + nombre + "]";
+		return idCliente + "|" + nombre + "|" + apellido;
 	}
 
 }

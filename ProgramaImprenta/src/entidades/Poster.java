@@ -160,8 +160,7 @@ public class Poster extends Trabajo {
 	}
 
 	public String toString() {
-		return "Poster [idPoster=" + idPoster + ", ancho=" + ancho + ", alto=" + alto + ", numCopiasPoster="
-				+ numCopiasPoster + "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
+		return idPoster + "|" + ancho + "|" + alto + "|" + numCopiasPoster + "|" + idTrabajo + "|" + idCliente;
 	}
 
 }

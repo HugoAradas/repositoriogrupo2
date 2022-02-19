@@ -114,8 +114,7 @@ public class Rotulo extends Trabajo {
 	}
 
 	public String toString() {
-		return "Rotulos [idRotulos=" + idRotulo + ", centroComercial=" + centroComercial 
-				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
+		return idRotulo + "|" + centroComercial + "|" + idTrabajo + "|" + idCliente;
 	}
 
 }

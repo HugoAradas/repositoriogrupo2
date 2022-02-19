@@ -48,4 +48,12 @@ public class OpCalidad extends Operario {
 	public OpCalidad() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return  idOperario + "|";
+	}
+	
+	
+	
 }

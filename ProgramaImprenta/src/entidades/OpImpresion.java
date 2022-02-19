@@ -28,10 +28,6 @@ public class OpImpresion extends Operario {
 		this.idMod = numIm;
 	}
 
-	public String toString() {
-		return "OpPolitica [idMod=" + idMod + "]";
-	}
-
 	public long getidMod() {
 		return idMod;
 	}
@@ -47,4 +43,10 @@ public class OpImpresion extends Operario {
 	public static void setNumIm(int numIm) {
 		OpImpresion.numIm = numIm;
 	}
+
+	@Override
+	public String toString() {
+		return idMod + "|";
+	}
+	
 }

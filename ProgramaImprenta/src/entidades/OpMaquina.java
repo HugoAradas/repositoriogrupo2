@@ -26,11 +26,6 @@ public class OpMaquina extends Operario {
 		numLabores = numLabores + 1;
 	}
 
-	@Override
-	public String toString() {
-		return "OpMaquina [Operario=" + Arrays.toString(idOperario) + "]";
-	}
-
 	public static int getNumLabores() {
 		return numLabores;
 	}
@@ -47,4 +42,9 @@ public class OpMaquina extends Operario {
 		this.idOperario = idOperario;
 	}
 
+	@Override
+	public String toString() {
+		return idOperario  + "|";
+	}
+	
 }

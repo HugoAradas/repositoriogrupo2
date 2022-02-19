@@ -117,9 +117,7 @@ public class Trabajo {
 
 	@Override
 	public String toString() {
-		return "Trabajo [idTrabajo=" + idTrabajo + ", fechaSolicitud=" + fechaSolicitud + ", fechaEntrega="
-				+ fechaEntrega + ", tipoRelieve=" + tipoRelieve + ", clientes=" + Arrays.toString(idCliente)
-				+ ", idMaquina=" + Arrays.toString(idMaquina) + "]";
+		return idTrabajo + "|" + fechaSolicitud + "|" + fechaEntrega + "|" + tipoRelieve + "|" + idCliente + "|" + idMaquina;
 	}
 
 }

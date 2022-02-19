@@ -92,7 +92,6 @@ public class ReglaCalidad {
 
 	@Override
 	public String toString() {
-		return "ReglaCalidad [idRegla=" + idRegla + ", NombreRegla=" + NombreRegla
-				+ ", idOperario=" + Arrays.toString(idOperario) + ", idPrueba=" + Arrays.toString(idPrueba) + "]";
+		return idRegla + "|" + NombreRegla + "|" + idOperario + "|" + idPrueba;
 	}
 }

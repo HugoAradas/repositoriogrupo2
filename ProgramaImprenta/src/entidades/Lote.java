@@ -10,7 +10,7 @@ public class Lote {
 	public static int numLotes = 0;
 	protected long idLote;
 	protected String nombreLote;
-	private Departamento[] Lugardep;
+	private Departamento[] idDep;
 
 	public Lote() {
 		numLotes = numLotes + 1;
@@ -21,7 +21,7 @@ public class Lote {
 		Lote ret = null;
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
-		Departamento lugarDep = null;
+		Departamento idDep = null;
 		boolean validaId = false;
 		do {
 			System.out.println("introduce el id del lote (>0)");
@@ -39,13 +39,13 @@ public class Lote {
 		} while (!validanombre);
 
 		System.out.println("Introduce el departamento al que va a ir el lote");
-		lugarDep = Departamento.nuevoDepartamento();
+		idDep = Departamento.nuevoDepartamento();
 
-		ret = new Lote(id, nombreLote, lugarDep);
+		ret = new Lote(id, nombreLote, idDep);
 		return ret;
 	}
 
-	public Lote(long idLote, String nombreLote, Departamento Lugardep) {
+	public Lote(long idLote, String nombreLote, Departamento idDep) {
 
 	}
 
@@ -73,18 +73,17 @@ public class Lote {
 		this.nombreLote = nombreLote;
 	}
 
-	public Departamento[] getLugardep() {
-		return Lugardep;
+	public Departamento[] getidDep() {
+		return idDep;
 	}
 
-	public void setLugardep(Departamento[] Lugardep) {
-		this.Lugardep = Lugardep;
+	public void setidDep(Departamento[] idDep) {
+		this.idDep = idDep;
 	}
 
 	@Override
 	public String toString() {
-		return "Lote [idLote=" + idLote + ", nombreLote=" + nombreLote + ", Lugardep=" + Arrays.toString(Lugardep)
-				+ "]";
+		return idLote + "|" + nombreLote + "|" + idDep;
 	}
 
 }

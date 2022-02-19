@@ -108,8 +108,7 @@ public class LaboresMantenimiento {
 
 	@Override
 	public String toString() {
-		return "LaboresMantenimiento [idLab=" + idLab + ", fechaReal=" + fechaReal + ", descripcion=" + descripcion
-				+ ", idMaquina=" + Arrays.toString(idMaquina) + ", idOperario=" + Arrays.toString(idOperario) + "]";
+		return idLab + "|" + fechaReal + "|" + descripcion + "|" + idOperario + "|" + idMaquina;
 	}
 
 }

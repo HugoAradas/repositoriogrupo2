@@ -146,8 +146,7 @@ public class Libro extends Trabajo {
 	}
 
 	public String toString() {
-		return "Libro [idLibro=" + idLibro + ", colorTapa=" + colorTapa + ", numCopias=" + numCopias + ", "
-				+ "idTrabajo=" + Arrays.toString(idTrabajo) + "idCliente=" + Arrays.toString(idCliente) + "]";
+		return idLibro + "|" + colorTapa + "|" + numCopias + "|" + idTrabajo + "|" + idCliente;
 	}
 
 }

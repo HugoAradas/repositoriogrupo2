@@ -185,9 +185,7 @@ public class Maquina {
 
 	@Override
 	public String toString() {
-		return "Maquina [idMaquina=" + idMaquina + ", fechaCompra=" + fechaCompra + ", ubicacion=" + ubicacion
-				+ ", tipoImpresion=" + tipoImpresion + ", modoImpresion=" + modoImpresion + ", volumenTinta="
-				+ volumenTinta + ", idLote=" + idLote + "]";
+		return idMaquina + "|" + fechaCompra + "|" + ubicacion + "|" + tipoImpresion + "|" + modoImpresion + "|" + volumenTinta + "|" + idLote;
 	}
 
 }

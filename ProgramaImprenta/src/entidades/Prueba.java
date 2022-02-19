@@ -7,7 +7,7 @@ import validacion.validador;
 
 public class Prueba {
 	private static int numPrueba = 0;
-	private int Fecha;
+	private int fecha;
 	// entre 3 y 120 caracteres
 	private String Explicacion;
 	// entre 3 y 120 caracteres
@@ -45,10 +45,10 @@ public class Prueba {
 		return ret;
 	}
 
-	public Prueba(long idPrueba, OpCalidad idOperario, int Fecha, String Explicacion, String Resultado, Maquina idMaquina) {
+	public Prueba(long idPrueba, OpCalidad idOperario, int fecha, String Explicacion, String Resultado, Maquina idMaquina) {
 		numPrueba = numPrueba + 1;
 		this.idPrueba = numPrueba;
-		this.Fecha = Fecha;
+		this.fecha = fecha;
 		this.Explicacion = Explicacion;
 		this.Resultado = Resultado;
 	}
@@ -69,12 +69,12 @@ public class Prueba {
 		this.idMaquina = idMaquina;
 	}
 
-	public int getFecha() {
-		return Fecha;
+	public int getfecha() {
+		return fecha;
 	}
 
-	public void setFecha(int fecha) {
-		Fecha = fecha;
+	public void setfecha(int fecha) {
+		fecha = fecha;
 	}
 
 	public String getExplicacion() {
@@ -111,7 +111,6 @@ public class Prueba {
 
 	@Override
 	public String toString() {
-		return "Prueba [idPrueba=" + idPrueba + ", idMaquina=" + idMaquina + ", Fecha=" + Fecha + ", Explicacion="
-				+ Explicacion + ", Resultado=" + Resultado + ", idOperario=" + Arrays.toString(idOperario) + "]";
+		return idPrueba + "|" + fecha + "|" + Explicacion + "|" + Resultado + "|" + idOperario + "|" + idMaquina;
 	}
 }

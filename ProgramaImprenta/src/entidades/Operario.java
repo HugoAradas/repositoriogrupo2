@@ -18,7 +18,7 @@ public class Operario {
 	protected long numTelefono;
 	private String direccion;
 	public boolean senior;
-	protected Departamento[] lugardep;
+	protected Departamento[] idDep;
 
 //constructor por defecto del operario
 	public Operario() {
@@ -47,7 +47,7 @@ public class Operario {
 		Operario ret = null;
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
-		Departamento lugarDep = null;
+		Departamento idDep = null;
 		boolean validaid = false;
 		do {
 			System.out.println("introduce el id >0");
@@ -89,7 +89,7 @@ public class Operario {
 		} while (!validadireccion);
 
 		System.out.println("Introduce el departamento en  el que trabaja el operario");
-		lugarDep = Departamento.nuevoDepartamento();
+		idDep = Departamento.nuevoDepartamento();
 
 		return ret;
 	}
@@ -102,7 +102,7 @@ public class Operario {
 //	}
 
 	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
-			Departamento Lugardep) {
+			Departamento idDep) {
 		this.idOperario = idOperario;
 		this.NIF = NIF;
 		this.nombre = nombre;
@@ -208,19 +208,17 @@ public class Operario {
 		this.numTelefono = numTelefono;
 	}
 
-	public Departamento[] getLugardep() {
-		return lugardep;
+	public Departamento[] getidDep() {
+		return idDep;
 	}
 
-	public void setLugardep(Departamento[] lugardep) {
-		this.lugardep = lugardep;
+	public void setidDep(Departamento[] idDep) {
+		this.idDep = idDep;
 	}
 
 	@Override
 	public String toString() {
-		return "Operario [idOperario=" + idOperario + ", NIF=" + NIF + ", nombre=" + nombre + ", apellido=" + apellido
-				+ ", numTelefono=" + numTelefono + ", direccion=" + direccion + ", senior=" + senior + ", lugardep="
-				+ Arrays.toString(lugardep) + "]";
+		return idOperario + "|" + NIF + "|" + nombre + "|" + apellido + "|" + numTelefono + "|" + direccion + "|" + senior + "|" + idDep;
 	}
 
 }

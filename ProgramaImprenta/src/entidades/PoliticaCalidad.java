@@ -9,9 +9,9 @@ public class PoliticaCalidad {
 	private long idPolitica;
 	private static int numPol = 0;
 	private String nombrePolitica;
-	private int FechaVig;
-	private String Descripcion;
-	private OpCalidad[] operarios;
+	private int fechaVig;
+	private String descripcion;
+	private OpCalidad[] idOperario;
 	private ReglaCalidad[] idRegla;
 
 	public PoliticaCalidad() {
@@ -46,17 +46,17 @@ public class PoliticaCalidad {
 			descripcion = teclado.next();
 			validadescripcion = validador.validarExplicacion(descripcion);
 		} while (!validadescripcion);
-		ret.setDescripcion(descripcion);
+		ret.setdescripcion(descripcion);
 		
 		return ret;
 	}
 
-	public PoliticaCalidad(long idPol, String nombrePolitica, int FechaVig, String Descripcion, String Resultado, OpCalidad idOperario,
+	public PoliticaCalidad(long idPol, String nombrePolitica, int fechaVig, String descripcion, String Resultado, OpCalidad idOperario,
 			ReglaCalidad idRegla, ReglaCalidad idRegla1) {
 		numPol = numPol + 1;
 		this.nombrePolitica = nombrePolitica;
-		this.FechaVig = FechaVig;
-		this.Descripcion = Descripcion;
+		this.fechaVig = fechaVig;
+		this.descripcion = descripcion;
 	}
 	
 
@@ -76,20 +76,20 @@ public class PoliticaCalidad {
 		this.nombrePolitica = nombrePolitica2;
 	}
 
-	public int getFechaVig() {
-		return FechaVig;
+	public int getfechaVig() {
+		return fechaVig;
 	}
 
-	public void setFechaVig(int fechaVig) {
-		FechaVig = fechaVig;
+	public void setfechaVig(int fechaVig) {
+		fechaVig = fechaVig;
 	}
 
-	public String getDescripcion() {
-		return Descripcion;
+	public String getdescripcion() {
+		return descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+	public void setdescripcion(String descripcion) {
+		descripcion = descripcion;
 	}
 
 	public static int getNumPol() {
@@ -100,12 +100,12 @@ public class PoliticaCalidad {
 		PoliticaCalidad.numPol = numPol;
 	}
 
-	public OpCalidad[] getOperarios() {
-		return operarios;
+	public OpCalidad[] getidOperario() {
+		return idOperario;
 	}
 
-	public void setOperarios(OpCalidad[] operarios) {
-		this.operarios = operarios;
+	public void setidOperario(OpCalidad[] idOperario) {
+		this.idOperario = idOperario;
 	}
 
 	public ReglaCalidad[] getidRegla() {
@@ -118,7 +118,6 @@ public class PoliticaCalidad {
 
 	@Override
 	public String toString() {
-		return "PoliticaCalidad [NombrePolitica=" + nombrePolitica + ", FechaVig=" + FechaVig + ", Descripcion="
-				+ Descripcion + ", operarios=" + Arrays.toString(operarios) + ", idRegla=" + Arrays.toString(idRegla) + "]";
+		return  idPolitica + "|" + nombrePolitica + "|" + fechaVig + "|" + descripcion + "|" + idOperario + "|" + idRegla;
 	}
 }
