@@ -1,6 +1,5 @@
 package entidades;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import validacion.validador;
@@ -12,7 +11,27 @@ public class Cliente {
 	private String nombre;
 	private String apellido;
 
-//Constructor por defecto de la clase cliente
+// Constructor por defecto de la clase cliente
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+	
+// Constructor con atributos de la clase cliente
+	public Cliente(long idCliente, String nombre, String apellido) {
+		numClientes = numClientes + 1;
+		this.idCliente = numClientes;
+
+		Scanner teclado = new Scanner(System.in);
+		System.out.println("Introduce el NombreApellido:");
+		nombre = teclado.nextLine();
+		setNombre(nombre);
+		System.out.println("introduce el apellido");
+		apellido = teclado.nextLine();
+		setApellido(apellido);
+		
+	}
+	
+// Metodo para generar un nuevo cliente
 	public static Cliente nuevoCliente() {
 		Cliente ret = null;
 		Scanner teclado = new Scanner(System.in);
@@ -45,26 +64,8 @@ public class Cliente {
 		return ret;
 
 	}
-
-//Constructor con atributos de la calse cliente
-	public Cliente(long idCliente, String nombre, String apellido) {
-		numClientes = numClientes + 1;
-		this.idCliente = numClientes;
-
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el NombreApellido:");
-		nombre = teclado.nextLine();
-		setNombre(nombre);
-		System.out.println("introduce el apellido");
-		apellido = teclado.nextLine();
-		setApellido(apellido);
-
-	}
-
-	public Cliente() {
-		// TODO Auto-generated constructor stub
-	}
-
+	
+// Getters y Setters de los atributos de la clase
 	public static int getNumClientes() {
 		return numClientes;
 	}
@@ -97,6 +98,7 @@ public class Cliente {
 		apellido = apellido;
 	}
 
+// Metodo toString()	
 	public String toString() {
 		return idCliente + "|" + nombre + "|" + apellido;
 	}

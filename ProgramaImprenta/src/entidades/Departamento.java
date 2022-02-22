@@ -1,11 +1,21 @@
 package entidades;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Departamento {
 	private char idDep;
 
+// Constructor por defecto de la clase departamento	
+	public Departamento() {
+		
+	}
+
+// Constructor con atributos dela clase departameto	
+	public Departamento(char idDep) {
+		this.idDep = idDep;
+	}
+	
+// Metodo para generar un nuevo departamento	
 	public static Departamento nuevoDepartamento() {
 		Departamento ret = new Departamento();
 		Scanner teclado = new Scanner(System.in);
@@ -16,14 +26,7 @@ public class Departamento {
 
 	}
 
-	public Departamento() {
-		this.idDep = idDep;
-	}
-
-	public Departamento(char idDep) {
-		this.idDep = idDep;
-	}
-
+// Getters y Setters del atributo de la clase departamento
 	public char getidDep() {
 		return idDep;
 	}
@@ -32,6 +35,7 @@ public class Departamento {
 		idDep = idDep;
 	}
 
+// Metodo toString()	
 	public String toString() {
 		return idDep + "|";
 	}
