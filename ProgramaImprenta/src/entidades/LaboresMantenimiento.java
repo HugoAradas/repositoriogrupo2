@@ -10,7 +10,7 @@ import validacion.validador;
 public class LaboresMantenimiento {
 	private static int numLab = 0;
 	private long idLab;
-	private LocalDate fechaReal;
+	private int fechaReal;
 	private String descripcion;
 	private Maquina[] idMaquina;
 	private OpMaquina[] idOperario;
@@ -47,7 +47,7 @@ public class LaboresMantenimiento {
 		
 		System.out.println("introduce el id del operario que lleva a cabo esta labor");
 		idOperario = (OpMaquina) OpMaquina.nuevoOperario();
-		ret = new LaboresMantenimiento (id, descripcion, fechaReal, idMaquina, idOperario);
+		ret = new LaboresMantenimiento (id, fechaReal, descripcion, idMaquina, idOperario);
 		return ret;
 
 	}
@@ -56,8 +56,8 @@ public class LaboresMantenimiento {
 		numLab = numLab + 1;
 		this.idLab = numLab;
 	}
-
-	public LaboresMantenimiento(long id, String descripcion, LocalDate FechaReal, Maquina idMaquina,
+	
+	public LaboresMantenimiento(long id, LocalDate FechaReal, String descripcion, Maquina idMaquina,
 			OpMaquina idOperario) {
 		this.idLab = id;
 		this.fechaReal = fechaReal;
@@ -65,6 +65,15 @@ public class LaboresMantenimiento {
 
 	}
 
+	public LaboresMantenimiento(long id, int FechaReal, String descripcion, Maquina idMaquina,
+			OpMaquina idOperario) {
+		this.idLab = id;
+		this.fechaReal = fechaReal;
+		this.descripcion = descripcion;
+
+	}
+	
+	
 
 	public long getIdLab() {
 		return idLab;
@@ -74,11 +83,11 @@ public class LaboresMantenimiento {
 		this.idLab = idLab;
 	}
 
-	public LocalDate getFechaReal() {
+	public int getFechaReal() {
 		return fechaReal;
 	}
 
-	public void setFechaReal(LocalDate fechaReal) {
+	public void setFechaReal(int fechaReal) {
 		this.fechaReal = fechaReal;
 	}
 

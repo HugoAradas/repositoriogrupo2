@@ -18,6 +18,15 @@ public class Libro extends Trabajo {
 	public Libro() {
 		super();
 	}
+	
+	
+
+	public Libro(long idLibro, String colorTapa, int numCopias, Trabajo idTrabajo, Cliente idCliente) {
+		super();
+			this.idLibro = idLibro;
+			this.colorTapa = colorTapa;
+			this.numCopias = numCopias;
+		}
 
 	public static Libro nuevoLibro() {
 		Libro ret =null;
@@ -25,6 +34,7 @@ public class Libro extends Trabajo {
 		long id = -1;
 		Trabajo idTrabajo = null;
 		Cliente idCliente = null;
+		
 		boolean validId = false;
 		do {
 			System.out.println("introduce un id mayor que 0");
@@ -45,14 +55,6 @@ public class Libro extends Trabajo {
 			numcopias = teclado.nextInt();
 			validacopias = validador.validarnumcopias(numcopias);
 		} while (!validacopias);
-
-		String tipo = "";
-		boolean validatipo = false;
-		do {
-			System.out.println("introduce un tipo de relieve ( mas de 4 letras y menos de 10)");
-			tipo = teclado.nextLine();
-			validatipo = validador.validarTipoRelieve(tipo);
-		} while (!validatipo);
 		
 		System.out.println("introduce el trabajo para realizar el libro");
 		idTrabajo = Trabajo.nuevoTrabajo();
@@ -60,7 +62,7 @@ public class Libro extends Trabajo {
 		System.out.println("introduce el cliente que quiere el libro");
 		idCliente = Cliente.nuevoCliente();
 		
-		ret =new Libro (id, color, numcopias, tipo, idTrabajo, idCliente);
+		ret = new Libro (id, color, numcopias, idTrabajo, idCliente);
 		return ret;
 	}
 
@@ -92,9 +94,12 @@ public class Libro extends Trabajo {
 
 	}
 
-	// Conatructor con atributos de la clase Libro y la superclase Trbajo
-	public Libro(long idLibro, String colorTapa, int numCopias, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
+// Conatructor con atributos de la clase Libro y la superclase Trbajo
+	public Libro(long idLibro, String colorTapa, int numCopias, int fechaSolicitud,
+			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
+		numLibros = numLibros + 1;
+		this.idLibro = numLibros;
 	}
 
 	public static int getNumLibros() {
