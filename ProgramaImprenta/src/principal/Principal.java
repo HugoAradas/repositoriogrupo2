@@ -1,13 +1,14 @@
 package principal;
 
 import entidades.*;
+import utils.Datos;
 
 import java.util.Scanner;
 
 public class Principal {
 
 	public static void main(String[] args) {
-
+		
 		Scanner teclado = new Scanner(System.in);
 
 		int menu = 0;

@@ -1,5 +1,13 @@
 package entidades;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.Arrays;
 
 import java.util.Scanner;
@@ -33,14 +41,115 @@ public class Operario {
 			System.out.println(o.operariosData());
 		}
 	}
+
 //Método data de operario, devuelve un string con todos los datos del operario separados mediante " | "
 	public String operariosData() {
 		String ret = "";
-		ret = "id: " + this.idOperario +" | "+ " Nombre y apellidos: " + this.nombre + " " + this.apellido +" | "+ " con NIF: "
-				+ this.NIF + " | "+" Número de teléfono: " + this.numTelefono + " | "+" Direccion: " + this.direccion +" | "+ " Senior: "
-				+ this.senior +" | "+ " Del departamento: " + this.idDep;
+		ret = "id: " + this.idOperario + " | " + " Nombre y apellidos: " + this.nombre + " " + this.apellido + " | "
+				+ " con NIF: " + this.NIF + " | " + " Número de teléfono: " + this.numTelefono + " | " + " Direccion: "
+				+ this.direccion + " | " + " Senior: " + this.senior + " | " + " Del departamento: " + this.idDep;
 		return ret;
 
+	}
+
+//Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
+	public static void exportarOperarioTXT(Operario operario) {
+		String path = "operario.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				buffer.println(operario.nuevoOperario().operariosData());
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+
+//Método que exporta todos los operarios de la coleccion Datos.OPERARIOS a un fichero de texto
+	public static void exportarOperariosTXT(Operario[] operario) {
+		String path = "operario.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				for (Operario o : Datos.OPERARIOS) {
+					buffer.println(o.operariosData());
+				}
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+
+//Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
+	public static void exportarOperarioBinario(Operario operario) {
+		String path = "operarios.dat";
+		try {
+			FileOutputStream fichero = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			escritor.writeObject(Operario.nuevoOperario().operariosData());
+			escritor.flush();
+			escritor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Se ha producido una IOException" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
+	}
+
+//Método que exporta todos los operarios de la coleccion Datos.OPERARIOS a un fichero binario
+	public static void exportarOperariosBinario(Operario[] operario) {
+		String path = "operarios.dat";
+		try {
+			FileOutputStream fichero = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			for (Operario o : Datos.OPERARIOS) {
+				escritor.writeObject(o.operariosData());
+				escritor.flush();
+			}
+			escritor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Se ha producido una IOException" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
 	}
 
 	private static void validarDNI(String string) throws DNIException {
