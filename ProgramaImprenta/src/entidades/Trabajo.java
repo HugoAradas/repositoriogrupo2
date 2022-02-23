@@ -1,5 +1,12 @@
 package entidades;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -50,6 +57,106 @@ public class Trabajo {
 				+ " Id del cliente: " + this.idCliente + " | " + " Hecho por la máquina con id: " + this.idMaquina;
 		return ret;
 	}
+	
+	//Método que crea y exporta un único objeto de tipo trabajo a un fichero de texto 
+			public static void exportarTrabajoTXT(Trabajo Trabajo) {
+				String path = "trabajo.txt";
+				File fichero = new File(path);
+				FileWriter escritor = null;
+				PrintWriter buffer = null;
+				try {
+					try {
+						escritor = new FileWriter(fichero, false);
+						buffer = new PrintWriter(escritor);
+						buffer.println(Trabajo.nuevoTrabajo().trabajosData());
+
+					} finally {
+						if (buffer != null) {
+							buffer.close();
+						}
+						if (escritor != null) {
+							escritor.close();
+						}
+					}
+
+				} catch (FileNotFoundException ex) {
+					System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+				} catch (IOException ex) {
+					System.out.println("Se ha producido una IOException" + ex.getMessage());
+				} catch (Exception ex) {
+					System.out.println("Se ha producido una Exception" + ex.getMessage());
+				}
+			}
+
+		//Método que exporta todos los trabajos de la coleccion Datos.TRABAJOS a un fichero de texto
+			public static void exportarTrabajosTXT(Trabajo[] trabajo) {
+				String path = "trabajos.txt";
+				File fichero = new File(path);
+				FileWriter escritor = null;
+				PrintWriter buffer = null;
+				try {
+					try {
+						escritor = new FileWriter(fichero, false);
+						buffer = new PrintWriter(escritor);
+						for (Trabajo t : Datos.TRABAJOS) {
+							buffer.println(t.trabajosData());
+						}
+
+					} finally {
+						if (buffer != null) {
+							buffer.close();
+						}
+						if (escritor != null) {
+							escritor.close();
+						}
+					}
+
+				} catch (FileNotFoundException ex) {
+					System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+				} catch (IOException ex) {
+					System.out.println("Se ha producido una IOException" + ex.getMessage());
+				} catch (Exception ex) {
+					System.out.println("Se ha producido una Exception" + ex.getMessage());
+				}
+			}
+
+		//Método que crea y exporta un único objeto de tipo trabajo a un fichero de texto 
+			public static void exportarTrabajoBinario(Trabajo trabajo) {
+				String path = "trabajo.dat";
+				try {
+					FileOutputStream fichero = new FileOutputStream(path, false);
+					ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+					escritor.writeObject(Trabajo.nuevoTrabajo().trabajosData());
+					escritor.flush();
+					escritor.close();
+				} catch (FileNotFoundException e) {
+					System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+				} catch (IOException e) {
+					System.out.println("Se ha producido una IOException" + e.getMessage());
+				} catch (Exception e) {
+					System.out.println("Se ha producido una Exception" + e.getMessage());
+				}
+			}
+
+		//Método que exporta todos los trabajos de la coleccion Datos.MAQUINAS a un fichero binario
+			public static void exportarTrabajosBinario(Trabajo[] trabajo) {
+				String path = "trabajos.dat";
+				try {
+					FileOutputStream fichero = new FileOutputStream(path, false);
+					ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+					for (Trabajo t : Datos.TRABAJOS) {
+						escritor.writeObject(t.trabajosData());
+						escritor.flush();
+					}
+					escritor.close();
+				} catch (FileNotFoundException e) {
+					System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+				} catch (IOException e) {
+					System.out.println("Se ha producido una IOException" + e.getMessage());
+				} catch (Exception e) {
+					System.out.println("Se ha producido una Exception" + e.getMessage());
+				}
+			}
 
 	public static Trabajo nuevoTrabajo() {
 		Trabajo ret = new Trabajo();
