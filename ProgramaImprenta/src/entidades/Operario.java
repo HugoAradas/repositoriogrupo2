@@ -37,9 +37,10 @@ public class Operario {
 	}
 
 	public static void verOperarios() {
-		for (Operario o : Datos.OPERARIOS) {
-			System.out.println(o.operariosData());
-		}
+		Operario[] operario = Datos.OPERARIOS;
+		for (int i = 0; i < operario.length; i++)
+			if (operario[i] != null)
+				System.out.println(operario[i].operariosData());
 	}
 
 //Método data de operario, devuelve un string con todos los datos del operario separados mediante " | "
@@ -183,7 +184,7 @@ public class Operario {
 		String nombre = "";
 		boolean validanombre = false;
 		do {
-			System.out.println("introduce el nombre del cliente (mayor que 3 letras y menor que 15)");
+			System.out.println("introduce el nombre del operario (mayor que 3 letras y menor que 15)");
 			nombre = teclado.nextLine();
 			validanombre = validador.validarnombre(nombre);
 
@@ -241,32 +242,6 @@ public class Operario {
 			boolean senior, char departamento) {
 		numOperario = numOperario + 1;
 		this.idOperario = numOperario;
-
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el NIF:");
-		NIF = teclado.nextLine();
-		setNIF(NIF);
-
-		Scanner teclado1 = new Scanner(System.in);
-		System.out.println("Introduce el nombreApellido:");
-		nombreApellido = teclado1.nextLine();
-		setNIF(nombreApellido);
-
-		Scanner teclado2 = new Scanner(System.in);
-		System.out.println("Introduce el num_telefono:");
-		num_telefono = teclado2.nextLong();
-		setNumTelefono(numTelefono);
-
-		Scanner teclado3 = new Scanner(System.in);
-		System.out.println("Introduce la direccion:");
-		direccion = teclado3.nextLine();
-		setDireccion(direccion);
-
-		Scanner teclado4 = new Scanner(System.in);
-		System.out.println("Introduce el NIF:");
-		senior = teclado4.nextBoolean();
-		setSenior(senior);
-
 	}
 
 	public static int getNumOperario() {

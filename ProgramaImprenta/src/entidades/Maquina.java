@@ -36,9 +36,10 @@ public class Maquina {
 	}
 
 	public static void verMaquinas() {
-		for (Maquina m : Datos.MAQUINAS) {
-			System.out.println(m.maquinasData());
-		}
+	Maquina[] maquina = Datos.MAQUINAS;
+		for (int i = 0; i < maquina.length; i++)
+			if (maquina[i] != null)
+				System.out.println(maquina[i].maquinasData());
 	}
 
 	// Método data de máquina, devuelve un string con todos los datos de la máquina

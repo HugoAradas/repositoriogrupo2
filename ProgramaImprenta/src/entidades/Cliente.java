@@ -20,14 +20,6 @@ public class Cliente {
 	public Cliente(long idCliente, String nombre, String apellido) {
 		numClientes = numClientes + 1;
 		this.idCliente = numClientes;
-
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el NombreApellido:");
-		nombre = teclado.nextLine();
-		setNombre(nombre);
-		System.out.println("introduce el apellido");
-		apellido = teclado.nextLine();
-		setApellido(apellido);
 		
 	}
 	

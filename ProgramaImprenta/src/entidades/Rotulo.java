@@ -58,11 +58,6 @@ public class Rotulo extends Trabajo {
 		numRotulos = numRotulos + 1;
 		this.idRotulo = numRotulos;
 
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el centroComercial:");
-		centroComercial = teclado.nextLine();
-		setCentroComercial(centroComercial);
-
 	}
 
 //Constructor con atributos de la clase rotulo y la superclase Trabajo

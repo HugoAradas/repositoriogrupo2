@@ -43,9 +43,10 @@ public class Trabajo {
 	}
 
 	public static void verTrabajos() {
-		for (Trabajo t : Datos.TRABAJOS) {
-			System.out.println(t.trabajosData());
-		}
+		Trabajo[] trabajos = Datos.TRABAJOS;
+		for (int i = 0; i < trabajos.length; i++)
+			if (trabajos[i] != null)
+				System.out.println(trabajos[i].trabajosData());
 	}
 
 	// Método data de Trabajo, devuelve un string con todos los datos del trabajo

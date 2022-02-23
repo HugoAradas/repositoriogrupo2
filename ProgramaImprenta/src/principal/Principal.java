@@ -52,7 +52,7 @@ public class Principal {
 
 						menuvalidoTrabajos = false;
 						break;
-					case 0:
+					case 4:
 						System.out.println("Ha elegido 0 Volver atrás");
 						menuValido = false;
 						break;
@@ -89,7 +89,7 @@ public class Principal {
 
 						menuvalidoMaquinas = false;
 						break;
-					case 0:
+					case 4:
 						System.out.println("Ha elegido 0. Volver atrás");
 						menuValido = false;
 						break;
@@ -125,7 +125,7 @@ public class Principal {
 
 						menuvalidoPersonal = false;
 						break;
-					case 0:
+					case 4:
 						System.out.println("Ha elegido o Volver atrás");
 						menuValido = false;
 						break;
