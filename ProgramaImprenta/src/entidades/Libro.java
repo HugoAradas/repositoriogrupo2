@@ -1,5 +1,6 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -88,7 +89,7 @@ public class Libro extends Trabajo {
 	}
 
 //Constructor con atributos de la superclase Trabajo
-	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, int fechaSolicitud, int fechaEntrega,
+	public Libro(long idLibro, String colorTapa, int numCopias, long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega,
 			String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 

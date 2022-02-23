@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import utils.Datos;
 import utils.Utilidades;
 //import utils.Datos;
 import validacion.validador;
@@ -25,6 +26,22 @@ public class Maquina {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;
 
+	}
+
+	public static void verMaquinas() {
+		for (Maquina m : Datos.MAQUINAS) {
+			System.out.println(m.maquinasData());
+		}
+	}
+
+	// Método data de máquina, devuelve un string con todos los datos de la máquina
+	// separados mediante " | "
+	public String maquinasData() {
+		String ret = "";
+		ret = "id: " + this.idMaquina + " | " + " Fecha de compra: " + this.fechaCompra + " | " + " Ubicacion: "
+				+ this.ubicacion + " | " + " Tipo de impresion: " + this.tipoImpresion + " | " + " Modo de impresion: "
+				+ this.modoImpresion + " | " + " Volumen de tinta: " + this.volumenTinta;
+		return ret;
 	}
 
 	public static Maquina nuevaMaquina() {
@@ -76,7 +93,7 @@ public class Maquina {
 			validavolumen = validador.validavolumentinta(volumenTinta);
 		} while (!validavolumen);
 
-		System.out.println("introduce el lote donde esta la m�quina");
+		System.out.println("introduce el lote donde esta la m�quina");
 		idLote = Lote.nuevoLote();
 		ret = new Maquina(id, fechaCompra, ubicacion, tipoImpresion, modoImpresion, volumenTinta, idLote);
 		return ret;
@@ -185,7 +202,8 @@ public class Maquina {
 
 	@Override
 	public String toString() {
-		return idMaquina + "|" + fechaCompra + "|" + ubicacion + "|" + tipoImpresion + "|" + modoImpresion + "|" + volumenTinta + "|" + idLote;
+		return idMaquina + "|" + fechaCompra + "|" + ubicacion + "|" + tipoImpresion + "|" + modoImpresion + "|"
+				+ volumenTinta + "|" + idLote;
 	}
 
 }

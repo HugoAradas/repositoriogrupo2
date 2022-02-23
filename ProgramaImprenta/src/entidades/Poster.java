@@ -1,5 +1,6 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class Poster extends Trabajo {
 			validaalto = validador.validaralto(ancho);
 		} while (!validaalto);
 		ret.setAncho(alto);
-		int numcopias = -1 ;
+		int numcopias = -1;
 		boolean validacopias = false;
 		do {
 			System.out.println("introduce un numero de copias mayor que 0");
@@ -89,15 +90,16 @@ public class Poster extends Trabajo {
 	}
 
 //Constructor por atributos de la clase Trabajo
-	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster, long idTrabajo, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
+	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster, long idTrabajo,
+			LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve, Cliente idCliente,
+			Maquina idMaquina) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 
 	}
 
 //Constructor con atributos de la clase póster y la superclase Trabajo
-	public Poster(long idPoster, double ancho, double largo, int numCopiasPoster, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
+	public Poster(long idPoster, double ancho, double largo, int numCopiasPoster, int fechaSolicitud, int fechaEntrega,
+			String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
 		numPoster = numPoster + 1;
 		this.idPoster = numPoster;

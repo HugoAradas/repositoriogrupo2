@@ -1,5 +1,6 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -14,7 +15,6 @@ public class Rotulo extends Trabajo {
 	private String centroComercial;
 	private Trabajo[] idTrabajo;
 	private Cliente[] idCliente;
-	
 
 //Constructor por defecto de la clase Rótulo
 	public Rotulo() {
@@ -27,14 +27,14 @@ public class Rotulo extends Trabajo {
 		Rotulo ret = new Rotulo();
 		Scanner teclado = new Scanner(System.in);
 		long id = -1;
-		boolean validId = false; 
+		boolean validId = false;
 		do {
 			System.out.println("introduce un id mayor que 0");
 			id = teclado.nextLong();
 			validId = validador.validarId(id);
 		} while (!validId);
 		ret.setIdRotulo(id);
-		
+
 		boolean centroComercialValido = false;
 		do {
 			System.out.println("Introduce el centro comercial");
@@ -46,14 +46,14 @@ public class Rotulo extends Trabajo {
 	}
 
 //Constructor con atributos de la clase trabajo
-	public Rotulo(long idRotulo, String centroComercial,  long idTrabajo, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
+	public Rotulo(long idRotulo, String centroComercial, long idTrabajo, LocalDate fechaSolicitud,
+			LocalDate fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 
 	}
 
-	public Rotulo(long idRotulo, String centroComercial, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
+	public Rotulo(long idRotulo, String centroComercial, int fechaSolicitud, int fechaEntrega, String tipoRelieve,
+			Trabajo idTrabajo, Cliente idCliente) {
 		super();
 		numRotulos = numRotulos + 1;
 		this.idRotulo = numRotulos;
@@ -66,8 +66,8 @@ public class Rotulo extends Trabajo {
 	}
 
 //Constructor con atributos de la clase rotulo y la superclase Trabajo
-	public Rotulo(long idRotulo, String centroComercial, long idTrabajo, int fechaSolicitud,
-			int fechaEntrega, String tipoRelieve) {
+	public Rotulo(long idRotulo, String centroComercial, long idTrabajo, int fechaSolicitud, int fechaEntrega,
+			String tipoRelieve) {
 		super();
 		numRotulos = numRotulos + 1;
 		this.idRotulo = numRotulos;

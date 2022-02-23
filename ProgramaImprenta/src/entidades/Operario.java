@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import java.util.Scanner;
 
+import utils.Datos;
 //import utils.Datos;
 import validacion.DNIException;
 import validacion.validador;
@@ -18,12 +19,27 @@ public class Operario {
 	protected long numTelefono;
 	private String direccion;
 	public boolean senior;
-	protected Departamento[] idDep;
+	protected Departamento idDep;
 
 //constructor por defecto del operario
 	public Operario() {
 		numOperario = numOperario + 1;
 		this.idOperario = numOperario;
+
+	}
+
+	public static void verOperarios() {
+		for (Operario o : Datos.OPERARIOS) {
+			System.out.println(o.operariosData());
+		}
+	}
+//Método data de operario, devuelve un string con todos los datos del operario separados mediante " | "
+	public String operariosData() {
+		String ret = "";
+		ret = "id: " + this.idOperario +" | "+ " Nombre y apellidos: " + this.nombre + " " + this.apellido +" | "+ " con NIF: "
+				+ this.NIF + " | "+" Número de teléfono: " + this.numTelefono + " | "+" Direccion: " + this.direccion +" | "+ " Senior: "
+				+ this.senior +" | "+ " Del departamento: " + this.idDep;
+		return ret;
 
 	}
 
@@ -208,17 +224,18 @@ public class Operario {
 		this.numTelefono = numTelefono;
 	}
 
-	public Departamento[] getidDep() {
+	public Departamento getidDep() {
 		return idDep;
 	}
 
-	public void setidDep(Departamento[] idDep) {
+	public void setidDep(Departamento idDep) {
 		this.idDep = idDep;
 	}
 
 	@Override
 	public String toString() {
-		return idOperario + "|" + NIF + "|" + nombre + "|" + apellido + "|" + numTelefono + "|" + direccion + "|" + senior + "|" + idDep;
+		return idOperario + "|" + NIF + "|" + nombre + "|" + apellido + "|" + numTelefono + "|" + direccion + "|"
+				+ senior + "|" + idDep;
 	}
 
 }

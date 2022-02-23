@@ -15,7 +15,7 @@ public class Principal {
 		boolean menuvalidoTrabajos = false;
 		boolean menuvalidoMaquinas = false;
 		boolean menuvalidoPersonal = false;
-		
+
 		do {
 			System.out.println(
 					"Selecciona un menú: \n 1. Gestión de trabajos \n 2. Gestión de máquinas \n 3. Gestión de presonal \n 4. Salir");
@@ -38,17 +38,17 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 1.1. Ver trabajos");
-						
+						Trabajo.verTrabajos();
 						menuvalidoTrabajos = false;
 						break;
 					case 2:
 						System.out.println("Ha elegido 1.2. Nuevo trabajo");
-						
+						Trabajo.nuevoTrabajo();
 						menuvalidoTrabajos = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 1.3. Buscar trabajo");
-						
+
 						menuvalidoTrabajos = false;
 						break;
 					case 0:
@@ -73,17 +73,19 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 2.1. Ver máquinas");
-						
+						Maquina.verMaquinas();
+
 						menuvalidoMaquinas = false;
 						break;
 					case 2:
 						System.out.println("Ha elegido 2.2. Nueva máquina");
-						
+						Maquina.nuevaMaquina();
+
 						menuvalidoMaquinas = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 2.3. Buscar máquina");
-						
+
 						menuvalidoMaquinas = false;
 						break;
 					case 0:
@@ -107,17 +109,19 @@ public class Principal {
 					switch (menu) {
 					case 1:
 						System.out.println("Ha elegido 3.1. Ver operarios");
-						
+						Operario.verOperarios();
+
 						menuvalidoPersonal = false;
 						break;
 					case 2:
 						System.out.println("Ha elegido 3.2. Nuevo operario");
+						Operario.nuevoOperario();
 						
 						menuvalidoPersonal = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 3.3. Buscar operario");
-						
+
 						menuvalidoPersonal = false;
 						break;
 					case 0:
@@ -128,7 +132,7 @@ public class Principal {
 					}
 				} while (!menuvalidoPersonal);
 				break;
-			
+
 			case 4:
 				System.out.print("Ha elegido salir del programa, bye bye!");
 				break;
@@ -136,4 +140,5 @@ public class Principal {
 
 		} while (!menuValido);
 	}
+
 }

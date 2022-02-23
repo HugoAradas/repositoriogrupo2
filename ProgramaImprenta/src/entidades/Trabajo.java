@@ -1,8 +1,11 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import utils.Datos;
+import utils.Utilidades;
 //import utils.Datos;
 import validacion.validador;
 
@@ -11,8 +14,8 @@ public class Trabajo {
 	public static int numTrabajos = 0;
 	// valor mínimo 1
 	protected long idTrabajo;
-	protected int fechaSolicitud;
-	protected int fechaEntrega;
+	protected LocalDate fechaSolicitud;
+	protected LocalDate fechaEntrega;
 	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
 	protected Cliente[] idCliente;
@@ -30,6 +33,22 @@ public class Trabajo {
 	public Trabajo() {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;
+	}
+
+	public static void verTrabajos() {
+		for (Trabajo t : Datos.TRABAJOS) {
+			System.out.println(t.trabajosData());
+		}
+	}
+
+	// Método data de Trabajo, devuelve un string con todos los datos del trabajo
+	// separados mediante " | "
+	public String trabajosData() {
+		String ret = "";
+		ret = "id: " + this.idTrabajo + " | " + " Fecha de solicitud: " + this.fechaSolicitud + " | "
+				+ " Fecha de entrega: " + this.fechaEntrega + " | " + " Tipo de relieve: " + this.tipoRelieve + " | "
+				+ " Id del cliente: " + this.idCliente + " | " + " Hecho por la máquina con id: " + this.idMaquina;
+		return ret;
 	}
 
 	public static Trabajo nuevoTrabajo() {
@@ -52,6 +71,12 @@ public class Trabajo {
 		} while (!validarelieve);
 		ret.setTipoRelieve(tipoRelieve);
 
+		System.out.println("Introduce la fecha de solicitud");
+		ret.fechaSolicitud = Utilidades.leerFecha();
+
+		System.out.println("Introduce la fecha de entrega");
+		ret.fechaEntrega = Utilidades.leerFecha();
+
 		return ret;
 
 	}
@@ -65,8 +90,8 @@ public class Trabajo {
 //	}
 
 //Constructor por atributos de Trabajo	
-	public Trabajo(long idTrabajo, int fechaSolicitud, int fechaEntrega, String tipoRelieve, Cliente idCliente,
-			Maquina idMaquina) {
+	public Trabajo(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve,
+			Cliente idCliente, Maquina idMaquina) {
 		numTrabajos = numTrabajos + 1;
 		this.idTrabajo = numTrabajos;
 		this.fechaSolicitud = fechaSolicitud;
@@ -91,19 +116,19 @@ public class Trabajo {
 		this.idTrabajo = idTrabajo;
 	}
 
-	public int getFechaEntrega() {
+	public LocalDate getFechaEntrega() {
 		return fechaEntrega;
 	}
 
-	public void setFechaEntrega(int fechaEntrega) {
+	public void setFechaEntrega(LocalDate fechaEntrega) {
 		this.fechaEntrega = fechaEntrega;
 	}
 
-	public int getFechaSolicitud() {
+	public LocalDate getFechaSolicitud() {
 		return fechaSolicitud;
 	}
 
-	public void setFechaSolicitud(int fechaSolicitud) {
+	public void setFechaSolicitud(LocalDate fechaSolicitud) {
 		this.fechaSolicitud = fechaSolicitud;
 	}
 
@@ -117,7 +142,8 @@ public class Trabajo {
 
 	@Override
 	public String toString() {
-		return idTrabajo + "|" + fechaSolicitud + "|" + fechaEntrega + "|" + tipoRelieve + "|" + idCliente + "|" + idMaquina;
+		return idTrabajo + "|" + fechaSolicitud + "|" + fechaEntrega + "|" + tipoRelieve + "|" + idCliente + "|"
+				+ idMaquina;
 	}
 
 }
