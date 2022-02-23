@@ -19,9 +19,9 @@ public class Principal {
 
 		do {
 			System.out.println(
-					"Selecciona un menú: \n 1. Gestión de trabajos \n 2. Gestión de máquinas \n 3. Gestión de presonal \n 4. Salir");
+					"Selecciona un menú: \n 1. Gestión de trabajos \n 2. Gestión de máquinas \n 3. Gestión de presonal \n 0. Salir");
 			menu = teclado.nextInt();
-			menuValido = (menu < 1 || menu > 4 ? false : true);
+			menuValido = (menu < 0 || menu > 3 ? false : true);
 			if (!menuValido) {
 				System.out.println("introduce una opcion valida");
 			}
@@ -40,19 +40,19 @@ public class Principal {
 					case 1:
 						System.out.println("Ha elegido 1.1. Ver trabajos");
 						Trabajo.verTrabajos();
-						menuvalidoTrabajos = false;
+						menuValido = false;
 						break;
 					case 2:
 						System.out.println("Ha elegido 1.2. Nuevo trabajo");
 						Trabajo.nuevoTrabajo();
-						menuvalidoTrabajos = false;
+						menuValido = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 1.3. Buscar trabajo");
 
-						menuvalidoTrabajos = false;
+						menuValido = false;
 						break;
-					case 4:
+					case 0:
 						System.out.println("Ha elegido 0 Volver atrás");
 						menuValido = false;
 						break;
@@ -76,20 +76,20 @@ public class Principal {
 						System.out.println("Ha elegido 2.1. Ver máquinas");
 						Maquina.verMaquinas();
 
-						menuvalidoMaquinas = false;
+						menuValido = false;
 						break;
 					case 2:
 						System.out.println("Ha elegido 2.2. Nueva máquina");
 						Maquina.nuevaMaquina();
 
-						menuvalidoMaquinas = false;
+						menuValido = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 2.3. Buscar máquina");
 
-						menuvalidoMaquinas = false;
+						menuValido = false;
 						break;
-					case 4:
+					case 0:
 						System.out.println("Ha elegido 0. Volver atrás");
 						menuValido = false;
 						break;
@@ -112,20 +112,20 @@ public class Principal {
 						System.out.println("Ha elegido 3.1. Ver operarios");
 						Operario.verOperarios();
 
-						menuvalidoPersonal = false;
+						menuValido = false;
 						break;
 					case 2:
 						System.out.println("Ha elegido 3.2. Nuevo operario");
 						Operario.nuevoOperario();
 						
-						menuvalidoPersonal = false;
+						menuValido = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 3.3. Buscar operario");
 
-						menuvalidoPersonal = false;
+						menuValido = false;
 						break;
-					case 4:
+					case 0:
 						System.out.println("Ha elegido o Volver atrás");
 						menuValido = false;
 						break;
@@ -134,7 +134,7 @@ public class Principal {
 				} while (!menuvalidoPersonal);
 				break;
 
-			case 4:
+			case 0:
 				System.out.print("Ha elegido salir del programa, bye bye!");
 				break;
 			}
