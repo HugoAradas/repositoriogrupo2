@@ -1,5 +1,6 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import validacion.validador;
 
 public class Prueba {
 	private static int numPrueba = 0;
-	private int fecha;
+	private LocalDate fecha;
 	// entre 3 y 120 caracteres
 	private String Explicacion;
 	// entre 3 y 120 caracteres
@@ -45,7 +46,7 @@ public class Prueba {
 		return ret;
 	}
 
-	public Prueba(long idPrueba, OpCalidad idOperario, int fecha, String Explicacion, String Resultado, Maquina idMaquina) {
+	public Prueba(long idPrueba, OpCalidad idOperario, LocalDate fecha, String Explicacion, String Resultado, Maquina idMaquina) {
 		numPrueba = numPrueba + 1;
 		this.idPrueba = numPrueba;
 		this.fecha = fecha;
@@ -69,7 +70,7 @@ public class Prueba {
 		this.idMaquina = idMaquina;
 	}
 
-	public int getfecha() {
+	public LocalDate getfecha() {
 		return fecha;
 	}
 

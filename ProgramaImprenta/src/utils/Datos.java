@@ -1,6 +1,7 @@
 package utils;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import entidades.*;
 
@@ -39,16 +40,19 @@ public class Datos {
 			new OpMaquina(OPERARIOS[8], "83620174H", "AnaFernandez") };
 	public static final int numOpMaquina = OPSMAQUINA.length;
 
-	public static final Maquina MAQUINAS[] = { new Maquina(1, 25112021, "Sotano", LOTES[1]),
-			new Maquina(2, 25112021, "Sotano", LOTES[1]), new Maquina(3, 25112021, "P1", LOTES[0]),
-			new Maquina(4, 25112021, "P1", LOTES[0]), new Maquina(5, 25112021, "P2", LOTES[2]),
-			new Maquina(6, 25112021, "P2", LOTES[2]) };
+	public static final Maquina MAQUINAS[] = { 
+			new Maquina(1, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Sotano",  "", "", 9.7, LOTES[1]),
+			new Maquina(2, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Sotano",  "", "", 9.7, LOTES[1]), 
+			new Maquina(3, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "P1",  "", "", 9.7, LOTES[0]),
+			new Maquina(4, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "P1",  "", "", 9.7, LOTES[0]), 
+			new Maquina(5, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "P2",  "", "", 9.7, LOTES[2]),
+			new Maquina(6, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "P2",  "", "", 9.7, LOTES[2]) };
 	public static final int numMaquina = MAQUINAS.length;
 
 	public static final LaboresMantenimiento LABORES[] = {
-			new LaboresMantenimiento(1, 25112021, "Descripcion", MAQUINAS[1], OPSMAQUINA[2]),
-			new LaboresMantenimiento(2, 25112021, "Descripcion", MAQUINAS[2], OPSMAQUINA[0]),
-			new LaboresMantenimiento(3, 25112021, "Descripcion", MAQUINAS[3], OPSMAQUINA[1]) };
+			new LaboresMantenimiento(1, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[1], OPSMAQUINA[2]),
+			new LaboresMantenimiento(2, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[2], OPSMAQUINA[0]),
+			new LaboresMantenimiento(3, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[3], OPSMAQUINA[1]) };
 	public static final int numLabor = LABORES.length;
 
 	public static final OpCalidad OPSCALIDAD[] = { new OpCalidad(OPERARIOS[6], "83492590M", "BenitoGarcia"),
@@ -57,24 +61,24 @@ public class Datos {
 	public static final int numOpCalidad = OPSCALIDAD.length;
 
 	public static final Prueba PRUEBAS[] = {
-			new Prueba(1, OPSCALIDAD[0], 26112021, "Explicacion", "Resultado", MAQUINAS[1]),
-			new Prueba(2, OPSCALIDAD[1], 26112021, "Explicacion", "Resultado", MAQUINAS[3]),
-			new Prueba(3, OPSCALIDAD[2], 26112021, "Explicacion", "Resultado", MAQUINAS[4]),
-			new Prueba(4, OPSCALIDAD[0], 26112021, "Explicacion", "Resultado", MAQUINAS[3]),
-			new Prueba(5, OPSCALIDAD[2], 26112021, "Explicacion", "Resultado", MAQUINAS[3]),
-			new Prueba(6, OPSCALIDAD[1], 26112021, "Explicacion", "Resultado", MAQUINAS[5]),
-			new Prueba(7, OPSCALIDAD[0], 26112021, "Explicacion", "Resultado", MAQUINAS[4]),
-			new Prueba(8, OPSCALIDAD[2], 26112021, "Explicacion", "Resultado", MAQUINAS[1]),
-			new Prueba(9, OPSCALIDAD[1], 26112021, "Explicacion", "Resultado", MAQUINAS[1]),
-			new Prueba(10, OPSCALIDAD[2], 26112021, "Explicacion", "Resultado", MAQUINAS[2]),
-			new Prueba(11, OPSCALIDAD[1], 26112021, "Explicacion", "Resultado", MAQUINAS[5]),
-			new Prueba(12, OPSCALIDAD[0], 26112021, "Explicacion", "Resultado", MAQUINAS[4]),
-			new Prueba(13, OPSCALIDAD[1], 26112021, "Explicacion", "Resultado", MAQUINAS[3]),
-			new Prueba(14, OPSCALIDAD[0], 26112021, "Explicacion", "Resultado", MAQUINAS[5]),
-			new Prueba(15, OPSCALIDAD[2], 26112021, "Explicacion", "Resultado", MAQUINAS[1]),
-			new Prueba(16, OPSCALIDAD[1], 26112021, "Explicacion", "Resultado", MAQUINAS[3]),
-			new Prueba(17, OPSCALIDAD[2], 26112021, "Explicacion", "Resultado", MAQUINAS[4]),
-			new Prueba(18, OPSCALIDAD[0], 26112021, "Explicacion", "Resultado", MAQUINAS[1]), };
+			new Prueba(1, OPSCALIDAD[0], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[1]),
+			new Prueba(2, OPSCALIDAD[1], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[3]),
+			new Prueba(3, OPSCALIDAD[2], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[4]),
+			new Prueba(4, OPSCALIDAD[0], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[3]),
+			new Prueba(5, OPSCALIDAD[2], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[3]),
+			new Prueba(6, OPSCALIDAD[1], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[5]),
+			new Prueba(7, OPSCALIDAD[0], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[4]),
+			new Prueba(8, OPSCALIDAD[2], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[1]),
+			new Prueba(9, OPSCALIDAD[1], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[1]),
+			new Prueba(10, OPSCALIDAD[2], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[2]),
+			new Prueba(11, OPSCALIDAD[1], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[5]),
+			new Prueba(12, OPSCALIDAD[0], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[4]),
+			new Prueba(13, OPSCALIDAD[1], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[3]),
+			new Prueba(14, OPSCALIDAD[0], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[5]),
+			new Prueba(15, OPSCALIDAD[2], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[1]),
+			new Prueba(16, OPSCALIDAD[1], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[3]),
+			new Prueba(17, OPSCALIDAD[2], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[4]),
+			new Prueba(18, OPSCALIDAD[0], LocalDate.parse("26/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Explicacion", "Resultado", MAQUINAS[1]), };
 	public static final int numPrueba = PRUEBAS.length;
 
 	public static final ReglaCalidad REGLAS[] = {
@@ -87,32 +91,32 @@ public class Datos {
 	public static final int numRegla = REGLAS.length;
 
 	public static final PoliticaCalidad POLITICAS[] = {
-			new PoliticaCalidad(1, "Numero1", 25112021, "Descripcion", "Resultado", OPSCALIDAD[0], REGLAS[1],
+			new PoliticaCalidad(1, "Numero1", LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", "Resultado", OPSCALIDAD[0], REGLAS[1],
 					REGLAS[2]),
-			new PoliticaCalidad(2, "Numero2", 25112021, "Descripcion", "Resultado", OPSCALIDAD[1], REGLAS[3],
+			new PoliticaCalidad(2, "Numero2", LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", "Resultado", OPSCALIDAD[1], REGLAS[3],
 					REGLAS[4]),
-			new PoliticaCalidad(3, "Numero3", 25112021, "Descripcion", "Resultado", OPSCALIDAD[2], REGLAS[5],
+			new PoliticaCalidad(3, "Numero3", LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", "Resultado", OPSCALIDAD[2], REGLAS[5],
 					REGLAS[1]), };
 	public static final int numPolitica = POLITICAS.length;
 
 	public static final Trabajo TRABAJOS[] = {
-			new Trabajo(1, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Liso", CLIENTES[1],
+			new Trabajo(1, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Liso", CLIENTES[1],
 					MAQUINAS[1]),
-			new Trabajo(2, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Rugoso", CLIENTES[1],
+			new Trabajo(2, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Rugoso", CLIENTES[1],
 					MAQUINAS[3]),
-			new Trabajo(3, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Liso", CLIENTES[2],
+			new Trabajo(3, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Liso", CLIENTES[2],
 					MAQUINAS[3]),
-			new Trabajo(4, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Rugoso", CLIENTES[1],
+			new Trabajo(4, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Rugoso", CLIENTES[1],
 					MAQUINAS[1]),
-			new Trabajo(5, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Liso", CLIENTES[2],
+			new Trabajo(5, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Liso", CLIENTES[2],
 					MAQUINAS[3]),
-			new Trabajo(6, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Liso", CLIENTES[0],
+			new Trabajo(6, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Liso", CLIENTES[0],
 					MAQUINAS[2]),
-			new Trabajo(7, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Liso", CLIENTES[1],
+			new Trabajo(7, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Liso", CLIENTES[1],
 					MAQUINAS[1]),
-			new Trabajo(8, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Rugoso", CLIENTES[2],
+			new Trabajo(8, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Rugoso", CLIENTES[2],
 					MAQUINAS[1]),
-			new Trabajo(9, LocalDate.parse("25/11/2021"), LocalDate.parse("25/11/2021"), "Liso", CLIENTES[0],
+			new Trabajo(9, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Liso", CLIENTES[0],
 					MAQUINAS[2]), };
 	public static final int numTrabajos = TRABAJOS.length;
 

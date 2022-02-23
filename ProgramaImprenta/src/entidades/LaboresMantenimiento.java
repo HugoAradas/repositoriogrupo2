@@ -10,7 +10,7 @@ import validacion.validador;
 public class LaboresMantenimiento {
 	private static int numLab = 0;
 	private long idLab;
-	private int fechaReal;
+	private LocalDate fechaReal;
 	private String descripcion;
 	private Maquina[] idMaquina;
 	private OpMaquina[] idOperario;
@@ -23,14 +23,6 @@ public class LaboresMantenimiento {
 
 // Constructores con atributos de la clase laboresmantenimiento	
 	public LaboresMantenimiento(long id, LocalDate FechaReal, String descripcion, Maquina idMaquina,
-			OpMaquina idOperario) {
-		this.idLab = id;
-		this.fechaReal = fechaReal;
-		this.descripcion = descripcion;
-
-	}
-
-	public LaboresMantenimiento(long id, int FechaReal, String descripcion, Maquina idMaquina,
 			OpMaquina idOperario) {
 		this.idLab = id;
 		this.fechaReal = fechaReal;
@@ -85,11 +77,11 @@ public class LaboresMantenimiento {
 		this.idLab = idLab;
 	}
 
-	public int getFechaReal() {
+	public LocalDate getFechaReal() {
 		return fechaReal;
 	}
 
-	public void setFechaReal(int fechaReal) {
+	public void setFechaReal(LocalDate fechaReal) {
 		this.fechaReal = fechaReal;
 	}
 

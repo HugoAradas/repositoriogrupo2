@@ -1,5 +1,6 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class PoliticaCalidad {
 	private long idPolitica;
 	private static int numPol = 0;
 	private String nombrePolitica;
-	private int fechaVig;
+	private LocalDate fechaVig;
 	private String descripcion;
 	private OpCalidad[] idOperario;
 	private ReglaCalidad[] idRegla;
@@ -51,7 +52,7 @@ public class PoliticaCalidad {
 		return ret;
 	}
 
-	public PoliticaCalidad(long idPol, String nombrePolitica, int fechaVig, String descripcion, String Resultado, OpCalidad idOperario,
+	public PoliticaCalidad(long idPol, String nombrePolitica, LocalDate fechaVig, String descripcion, String Resultado, OpCalidad idOperario,
 			ReglaCalidad idRegla, ReglaCalidad idRegla1) {
 		numPol = numPol + 1;
 		this.nombrePolitica = nombrePolitica;
@@ -76,7 +77,7 @@ public class PoliticaCalidad {
 		this.nombrePolitica = nombrePolitica2;
 	}
 
-	public int getfechaVig() {
+	public LocalDate getfechaVig() {
 		return fechaVig;
 	}
 
