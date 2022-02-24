@@ -58,7 +58,7 @@ public class Operario {
 	}
 
 //Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
-	public static void exportarOperarioTXT(Operario operario) {
+	public  void exportarOperarioTXT() {
 		String path = "operario.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
@@ -67,7 +67,7 @@ public class Operario {
 			try {
 				escritor = new FileWriter(fichero, false);
 				buffer = new PrintWriter(escritor);
-				buffer.println(Operario.nuevoOperario().operariosData());
+				buffer.println(this.operariosData());
 
 			} finally {
 				if (buffer != null) {
@@ -88,7 +88,7 @@ public class Operario {
 	}
 
 //Método que exporta todos los operarios de la coleccion Datos.OPERARIOS a un fichero de texto
-	public static void exportarOperariosTXT(Operario[] operario) {
+	public static void exportarOperariosTXT() {
 		String path = "operario.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
@@ -120,13 +120,13 @@ public class Operario {
 	}
 
 //Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
-	public static void exportarOperarioBinario(Operario operario) {
+	public  void exportarOperarioBinario() {
 		String path = "operarios.dat";
 		try {
 			File fichero = new File(path);
 			FileOutputStream fos = new FileOutputStream(path, false);
 			ObjectOutputStream escritor = new ObjectOutputStream(fos);
-			escritor.writeObject(Operario.nuevoOperario().operariosData());
+			escritor.writeObject(this.operariosData());
 			escritor.flush();
 			escritor.close();
 		} catch (FileNotFoundException e) {
@@ -139,7 +139,7 @@ public class Operario {
 	}
 
 //Método que exporta todos los operarios de la coleccion Datos.OPERARIOS a un fichero binario
-	public static void exportarOperariosBinario(Operario[] operario) {
+	public static void exportarOperariosBinario() {
 		String path = "operarios.dat";
 		try {
 			File fichero = new File(path);
