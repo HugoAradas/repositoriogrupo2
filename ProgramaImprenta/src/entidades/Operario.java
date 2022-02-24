@@ -1,10 +1,14 @@
 package entidades;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
@@ -63,7 +67,7 @@ public class Operario {
 			try {
 				escritor = new FileWriter(fichero, false);
 				buffer = new PrintWriter(escritor);
-				buffer.println(operario.nuevoOperario().operariosData());
+				buffer.println(Operario.nuevoOperario().operariosData());
 
 			} finally {
 				if (buffer != null) {
@@ -119,8 +123,9 @@ public class Operario {
 	public static void exportarOperarioBinario(Operario operario) {
 		String path = "operarios.dat";
 		try {
-			FileOutputStream fichero = new FileOutputStream(path, false);
-			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			File fichero = new File(path);
+			FileOutputStream fos = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fos);
 			escritor.writeObject(Operario.nuevoOperario().operariosData());
 			escritor.flush();
 			escritor.close();
@@ -137,8 +142,9 @@ public class Operario {
 	public static void exportarOperariosBinario(Operario[] operario) {
 		String path = "operarios.dat";
 		try {
-			FileOutputStream fichero = new FileOutputStream(path, false);
-			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			File fichero = new File(path);
+			FileOutputStream fos = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fos);
 			for (Operario o : Datos.OPERARIOS) {
 				escritor.writeObject(o.operariosData());
 				escritor.flush();
@@ -150,6 +156,75 @@ public class Operario {
 			System.out.println("Se ha producido una IOException" + e.getMessage());
 		} catch (Exception e) {
 			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
+	}
+
+//Método que impoprta una coleccíon de objetos de tipo operario desde un fichero de texto
+	public static void importarOperariosTXT() {
+		File fIn = new File("ClienteChar.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(fIn);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 6; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+//Método que impoprta una coleccíon de objetos de tipo operario desde un fichero binario
+	public static void importarOperariosBinario() {
+		System.out.println("Cargando datos de clienteByte.dat...");
+		File ci;
+		FileInputStream fis = null;
+		ObjectInputStream lector = null;
+		try {
+			ci = new File("clienteByte.dat");
+			fis = new FileInputStream(ci);
+			lector = new ObjectInputStream(fis);
+
+			for (int i = 0; i < 6; i++) { // puedo usar Datos.numClientes para el limite pero no contaria el
+											// nuevo cliente.
+				Operario o = (Operario) lector.readObject();
+				System.out.println(o.operariosData());
+			}
+//		Cliente c = (Cliente) ois.readObject();
+//		System.out.println(c.data());
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (lector != null)
+					lector.close();
+				if (fis != null)
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
