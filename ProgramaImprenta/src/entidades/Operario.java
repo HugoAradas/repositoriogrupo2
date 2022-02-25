@@ -89,7 +89,7 @@ public class Operario {
 
 //Método que exporta todos los operarios de la coleccion Datos.OPERARIOS a un fichero de texto
 	public static void exportarOperariosTXT() {
-		String path = "operario.txt";
+		String path = "operarios.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
 		PrintWriter buffer = null;
@@ -121,7 +121,7 @@ public class Operario {
 
 //Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
 	public  void exportarOperarioBinario() {
-		String path = "operarios.dat";
+		String path = "operario.dat";
 		try {
 			File fichero = new File(path);
 			FileOutputStream fos = new FileOutputStream(path, false);
@@ -161,7 +161,7 @@ public class Operario {
 
 //Método que impoprta una coleccíon de objetos de tipo operario desde un fichero de texto
 	public static void importarOperariosTXT() {
-		File fIn = new File("ClienteChar.txt");
+		File fIn = new File("OperarioChar.txt");
 		FileReader fr = null;
 		BufferedReader br = null;
 
@@ -193,17 +193,17 @@ public class Operario {
 
 //Método que impoprta una coleccíon de objetos de tipo operario desde un fichero binario
 	public static void importarOperariosBinario() {
-		System.out.println("Cargando datos de clienteByte.dat...");
+		System.out.println("Cargando datos de operarioByte.dat...");
 		File ci;
 		FileInputStream fis = null;
 		ObjectInputStream lector = null;
 		try {
-			ci = new File("clienteByte.dat");
+			ci = new File("operarioByte.dat");
 			fis = new FileInputStream(ci);
 			lector = new ObjectInputStream(fis);
 
-			for (int i = 0; i < 6; i++) { // puedo usar Datos.numClientes para el limite pero no contaria el
-											// nuevo cliente.
+			for (int i = 0; i < 6; i++) { // puedo usar Datos.numOperarios para el limite pero no contaria el
+											// nuevo operario.
 				Operario o = (Operario) lector.readObject();
 				System.out.println(o.operariosData());
 			}
