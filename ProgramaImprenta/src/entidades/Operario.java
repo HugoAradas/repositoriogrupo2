@@ -227,6 +227,50 @@ public class Operario {
 			}
 		}
 	}
+	
+	public static void elegirImportarOperario() {
+		Scanner teclado = new Scanner(System.in);
+		boolean eleccionValida = false;
+		char eleccion;
+		do {
+			System.out.println("¿Desde dónde desea importar los operarios, fichero de texto (T) o fichero binario (B)?");
+			eleccion = teclado.next().charAt(0);
+			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
+				eleccionValida = true;
+			} else {
+				eleccionValida = false;
+			}
+		} while (!eleccionValida);
+		if (eleccion == 't' || eleccion == 'T') {
+			Operario.importarOperariosTXT();
+		}
+
+		if (eleccion == 'b' || eleccion == 'B') {
+			Operario.importarOperariosBinario();
+		}
+	}
+	
+	public static void buscarOperario(){
+		Scanner teclado = new Scanner(System.in);
+		boolean seleccionValida = false;
+		long buscaid;
+		
+		do {
+			System.out.println("Introduce el id del operario que desea buscar (el id debe ser mayor que 0)");
+			buscaid = teclado.nextLong();
+			if(buscaid >0) {
+				seleccionValida = true;
+			}
+			else {
+				seleccionValida = false;
+			}
+		}while(!seleccionValida);
+		for(Operario o : Datos.OPERARIOS) {
+			if(o.getIdOperario() == buscaid) {
+			System.out.println(o.operariosData());
+			}
+		}
+	}
 
 	private static void validarDNI(String string) throws DNIException {
 		// TODO Auto-generated method stub

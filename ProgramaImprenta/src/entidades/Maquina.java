@@ -52,105 +52,28 @@ public class Maquina {
 		return ret;
 	}
 	
-	//Método que crea y exporta un único objeto de tipo maquina a un fichero de texto 
-		public static void exportarMaquinaTXT(Maquina maquina) {
-			String path = "maquina.txt";
-			File fichero = new File(path);
-			FileWriter escritor = null;
-			PrintWriter buffer = null;
-			try {
-				try {
-					escritor = new FileWriter(fichero, false);
-					buffer = new PrintWriter(escritor);
-					buffer.println(Maquina.nuevaMaquina().maquinasData());
-
-				} finally {
-					if (buffer != null) {
-						buffer.close();
-					}
-					if (escritor != null) {
-						escritor.close();
-					}
-				}
-
-			} catch (FileNotFoundException ex) {
-				System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
-			} catch (IOException ex) {
-				System.out.println("Se ha producido una IOException" + ex.getMessage());
-			} catch (Exception ex) {
-				System.out.println("Se ha producido una Exception" + ex.getMessage());
+	public static void buscarMaquina(){
+		Scanner teclado = new Scanner(System.in);
+		boolean seleccionValida = false;
+		long buscaid;
+		
+		do {
+			System.out.println("Introduce el id de la máquina que desea buscar (el id debe ser mayor que 0)");
+			buscaid = teclado.nextLong();
+			if(buscaid >0) {
+				seleccionValida = true;
+			}
+			else {
+				seleccionValida = false;
+			}
+		}while(!seleccionValida);
+		for(Maquina m : Datos.MAQUINAS) {
+			if(m.getId_maquina() == buscaid) {
+			System.out.println(m.maquinasData());
 			}
 		}
+	}
 
-	//Método que exporta todas las maquinas de la coleccion Datos.MAQUINAS a un fichero de texto
-		public static void exportarMaquinasTXT(Maquina[] maquina) {
-			String path = "maquinas.txt";
-			File fichero = new File(path);
-			FileWriter escritor = null;
-			PrintWriter buffer = null;
-			try {
-				try {
-					escritor = new FileWriter(fichero, false);
-					buffer = new PrintWriter(escritor);
-					for (Maquina m : Datos.MAQUINAS) {
-						buffer.println(m.maquinasData());
-					}
-
-				} finally {
-					if (buffer != null) {
-						buffer.close();
-					}
-					if (escritor != null) {
-						escritor.close();
-					}
-				}
-
-			} catch (FileNotFoundException ex) {
-				System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
-			} catch (IOException ex) {
-				System.out.println("Se ha producido una IOException" + ex.getMessage());
-			} catch (Exception ex) {
-				System.out.println("Se ha producido una Exception" + ex.getMessage());
-			}
-		}
-
-	//Método que crea y exporta un único objeto de tipo maquina a un fichero de texto 
-		public static void exportarMaquinaBinario(Maquina maquina) {
-			String path = "maquina.dat";
-			try {
-				FileOutputStream fichero = new FileOutputStream(path, false);
-				ObjectOutputStream escritor = new ObjectOutputStream(fichero);
-				escritor.writeObject(Maquina.nuevaMaquina().maquinasData());
-				escritor.flush();
-				escritor.close();
-			} catch (FileNotFoundException e) {
-				System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
-			} catch (IOException e) {
-				System.out.println("Se ha producido una IOException" + e.getMessage());
-			} catch (Exception e) {
-				System.out.println("Se ha producido una Exception" + e.getMessage());
-			}
-		}
-
-	//Método que exporta todas las maquinas de la coleccion Datos.MAQUINAS a un fichero binario
-		public static void exportarMaquinasBinario(Maquina[] maquina) {
-			String path = "maquinas.dat";
-			try {
-				FileOutputStream fichero = new FileOutputStream(path, false);
-				ObjectOutputStream escritor = new ObjectOutputStream(fichero);
-				for (Maquina m : Datos.MAQUINAS) {
-					escritor.writeObject(m.maquinasData());
-					escritor.flush();
-				}
-				escritor.close();
-			} catch (FileNotFoundException e) {
-				System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
-			} catch (IOException e) {
-				System.out.println("Se ha producido una IOException" + e.getMessage());
-			} catch (Exception e) {
-				System.out.println("Se ha producido una Exception" + e.getMessage());
-			}
-		}
 
 	public static Maquina nuevaMaquina() {
 		Maquina ret = null;

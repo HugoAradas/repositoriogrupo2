@@ -62,177 +62,226 @@ public class Trabajo {
 				+ " Id del cliente: " + this.idCliente + " | " + " Hecho por la máquina con id: " + this.idMaquina;
 		return ret;
 	}
-	
-	//Método que crea y exporta un único objeto de tipo Trabajo a un fichero de texto 
-		public  void exportarTrabajoTXT() {
-			String path = "trabajo.txt";
-			File fichero = new File(path);
-			FileWriter escritor = null;
-			PrintWriter buffer = null;
-			try {
-				try {
-					escritor = new FileWriter(fichero, false);
-					buffer = new PrintWriter(escritor);
-					buffer.println(this.trabajosData());
 
-				} finally {
-					if (buffer != null) {
-						buffer.close();
-					}
-					if (escritor != null) {
-						escritor.close();
-					}
+	// Método que crea y exporta un único objeto de tipo Trabajo a un fichero de
+	// texto
+	public void exportarTrabajoTXT() {
+		String path = "trabajo.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				buffer.println(this.trabajosData());
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
 				}
-
-			} catch (FileNotFoundException ex) {
-				System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
-			} catch (IOException ex) {
-				System.out.println("Se ha producido una IOException" + ex.getMessage());
-			} catch (Exception ex) {
-				System.out.println("Se ha producido una Exception" + ex.getMessage());
-			}
-		}
-
-	//Método que exporta todos los Trabajos de la coleccion Datos.TRABAJOS a un fichero de texto
-		public static void exportarTrabajosTXT() {
-			String path = "trabajos.txt";
-			File fichero = new File(path);
-			FileWriter escritor = null;
-			PrintWriter buffer = null;
-			try {
-				try {
-					escritor = new FileWriter(fichero, false);
-					buffer = new PrintWriter(escritor);
-					for (Trabajo o : Datos.TRABAJOS) {
-						buffer.println(o.trabajosData());
-					}
-
-				} finally {
-					if (buffer != null) {
-						buffer.close();
-					}
-					if (escritor != null) {
-						escritor.close();
-					}
+				if (escritor != null) {
+					escritor.close();
 				}
-
-			} catch (FileNotFoundException ex) {
-				System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
-			} catch (IOException ex) {
-				System.out.println("Se ha producido una IOException" + ex.getMessage());
-			} catch (Exception ex) {
-				System.out.println("Se ha producido una Exception" + ex.getMessage());
 			}
-		}
 
-	//Método que crea y exporta un único objeto de tipo Trabajo a un fichero de texto 
-		public  void exportarTrabajoBinario() {
-			String path = "trabajo.dat";
-			try {
-				File fichero = new File(path);
-				FileOutputStream fos = new FileOutputStream(path, false);
-				ObjectOutputStream escritor = new ObjectOutputStream(fos);
-				escritor.writeObject(this.trabajosData());
-				escritor.flush();
-				escritor.close();
-			} catch (FileNotFoundException e) {
-				System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
-			} catch (IOException e) {
-				System.out.println("Se ha producido una IOException" + e.getMessage());
-			} catch (Exception e) {
-				System.out.println("Se ha producido una Exception" + e.getMessage());
-			}
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
 		}
+	}
 
-	//Método que exporta todos los Trabajos de la coleccion Datos.TRABAJOS a un fichero binario
-		public static void exportarTrabajosBinario() {
-			String path = "Trabajos.dat";
+	// Método que exporta todos los Trabajos de la coleccion Datos.TRABAJOS a un
+	// fichero de texto
+	public static void exportarTrabajosTXT() {
+		String path = "trabajos.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
 			try {
-				File fichero = new File(path);
-				FileOutputStream fos = new FileOutputStream(path, false);
-				ObjectOutputStream escritor = new ObjectOutputStream(fos);
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
 				for (Trabajo o : Datos.TRABAJOS) {
-					escritor.writeObject(o.trabajosData());
-					escritor.flush();
+					buffer.println(o.trabajosData());
 				}
-				escritor.close();
-			} catch (FileNotFoundException e) {
-				System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
-			} catch (IOException e) {
-				System.out.println("Se ha producido una IOException" + e.getMessage());
-			} catch (Exception e) {
-				System.out.println("Se ha producido una Exception" + e.getMessage());
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
 			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
 		}
+	}
 
-	//Método que impoprta una coleccíon de objetos de tipo Trabajo desde un fichero de texto
-		public static void importarTrabajosTXT() {
-			File fIn = new File("TrabajoChar.txt");
-			FileReader fr = null;
-			BufferedReader br = null;
+	// Método que crea y exporta un único objeto de tipo Trabajo a un fichero de
+	// texto
+	public void exportarTrabajoBinario() {
+		String path = "trabajo.dat";
+		try {
+			File fichero = new File(path);
+			FileOutputStream fos = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fos);
+			escritor.writeObject(this.trabajosData());
+			escritor.flush();
+			escritor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Se ha producido una IOException" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
+	}
 
+	// Método que exporta todos los Trabajos de la coleccion Datos.TRABAJOS a un
+	// fichero binario
+	public static void exportarTrabajosBinario() {
+		String path = "Trabajos.dat";
+		try {
+			File fichero = new File(path);
+			FileOutputStream fos = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fos);
+			for (Trabajo o : Datos.TRABAJOS) {
+				escritor.writeObject(o.trabajosData());
+				escritor.flush();
+			}
+			escritor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Se ha producido una IOException" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
+	}
+
+	// Método que impoprta una coleccíon de objetos de tipo Trabajo desde un fichero
+	// de texto
+	public static void importarTrabajosTXT() {
+		File fIn = new File("TrabajoChar.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(fIn);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 6; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				fr = new FileReader(fIn);
-				br = new BufferedReader(fr);
-				String s;
-
-				for (int i = 0; i < 6; i++) {
-					s = (String) br.readLine();
-					System.out.println(s);
-				}
-
-			} catch (FileNotFoundException e1) {
-				e1.printStackTrace();
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					if (br != null)
-						br.close();
-					if (fr != null)
-						fr.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 			}
 		}
+	}
 
-	//Método que impoprta una coleccíon de objetos de tipo Trabajo desde un fichero binario
-		public static void importarTrabajosBinario() {
-			System.out.println("Cargando datos de trabajoByte.dat...");
-			File ci;
-			FileInputStream fis = null;
-			ObjectInputStream lector = null;
-			try {
-				ci = new File("trabajoByte.dat");
-				fis = new FileInputStream(ci);
-				lector = new ObjectInputStream(fis);
+	// Método que impoprta una coleccíon de objetos de tipo Trabajo desde un fichero
+	// binario
+	public static void importarTrabajosBinario() {
+		System.out.println("Cargando datos de trabajoByte.dat...");
+		File ci;
+		FileInputStream fis = null;
+		ObjectInputStream lector = null;
+		try {
+			ci = new File("trabajoByte.dat");
+			fis = new FileInputStream(ci);
+			lector = new ObjectInputStream(fis);
 
-				for (int i = 0; i < 6; i++) { // puedo usar Datos.numTrabajos para el limite pero no contaria el
-												// nuevo trabajo.
-					Trabajo o = (Trabajo) lector.readObject();
-					System.out.println(o.trabajosData());
-				}
+			for (int i = 0; i < 6; i++) { // puedo usar Datos.numTrabajos para el limite pero no contaria el
+											// nuevo trabajo.
+				Trabajo o = (Trabajo) lector.readObject();
+				System.out.println(o.trabajosData());
+			}
 //			Cliente c = (Cliente) ois.readObject();
 //			System.out.println(c.data());
 
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (lector != null)
+					lector.close();
+				if (fis != null)
+					fis.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (lector != null)
-						lector.close();
-					if (fis != null)
-						fis.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 			}
 		}
+	}
+
+	public static void elegirImportarTrabajo() {
+		Scanner teclado = new Scanner(System.in);
+		boolean eleccionValida = false;
+		char eleccion;
+		do {
+			System.out.println("¿Desde dónde desea importar los trabajos, fichero de texto (T) o fichero binario (B)?");
+			eleccion = teclado.next().charAt(0);
+			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
+				eleccionValida = true;
+			} else {
+				eleccionValida = false;
+			}
+		} while (!eleccionValida);
+		if (eleccion == 't' || eleccion == 'T') {
+			Trabajo.importarTrabajosTXT();
+		}
+
+		if (eleccion == 'b' || eleccion == 'B') {
+			Trabajo.importarTrabajosBinario();
+		}
+	}
+
+	public static void buscarTrabajo() {
+		Scanner teclado = new Scanner(System.in);
+		boolean seleccionValida = false;
+		long buscaid;
+
+		do {
+			System.out.println("Introduce el id del trabajo que desea buscar (el id debe ser mayor que 0)");
+			buscaid = teclado.nextLong();
+			if (buscaid > 0) {
+				seleccionValida = true;
+			} else {
+				seleccionValida = false;
+			}
+		} while (!seleccionValida);
+		for (Trabajo t : Datos.TRABAJOS) {
+			if (t.getIdTrabajo() == buscaid) {
+				System.out.println(t.trabajosData());
+			}
+		}
+	}
 
 	public static Trabajo nuevoTrabajo() {
 		Trabajo ret = new Trabajo();
@@ -263,14 +312,6 @@ public class Trabajo {
 		return ret;
 
 	}
-
-//	public static void mostrarTrabajo() {
-//		System.out.println("Lista de trabajos disponibles");
-//		for (int i = 0; i < Datos.numTrabajos; i++) {
-//			Trabajo t = Datos.TRABAJOS[i];
-//			System.out.println(t);
-//		}
-//	}
 
 //Constructor por atributos de Trabajo	
 	public Trabajo(long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve,

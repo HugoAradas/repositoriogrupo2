@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-		
+
 		Scanner teclado = new Scanner(System.in);
 
 		int menu = 0;
@@ -30,9 +30,9 @@ public class Principal {
 				System.out.println("Ha elegido 1. Gestión de trabajos");
 				do {
 					System.out.println(
-							"Elige una opcion: \n 1.1. Ver trabajos \n 1.2. Nuevo trabajo \n 1.3. Buscar trabajo \n 0. Salir");
+							"Elige una opcion: \n 1.1. Ver trabajos \n 1.2. Nuevo trabajo \n 1.3. Buscar trabajo \n 1.4. Importar trabajo \n 1.5. Exportar trabajo \n 0. Salir");
 					menu = teclado.nextInt();
-					menuvalidoTrabajos = (menu < 0 || menu > 3 ? false : true);
+					menuvalidoTrabajos = (menu < 0 || menu > 5 ? false : true);
 					if (!menuvalidoTrabajos) {
 						System.out.println("introduce una opcion valida");
 					}
@@ -49,7 +49,18 @@ public class Principal {
 						break;
 					case 3:
 						System.out.println("Ha elegido 1.3. Buscar trabajo");
+						Trabajo.buscarTrabajo();
 
+						menuValido = false;
+						break;
+					case 4:
+						System.out.println("Ha elegido 1.4. Importar trabajo");
+						Trabajo.elegirImportarTrabajo();
+						
+						menuValido = false;
+						break;
+					case 5:
+						System.out.println("Ha elegido 1.5. Exportar trabajo");
 						menuValido = false;
 						break;
 					case 0:
@@ -65,7 +76,7 @@ public class Principal {
 				System.out.println("Ha elegido 2. Gestión de máquinas");
 				do {
 					System.out.println(
-							"Elige una opcion: \n 2.1. Ver máquinas \n 2.2. Nueva máquina \n 2.3. Buscar máquina \n 0. Salir");
+							"Elige una opcion: \n 2.1. Ver máquinas \n 2.2. Nueva máquina \n 2.3. Buscar máquina \n 2.4. Importar máquina \n 2.5. Exportar máquina \n 0. Salir");
 					menu = teclado.nextInt();
 					menuvalidoMaquinas = (menu < 0 || menu > 3 ? false : true);
 					if (!menuvalidoMaquinas) {
@@ -86,7 +97,16 @@ public class Principal {
 						break;
 					case 3:
 						System.out.println("Ha elegido 2.3. Buscar máquina");
+						Maquina.buscarMaquina();
 
+						menuValido = false;
+						break;
+					case 4:
+						System.out.println("Ha elegido 2.4. Importar máquina");
+						menuValido = false;
+						break;
+					case 5:
+						System.out.println("Ha elegido 2.5. Exportar máquina");
 						menuValido = false;
 						break;
 					case 0:
@@ -101,7 +121,7 @@ public class Principal {
 				System.out.println("Ha elegido 3. Gestión de personal");
 				do {
 					System.out.println(
-							"Elige una opcion: \n 3.1. Ver operarios \n 3.2. Nuevo operario \n 3.3. Buscar operario \n 0. Salir");
+							"Elige una opcion: \n 3.1. Ver operarios \n 3.2. Nuevo operario \n 3.3. Buscar operario \n 3.4. Importar operario \n 3.5. Exportar operario \n 0. Salir");
 					menu = teclado.nextInt();
 					menuvalidoPersonal = (menu < 0 || menu > 3 ? false : true);
 					if (!menuvalidoPersonal) {
@@ -117,12 +137,22 @@ public class Principal {
 					case 2:
 						System.out.println("Ha elegido 3.2. Nuevo operario");
 						Operario.nuevoOperario();
-						
+
 						menuValido = false;
 						break;
 					case 3:
 						System.out.println("Ha elegido 3.3. Buscar operario");
+						Operario.buscarOperario();
 
+						menuValido = false;
+						break;
+					case 4:
+						System.out.println("Ha elegido 3.4. Importar operario");
+						Operario.elegirImportarOperario();
+						menuValido = false;
+						break;
+					case 5:
+						System.out.println("Ha elegido 3.5. Exportar operario");
 						menuValido = false;
 						break;
 					case 0:
