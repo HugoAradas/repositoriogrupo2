@@ -1,10 +1,14 @@
 package entidades;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
@@ -36,13 +40,14 @@ public class Maquina {
 	}
 
 	public static void verMaquinas() {
-	Maquina[] maquina = Datos.MAQUINAS;
+		Maquina[] maquina = Datos.MAQUINAS;
 		for (int i = 0; i < maquina.length; i++)
 			if (maquina[i] != null)
 				System.out.println(maquina[i].maquinasData());
 	}
 
-	// Método data de máquina, devuelve un string con todos los datos de la máquina
+	// Método data de máquina, devuelve un string con todos los datos de la
+	// máquina
 	// separados mediante " | "
 	public String maquinasData() {
 		String ret = "";
@@ -51,29 +56,27 @@ public class Maquina {
 				+ this.modoImpresion + " | " + " Volumen de tinta: " + this.volumenTinta;
 		return ret;
 	}
-	
-	public static void buscarMaquina(){
+
+	public static void buscarMaquina() {
 		Scanner teclado = new Scanner(System.in);
 		boolean seleccionValida = false;
 		long buscaid;
-		
+
 		do {
 			System.out.println("Introduce el id de la máquina que desea buscar (el id debe ser mayor que 0)");
 			buscaid = teclado.nextLong();
-			if(buscaid >0) {
+			if (buscaid > 0) {
 				seleccionValida = true;
-			}
-			else {
+			} else {
 				seleccionValida = false;
 			}
-		}while(!seleccionValida);
-		for(Maquina m : Datos.MAQUINAS) {
-			if(m.getId_maquina() == buscaid) {
-			System.out.println(m.maquinasData());
+		} while (!seleccionValida);
+		for (Maquina m : Datos.MAQUINAS) {
+			if (m.getId_maquina() == buscaid) {
+				System.out.println(m.maquinasData());
 			}
 		}
 	}
-
 
 	public static Maquina nuevaMaquina() {
 		Maquina ret = null;
@@ -128,6 +131,197 @@ public class Maquina {
 		idLote = Lote.nuevoLote();
 		ret = new Maquina(id, fechaCompra, ubicacion, tipoImpresion, modoImpresion, volumenTinta, idLote);
 		return ret;
+	}
+
+	// Metodo para importar a texto
+	public void exportarMaquina() {
+		String path = "maquina.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				buffer.println(this.maquinasData());
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+
+	}
+	// Metodo para exportar todas las maquinas de la clase maquina
+
+	public static void exportarMaquina2() {
+		String path = "maquinas.txt";
+		File fichero = new File(path);
+		FileWriter escritor = null;
+		PrintWriter buffer = null;
+		try {
+			try {
+				escritor = new FileWriter(fichero, false);
+				buffer = new PrintWriter(escritor);
+				for (Maquina m : Datos.MAQUINAS) {
+					buffer.println(m.maquinasData());
+				}
+
+			} finally {
+				if (buffer != null) {
+					buffer.close();
+				}
+				if (escritor != null) {
+					escritor.close();
+				}
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Se ha producido una FileNotFoundException" + ex.getMessage());
+		} catch (IOException ex) {
+			System.out.println("Se ha producido una IOException" + ex.getMessage());
+		} catch (Exception ex) {
+			System.out.println("Se ha producido una Exception" + ex.getMessage());
+		}
+	}
+
+	// metodo para exportar binario
+	public void exportarMaquinaBinario() {
+		String path = "maquina.dat";
+		try {
+			File fichero = new File(path);
+			FileOutputStream fos = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fos);
+			escritor.writeObject(this.maquinasData());
+			escritor.flush();
+			escritor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Se ha producido una IOException" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
+	}
+
+	// metodo para exportar coleccion a binario
+	public static void exportarMaquinaBinario2() {
+		String path = "maquina.dat";
+		try {
+			File fichero = new File(path);
+			FileOutputStream fos = new FileOutputStream(path, false);
+			ObjectOutputStream escritor = new ObjectOutputStream(fos);
+			for (Maquina m : Datos.MAQUINAS) {
+				escritor.writeObject(m.maquinasData());
+				escritor.flush();
+			}
+			escritor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Se ha producido una FileNotFoundException" + e.getMessage());
+		} catch (IOException e) {
+			System.out.println("Se ha producido una IOException" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Se ha producido una Exception" + e.getMessage());
+		}
+	}
+
+	// metodo para importar una coleccion a un texto
+	public static void importarMaquina() {
+		File fIn = new File("maquina.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(fIn);
+			br = new BufferedReader(fr);
+			String s;
+
+			for (int i = 0; i < 6; i++) {
+				s = (String) br.readLine();
+				System.out.println(s);
+			}
+
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+				if (fr != null)
+					fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// metodo para importar una la coleccion de maquinas desde un binario
+	public static void importarMaquinaBinario() {
+		System.out.println("Cargando datos de maquinaByte.dat...");
+		File ci;
+		FileInputStream fis = null;
+		ObjectInputStream lector = null;
+		try {
+			ci = new File("maquinaByte.dat");
+			fis = new FileInputStream(ci);
+			lector = new ObjectInputStream(fis);
+
+			for (int i = 0; i < 6; i++) {
+				Maquina m = (Maquina) lector.readObject();
+				System.out.println(m.maquinasData());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (lector != null)
+					lector.close();
+				if (fis != null)
+					fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void elegirImportarOperario() {
+		Scanner teclado = new Scanner(System.in);
+		boolean eleccionValida = false;
+		char eleccion;
+		do {
+			System.out
+					.println("� Desde donde quiere importar las maquinas, fichero de texto (T) o fichero binario (B)?");
+			eleccion = teclado.next().charAt(0);
+			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
+				eleccionValida = true;
+			} else {
+				eleccionValida = false;
+			}
+		} while (!eleccionValida);
+		if (eleccion == 't' || eleccion == 'T') {
+			Maquina.importarMaquina();
+		}
+
+		if (eleccion == 'b' || eleccion == 'B') {
+			Maquina.importarMaquinaBinario();
+		}
 	}
 
 //	public static void mostrarmaquina() {
