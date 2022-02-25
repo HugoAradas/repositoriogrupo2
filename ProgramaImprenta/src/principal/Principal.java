@@ -56,11 +56,12 @@ public class Principal {
 					case 4:
 						System.out.println("Ha elegido 1.4. Importar trabajo");
 						Trabajo.elegirImportarTrabajo();
-						
+
 						menuValido = false;
 						break;
 					case 5:
 						System.out.println("Ha elegido 1.5. Exportar trabajo");
+						Trabajo.elegirExportarTrabajo();
 						menuValido = false;
 						break;
 					case 0:
@@ -103,10 +104,12 @@ public class Principal {
 						break;
 					case 4:
 						System.out.println("Ha elegido 2.4. Importar máquina");
+						Maquina.elegirImportarMaquina();
 						menuValido = false;
 						break;
 					case 5:
 						System.out.println("Ha elegido 2.5. Exportar máquina");
+						Maquina.elegirExportarMaquina();
 						menuValido = false;
 						break;
 					case 0:
@@ -153,6 +156,7 @@ public class Principal {
 						break;
 					case 5:
 						System.out.println("Ha elegido 3.5. Exportar operario");
+						Operario.elegirExportarOperario();
 						menuValido = false;
 						break;
 					case 0:

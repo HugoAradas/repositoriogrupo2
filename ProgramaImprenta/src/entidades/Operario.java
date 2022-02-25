@@ -58,7 +58,7 @@ public class Operario {
 	}
 
 //Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
-	public  void exportarOperarioTXT() {
+	public void exportarOperarioTXT() {
 		String path = "operario.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
@@ -120,7 +120,7 @@ public class Operario {
 	}
 
 //Método que crea y exporta un único objeto de tipo operario a un fichero de texto 
-	public  void exportarOperarioBinario() {
+	public void exportarOperarioBinario() {
 		String path = "operario.dat";
 		try {
 			File fichero = new File(path);
@@ -227,13 +227,14 @@ public class Operario {
 			}
 		}
 	}
-	
+
 	public static void elegirImportarOperario() {
 		Scanner teclado = new Scanner(System.in);
 		boolean eleccionValida = false;
 		char eleccion;
 		do {
-			System.out.println("¿Desde dónde desea importar los operarios, fichero de texto (T) o fichero binario (B)?");
+			System.out
+					.println("¿Desde dónde desea importar los operarios, fichero de texto (T) o fichero binario (B)?");
 			eleccion = teclado.next().charAt(0);
 			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
 				eleccionValida = true;
@@ -249,25 +250,46 @@ public class Operario {
 			Operario.importarOperariosBinario();
 		}
 	}
-	
-	public static void buscarOperario(){
+
+	public static void elegirExportarOperario() {
+		Scanner teclado = new Scanner(System.in);
+		boolean eleccionValida = false;
+		char eleccion;
+		do {
+			System.out.println("¿A dónde desea exportar los operarios, fichero de texto (T) o fichero binario (B)?");
+			eleccion = teclado.next().charAt(0);
+			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
+				eleccionValida = true;
+			} else {
+				eleccionValida = false;
+			}
+		} while (!eleccionValida);
+		if (eleccion == 't' || eleccion == 'T') {
+			Operario.exportarOperariosTXT();
+		}
+
+		if (eleccion == 'b' || eleccion == 'B') {
+			Operario.exportarOperariosBinario();
+		}
+	}
+
+	public static void buscarOperario() {
 		Scanner teclado = new Scanner(System.in);
 		boolean seleccionValida = false;
 		long buscaid;
-		
+
 		do {
 			System.out.println("Introduce el id del operario que desea buscar (el id debe ser mayor que 0)");
 			buscaid = teclado.nextLong();
-			if(buscaid >0) {
+			if (buscaid > 0) {
 				seleccionValida = true;
-			}
-			else {
+			} else {
 				seleccionValida = false;
 			}
-		}while(!seleccionValida);
-		for(Operario o : Datos.OPERARIOS) {
-			if(o.getIdOperario() == buscaid) {
-			System.out.println(o.operariosData());
+		} while (!seleccionValida);
+		for (Operario o : Datos.OPERARIOS) {
+			if (o.getIdOperario() == buscaid) {
+				System.out.println(o.operariosData());
 			}
 		}
 	}

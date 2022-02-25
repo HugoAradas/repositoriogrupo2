@@ -262,6 +262,28 @@ public class Trabajo {
 		}
 	}
 
+	public static void elegirExportarTrabajo() {
+		Scanner teclado = new Scanner(System.in);
+		boolean eleccionValida = false;
+		char eleccion;
+		do {
+			System.out.println("¿A dónde desea exportar los trabajos, fichero de texto (T) o fichero binario (B)?");
+			eleccion = teclado.next().charAt(0);
+			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
+				eleccionValida = true;
+			} else {
+				eleccionValida = false;
+			}
+		} while (!eleccionValida);
+		if (eleccion == 't' || eleccion == 'T') {
+			Trabajo.exportarTrabajosTXT();
+		}
+
+		if (eleccion == 'b' || eleccion == 'B') {
+			Trabajo.exportarTrabajosBinario();
+		}
+	}
+
 	public static void buscarTrabajo() {
 		Scanner teclado = new Scanner(System.in);
 		boolean seleccionValida = false;

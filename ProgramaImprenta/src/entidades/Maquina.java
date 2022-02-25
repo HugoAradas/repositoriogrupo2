@@ -134,7 +134,7 @@ public class Maquina {
 	}
 
 	// Metodo para importar a texto
-	public void exportarMaquina() {
+	public void exportarMaquinaTXT() {
 		String path = "maquina.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
@@ -165,7 +165,7 @@ public class Maquina {
 	}
 	// Metodo para exportar todas las maquinas de la clase maquina
 
-	public static void exportarMaquina2() {
+	public static void exportarMaquinasTXT() {
 		String path = "maquinas.txt";
 		File fichero = new File(path);
 		FileWriter escritor = null;
@@ -216,7 +216,7 @@ public class Maquina {
 	}
 
 	// metodo para exportar coleccion a binario
-	public static void exportarMaquinaBinario2() {
+	public static void exportarMaquinasBinario() {
 		String path = "maquina.dat";
 		try {
 			File fichero = new File(path);
@@ -301,13 +301,13 @@ public class Maquina {
 		}
 	}
 
-	public static void elegirImportarOperario() {
+	public static void elegirImportarMaquina() {
 		Scanner teclado = new Scanner(System.in);
 		boolean eleccionValida = false;
 		char eleccion;
 		do {
 			System.out
-					.println("� Desde donde quiere importar las maquinas, fichero de texto (T) o fichero binario (B)?");
+					.println("¿Desde donde quiere importar las maquinas, fichero de texto (T) o fichero binario (B)?");
 			eleccion = teclado.next().charAt(0);
 			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
 				eleccionValida = true;
@@ -324,12 +324,27 @@ public class Maquina {
 		}
 	}
 
-//	public static void mostrarmaquina() {
-//		for (int i = 0; i < Datos.numMaquina; i++) {
-//			Maquina m = Datos.MAQUINAS[i];
-//			System.out.println(m.toString());
-//		}
-//	}
+	public static void elegirExportarMaquina() {
+		Scanner teclado = new Scanner(System.in);
+		boolean eleccionValida = false;
+		char eleccion;
+		do {
+			System.out.println("¿A dónde desea exportar las máquinas, fichero de texto (T) o fichero binario (B)?");
+			eleccion = teclado.next().charAt(0);
+			if (eleccion == 'T' || eleccion == 't' || eleccion == 'B' || eleccion == 'b') {
+				eleccionValida = true;
+			} else {
+				eleccionValida = false;
+			}
+		} while (!eleccionValida);
+		if (eleccion == 't' || eleccion == 'T') {
+			Maquina.exportarMaquinasTXT();
+		}
+
+		if (eleccion == 'b' || eleccion == 'B') {
+			Maquina.exportarMaquinasBinario();
+		}
+	}
 
 	public Maquina(long id, LocalDate fechaCompra, String ubicacion, String tipoImpresion, String modoImpresion,
 			double volumenTinta, Lote idLote) {
