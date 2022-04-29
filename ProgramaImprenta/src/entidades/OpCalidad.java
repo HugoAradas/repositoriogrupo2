@@ -22,20 +22,20 @@ public class OpCalidad extends Operario {
 
 		System.out.println("inroduce los datos del operario");
 		idOperario = Operario.nuevoOperario();
-		ret = new OpCalidad(id, idOperario);
+		ret = new OpCalidad(idOperario);
 		return ret;
 	}
 
 	// Constructor por defecto del Operario de Calidad
-	public OpCalidad(long id, Operario idOperario2) {
+	public OpCalidad(Operario idOperario) {
 		super();
 	}
 
 	// Constructor del Operario de Calidad unicamente con atributo de la superclase
 	// operario
-	public OpCalidad(long idOperario, String NIF, String nombreApellido, long num_telefono, String direccion,
-			boolean senior, char departamento) {
-		super(idOperario, NIF, nombreApellido, num_telefono, direccion, senior, departamento);
+	public OpCalidad(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
+			boolean senior, char idDep) {
+		super(idOperario, NIF, nombre, apellido, num_telefono, direccion, senior, idDep);
 
 	}
 

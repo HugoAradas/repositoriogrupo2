@@ -358,14 +358,22 @@ public class Maquina {
 	}
 
 //Constructor por atributos de Maquina
+	public Maquina(long idMaquina, int fecha_compra, String ubicacion, String tipoImpresion, String modoImpresion, Lote idLote) {
+		numMaquinas = numMaquinas + 1;
+		this.idMaquina = numMaquinas;
+		
+	}
+	
+	public Maquina(long idMaquina, int fecha_compra, String ubicacion, double volumenTinta, Lote idLote) {
+		numMaquinas = numMaquinas + 1;
+		this.idMaquina = numMaquinas;
+		
+	}
+	
 	public Maquina(long idMaquina, int fecha_compra, String ubicacion, Lote idLote) {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;
-
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce la ubicacion:");
-		ubicacion = teclado.nextLine();
-		setUbicacion(ubicacion);
+		
 	}
 
 	public LocalDate getFechaCompra() {

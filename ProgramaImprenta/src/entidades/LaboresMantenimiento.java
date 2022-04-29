@@ -29,6 +29,13 @@ public class LaboresMantenimiento {
 		this.descripcion = descripcion;
 
 	}
+	
+	public LaboresMantenimiento(long id, LocalDate FechaReal, Maquina idMaquina,
+			OpMaquina idOperario) {
+		this.idLab = id;
+		this.fechaReal = fechaReal;
+
+	}
 
 // Metodo para crear una nueva labor de mantenimiento	
 	public static LaboresMantenimiento nuevoLaboresMantenimiento() {

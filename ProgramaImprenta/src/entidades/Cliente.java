@@ -16,11 +16,16 @@ public class Cliente {
 		// TODO Auto-generated constructor stub
 	}
 	
-// Constructor con atributos de la clase cliente
+// Constructores con atributos de la clase cliente
 	public Cliente(long idCliente, String nombre, String apellido) {
 		numClientes = numClientes + 1;
 		this.idCliente = numClientes;
 		
+	}
+	
+	public Cliente(long idCliente, String apellido) {
+		numClientes = numClientes + 1;
+		this.idCliente = numClientes;
 	}
 	
 // Metodo para generar un nuevo cliente

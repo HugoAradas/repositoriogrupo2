@@ -54,6 +54,15 @@ public class Prueba {
 		this.Resultado = Resultado;
 	}
 
+	public Prueba(LocalDate fecha, String resultado, long idPrueba, OpCalidad[] idOperario, Maquina[] idMaquina) {
+		super();
+		this.fecha = fecha;
+		Resultado = resultado;
+		this.idPrueba = idPrueba;
+		this.idOperario = idOperario;
+		this.idMaquina = idMaquina;
+	}
+
 	public long getidPrueba() {
 		return idPrueba;
 	}

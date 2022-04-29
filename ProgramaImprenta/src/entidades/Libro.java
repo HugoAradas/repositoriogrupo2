@@ -17,18 +17,23 @@ public class Libro extends Trabajo {
 
 //Constructor por defecto de la clase Libro
 	public Libro() {
-		super();
+		this.idLibro = numLibros;
 	}
 	
-	
-
-	public Libro(long idLibro, String colorTapa, int numCopias, Trabajo idTrabajo, Cliente idCliente) {
+	public Libro(long idLibro, String colorTapa, int numCopias, Cliente idCliente, Trabajo idTrabajo) {
 		super();
 			this.idLibro = idLibro;
 			this.colorTapa = colorTapa;
 			this.numCopias = numCopias;
-		}
+	}
 
+	public Libro(long idLibro, String colorTapa, int numCopias, Cliente idCliente, long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve, Maquina idMaquina) {
+		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
+			this.idLibro = idLibro;
+			this.colorTapa = colorTapa;
+			this.numCopias = numCopias;
+	}
+	
 	public static Libro nuevoLibro() {
 		Libro ret =null;
 		Scanner teclado = new Scanner(System.in);
@@ -63,7 +68,7 @@ public class Libro extends Trabajo {
 		System.out.println("introduce el cliente que quiere el libro");
 		idCliente = Cliente.nuevoCliente();
 		
-		ret = new Libro (id, color, numcopias, idTrabajo, idCliente);
+		ret = new Libro (id, color, numcopias, idCliente, idTrabajo);
 		return ret;
 	}
 

@@ -42,6 +42,13 @@ public class ReglaCalidad {
 		this.NombreRegla = NombreRegla;
 	}
 
+	public ReglaCalidad(long idRegla, OpCalidad[] idOperario, Prueba[] idPrueba) {
+		super();
+		this.idRegla = idRegla;
+		this.idOperario = idOperario;
+		this.idPrueba = idPrueba;
+	}
+
 	public long getidRegla() {
 		return idRegla;
 	}

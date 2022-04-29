@@ -369,20 +369,27 @@ public class Operario {
 //	}
 
 	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
-			Departamento idDep) {
+			boolean senior, Departamento idDep) {
 		this.idOperario = idOperario;
 		this.NIF = NIF;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.numTelefono = num_telefono;
 		this.direccion = direccion;
+		this.senior = senior;
 	}
 
 //constructor por atributos del operario
-	public Operario(long idOperario, String NIF, String nombreApellido, long num_telefono, String direccion,
-			boolean senior, char departamento) {
+	public Operario(long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
+			boolean senior, char idDep) {
 		numOperario = numOperario + 1;
 		this.idOperario = numOperario;
+		this.NIF = NIF;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.numTelefono = num_telefono;
+		this.direccion = direccion;
+		this.senior = senior;
 	}
 
 	public static int getNumOperario() {

@@ -17,6 +17,14 @@ public class Lote {
 		this.idLote = numLotes;
 	}
 
+	public Lote(long idLote, String nombreLote, Departamento idDep) {
+			
+	}
+	
+	public Lote(long idLote, Departamento idDep) {
+		
+	}
+
 	public static Lote nuevoLote() {
 		Lote ret = null;
 		Scanner teclado = new Scanner(System.in);
@@ -43,10 +51,6 @@ public class Lote {
 
 		ret = new Lote(id, nombreLote, idDep);
 		return ret;
-	}
-
-	public Lote(long idLote, String nombreLote, Departamento idDep) {
-
 	}
 
 	public static int getNumLotes() {

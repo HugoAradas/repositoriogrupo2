@@ -59,7 +59,34 @@ public class PoliticaCalidad {
 		this.fechaVig = fechaVig;
 		this.descripcion = descripcion;
 	}
-	
+
+	public PoliticaCalidad(long idPolitica, String nombrePolitica, LocalDate fechaVig, OpCalidad[] idOperario,
+			ReglaCalidad[] idRegla) {
+		super();
+		this.idPolitica = idPolitica;
+		this.nombrePolitica = nombrePolitica;
+		this.fechaVig = fechaVig;
+		this.idOperario = idOperario;
+		this.idRegla = idRegla;
+	}
+
+	public PoliticaCalidad(long idPolitica, LocalDate fechaVig, String descripcion, OpCalidad[] idOperario,
+			ReglaCalidad[] idRegla) {
+		super();
+		this.idPolitica = idPolitica;
+		this.fechaVig = fechaVig;
+		this.descripcion = descripcion;
+		this.idOperario = idOperario;
+		this.idRegla = idRegla;
+	}
+
+	public PoliticaCalidad(long idPolitica, LocalDate fechaVig, OpCalidad[] idOperario, ReglaCalidad[] idRegla) {
+		super();
+		this.idPolitica = idPolitica;
+		this.fechaVig = fechaVig;
+		this.idOperario = idOperario;
+		this.idRegla = idRegla;
+	}
 
 	public long getId() {
 		return idPolitica;

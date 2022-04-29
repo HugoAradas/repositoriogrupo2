@@ -14,15 +14,15 @@ public class OpImpresion extends Operario {
 
 	// Constructor del Operario de Impresion unicamente con atributo de la superclase
 	// operario
-	public OpImpresion(long idOperario, String NIF, String nombreApellido, long num_telefono, String direccion,
-			boolean senior, char departamento) {
-		super(idOperario, NIF, nombreApellido, num_telefono, direccion, senior, departamento);
+	public OpImpresion(long idMod, long idOperario, String NIF, String nombre, String apellido, long num_telefono, String direccion,
+			boolean senior, char idDep) {
+		super(idOperario, NIF, nombre, apellido, num_telefono, direccion, senior, idDep);
 
 	}
 
 	// Constructor por atributos del Operario de Impresion y la superclase Operario,
 	// con los valores obligatorios parq crear un Operario de Impresion
-	public OpImpresion(long idOperario, String NIF, String nombreApellido, long idMod) {
+	public OpImpresion(long idMod, long idOperario, String NIF, String nombreApellido) {
 		super();
 		numIm = numIm + 1;
 		this.idMod = numIm;

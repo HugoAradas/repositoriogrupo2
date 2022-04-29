@@ -20,25 +20,25 @@ public class Datos {
 	public static final int numLote = LOTES.length;
 
 	public static final Operario OPERARIOS[] = {
-			new Operario(1, "83492590M", "Benito", "Garcia", 682749158, "Gijon", DEPARTAMENTOS[0]),
-			new Operario(2, "83497256J", "Juan", "Perez", 639674539, "Barcelona", DEPARTAMENTOS[0]),
-			new Operario(3, "72912597P", "Jose", "Fernandez", 639284027, "Valladolid", DEPARTAMENTOS[1]),
-			new Operario(4, "25840183M", "Sandra", "Martinez", 684038275, "Toledo", DEPARTAMENTOS[2]),
-			new Operario(5, "72675927F", "Borja", "Rojo", 616803247, "Cordoba", DEPARTAMENTOS[2]),
-			new Operario(6, "27492027D", "Andrea", "Rubia", 673402184, "Caceres", DEPARTAMENTOS[0]),
-			new Operario(7, "19473502M", "Aitor", "Ali", 698723688, "Madrid", DEPARTAMENTOS[2]),
-			new Operario(8, "32856382K", "Ruben", "Yamaoka", 638502850, "Murcia", DEPARTAMENTOS[1]),
-			new Operario(9, "83620174H", "Ana", "Fernandez", 699472958, "Gijon", DEPARTAMENTOS[2]) };
+//			new Operario(1, "83492590M", "Benito", "Garcia", 682749158, "Gijon", DEPARTAMENTOS[0]),
+//			new Operario(2, "83497256J", "Juan", "Perez", 639674539, "Barcelona", DEPARTAMENTOS[0]),
+//			new Operario(3, "72912597P", "Jose", "Fernandez", 639284027, "Valladolid", DEPARTAMENTOS[1]),
+//			new Operario(4, "25840183M", "Sandra", "Martinez", 684038275, "Toledo", DEPARTAMENTOS[2]),
+//			new Operario(5, "72675927F", "Borja", "Rojo", 616803247, "Cordoba", DEPARTAMENTOS[2]),
+//			new Operario(6, "27492027D", "Andrea", "Rubia", 673402184, "Caceres", DEPARTAMENTOS[0]),
+//			new Operario(7, "19473502M", "Aitor", "Ali", 698723688, "Madrid", DEPARTAMENTOS[2]),
+//			new Operario(8, "32856382K", "Ruben", "Yamaoka", 638502850, "Murcia", DEPARTAMENTOS[1]),
+			new Operario(9, "83620174H", "Ana", "Fernandez", 699472958, "Gijon", false, DEPARTAMENTOS[2]) };
 	public static final int numOperarios = OPERARIOS.length;
 
-	public static final OpImpresion OPSIMPRESION[] = { new OpImpresion(3, "72912597P", "JoseFernandez", 1),
-			new OpImpresion(7, "19473502M", "AitorAli", 2), new OpImpresion(1, "83492590M", "BenitoGarcia", 3) };
-	public static final int numOpImpresion = OPSIMPRESION.length;
+//	public static final OpImpresion OPSIMPRESION[] = { new OpImpresion(3, "72912597P", "JoseFernandez", 1),
+//			new OpImpresion(7, "19473502M", "AitorAli", 2), new OpImpresion(1, "83492590M", "BenitoGarcia", 3) };
+//	public static final int numOpImpresion = OPSIMPRESION.length;
 
-	public static final OpMaquina OPSMAQUINA[] = { new OpMaquina(OPERARIOS[2], "83497256J", "JuanPerez"),
-			new OpMaquina(OPERARIOS[8], "32856382K", "RubenYamaoka"),
-			new OpMaquina(OPERARIOS[8], "83620174H", "AnaFernandez") };
-	public static final int numOpMaquina = OPSMAQUINA.length;
+//	public static final OpMaquina OPSMAQUINA[] = { new OpMaquina(OPERARIOS[2], "83497256J", "JuanPerez"),
+//			new OpMaquina(OPERARIOS[8], "32856382K", "RubenYamaoka"),
+//			new OpMaquina(OPERARIOS[8], "83620174H", "AnaFernandez") };
+//	public static final int numOpMaquina = OPSMAQUINA.length;
 
 	public static final Maquina MAQUINAS[] = { 
 			new Maquina(1, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Sotano",  "", "", 9.7, LOTES[1]),
@@ -49,11 +49,11 @@ public class Datos {
 			new Maquina(6, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "P2",  "", "", 9.7, LOTES[2]) };
 	public static final int numMaquina = MAQUINAS.length;
 
-	public static final LaboresMantenimiento LABORES[] = {
-			new LaboresMantenimiento(1, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[1], OPSMAQUINA[2]),
-			new LaboresMantenimiento(2, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[2], OPSMAQUINA[0]),
-			new LaboresMantenimiento(3, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[3], OPSMAQUINA[1]) };
-	public static final int numLabor = LABORES.length;
+//	public static final LaboresMantenimiento LABORES[] = {
+//			new LaboresMantenimiento(1, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[1], OPSMAQUINA[2]),
+//			new LaboresMantenimiento(2, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[2], OPSMAQUINA[0]),
+//			new LaboresMantenimiento(3, LocalDate.parse("25/11/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Descripcion", MAQUINAS[3], OPSMAQUINA[1]) };
+//	public static final int numLabor = LABORES.length;
 
 	public static final OpCalidad OPSCALIDAD[] = { new OpCalidad(OPERARIOS[6], "83492590M", "BenitoGarcia"),
 			new OpCalidad(OPERARIOS[4], "25840183M", "SandraMartinez"),

@@ -72,21 +72,6 @@ public class Poster extends Trabajo {
 		numPoster = numPoster + 1;
 		this.idPoster = numPoster;
 
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce el ancho:");
-		ancho = teclado.nextDouble();
-		setAncho(ancho);
-
-		Scanner teclado1 = new Scanner(System.in);
-		System.out.println("Introduce el alto:");
-		ancho = teclado1.nextDouble();
-		setAlto(alto);
-
-		Scanner teclado2 = new Scanner(System.in);
-		System.out.println("Introduce el ancho:");
-		numCopiasPoster = teclado2.nextInt();
-		setNumCopiasPoster(numCopiasPoster);
-
 	}
 
 //Constructor por atributos de la clase Trabajo
