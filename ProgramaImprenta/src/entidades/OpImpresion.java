@@ -4,6 +4,7 @@ public class OpImpresion extends Operario {
 	// Variable para asignar el id automaticamente
 	public static int numIm = 0;
 	protected long idMod;
+	protected Operario[] idOperario;
 
 	// Constructor por defecto del Operario de Impresion
 	public OpImpresion() {

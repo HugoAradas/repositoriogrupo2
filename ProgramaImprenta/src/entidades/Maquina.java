@@ -364,6 +364,18 @@ public class Maquina {
 		
 	}
 	
+	public Maquina(long idMaquina, int fecha_compra, String ubicacion, double volumenTinta, String modoImpresion,  Lote idLote) {
+		numMaquinas = numMaquinas + 1;
+		this.idMaquina = numMaquinas;
+		
+	}
+	
+	public Maquina(long idMaquina, int fecha_compra, String ubicacion, String tipoImpresion, double volumenTinta, Lote idLote) {
+		numMaquinas = numMaquinas + 1;
+		this.idMaquina = numMaquinas;
+		
+	}
+	
 	public Maquina(long idMaquina, int fecha_compra, String ubicacion, double volumenTinta, Lote idLote) {
 		numMaquinas = numMaquinas + 1;
 		this.idMaquina = numMaquinas;

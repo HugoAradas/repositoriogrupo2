@@ -45,6 +45,13 @@ public class Rotulo extends Trabajo {
 
 	}
 
+	public Rotulo(long idRotulo, String centroComercial) {
+		super();
+		numRotulos = numRotulos + 1;
+		this.idRotulo = numRotulos;
+
+	}
+	
 //Constructor con atributos de la clase trabajo
 	public Rotulo(long idRotulo, String centroComercial, long idTrabajo, LocalDate fechaSolicitud,
 			LocalDate fechaEntrega, String tipoRelieve, Cliente idCliente, Maquina idMaquina) {

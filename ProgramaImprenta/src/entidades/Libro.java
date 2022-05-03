@@ -11,7 +11,7 @@ public class Libro extends Trabajo {
 	public static int numLibros = 0;
 	private long idLibro;
 	private String colorTapa; // para saber el color de su tapa
-	private int numCopias; // el numero de copias es entero
+	private int numCopiasLibro; // el numero de copias es entero
 	private Trabajo[] idTrabajo;
 	private Cliente[] idCliente;
 
@@ -24,14 +24,14 @@ public class Libro extends Trabajo {
 		super();
 			this.idLibro = idLibro;
 			this.colorTapa = colorTapa;
-			this.numCopias = numCopias;
+			this.numCopiasLibro = numCopias;
 	}
 
 	public Libro(long idLibro, String colorTapa, int numCopias, Cliente idCliente, long idTrabajo, LocalDate fechaSolicitud, LocalDate fechaEntrega, String tipoRelieve, Maquina idMaquina) {
 		super(idTrabajo, fechaSolicitud, fechaEntrega, tipoRelieve, idCliente, idMaquina);
 			this.idLibro = idLibro;
 			this.colorTapa = colorTapa;
-			this.numCopias = numCopias;
+			this.numCopiasLibro = numCopias;
 	}
 	
 	public static Libro nuevoLibro() {
@@ -133,11 +133,11 @@ public class Libro extends Trabajo {
 	}
 
 	public int getNumCopias() {
-		return numCopias;
+		return numCopiasLibro;
 	}
 
 	public void setNumCopias(int numCopias) {
-		this.numCopias = numCopias;
+		this.numCopiasLibro = numCopias;
 	}
 
 	public Trabajo[] getidTrabajo() {
@@ -157,7 +157,7 @@ public class Libro extends Trabajo {
 	}
 
 	public String toString() {
-		return idLibro + "|" + colorTapa + "|" + numCopias + "|" + idTrabajo + "|" + idCliente;
+		return idLibro + "|" + colorTapa + "|" + numCopiasLibro + "|" + idTrabajo + "|" + idCliente;
 	}
 
 }
