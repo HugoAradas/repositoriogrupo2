@@ -52,7 +52,7 @@ public class PoliticaCalidad {
 		return ret;
 	}
 
-	public PoliticaCalidad(long idPol, String nombrePolitica, LocalDate fechaVig, String descripcion, String Resultado, OpCalidad idOperario,
+	public PoliticaCalidad(long idPolitica, String nombrePolitica, LocalDate fechaVig, String descripcion, String Resultado, OpCalidad idOperario,
 			ReglaCalidad idRegla, ReglaCalidad idRegla1) {
 		numPol = numPol + 1;
 		this.nombrePolitica = nombrePolitica;
@@ -60,7 +60,7 @@ public class PoliticaCalidad {
 		this.descripcion = descripcion;
 	}
 
-	public PoliticaCalidad(long idPolitica, String nombrePolitica, LocalDate fechaVig, OpCalidad[] idOperario,
+	public PoliticaCalidad(long idPolitica, String nombrePolitica, LocalDate fechaVig, String Resultado, OpCalidad[] idOperario,
 			ReglaCalidad[] idRegla) {
 		super();
 		this.idPolitica = idPolitica;
@@ -70,7 +70,7 @@ public class PoliticaCalidad {
 		this.idRegla = idRegla;
 	}
 
-	public PoliticaCalidad(long idPolitica, LocalDate fechaVig, String descripcion, OpCalidad[] idOperario,
+	public PoliticaCalidad(long idPolitica, LocalDate fechaVig, String descripcion, String Resultado, OpCalidad[] idOperario,
 			ReglaCalidad[] idRegla) {
 		super();
 		this.idPolitica = idPolitica;
@@ -80,7 +80,7 @@ public class PoliticaCalidad {
 		this.idRegla = idRegla;
 	}
 
-	public PoliticaCalidad(long idPolitica, LocalDate fechaVig, OpCalidad[] idOperario, ReglaCalidad[] idRegla) {
+	public PoliticaCalidad(long idPolitica, LocalDate fechaVig, String Resultado, OpCalidad[] idOperario, ReglaCalidad[] idRegla) {
 		super();
 		this.idPolitica = idPolitica;
 		this.fechaVig = fechaVig;

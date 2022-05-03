@@ -42,7 +42,7 @@ public class ReglaCalidad {
 		this.NombreRegla = NombreRegla;
 	}
 
-	public ReglaCalidad(long idRegla, OpCalidad[] idOperario, Prueba[] idPrueba) {
+	public ReglaCalidad(long idRegla, OpCalidad[] idOperario, Prueba[] idPrueba, Prueba idPrueba1[], Prueba idPrueba2[]) {
 		super();
 		this.idRegla = idRegla;
 		this.idOperario = idOperario;

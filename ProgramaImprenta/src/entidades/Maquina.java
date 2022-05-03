@@ -346,9 +346,9 @@ public class Maquina {
 		}
 	}
 
-	public Maquina(long id, LocalDate fechaCompra, String ubicacion, String tipoImpresion, String modoImpresion,
+	public Maquina(long idMaquina, LocalDate fechaCompra, String ubicacion, String tipoImpresion, String modoImpresion,
 			double volumenTinta, Lote idLote) {
-		this.idMaquina = id;
+		this.idMaquina = idMaquina;
 		this.fechaCompra = fechaCompra;
 		this.ubicacion = ubicacion;
 		this.tipoImpresion = tipoImpresion;

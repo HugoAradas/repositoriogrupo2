@@ -54,10 +54,10 @@ public class Prueba {
 		this.Resultado = Resultado;
 	}
 
-	public Prueba(LocalDate fecha, String resultado, long idPrueba, OpCalidad[] idOperario, Maquina[] idMaquina) {
+	public Prueba(LocalDate fecha, String Resultado, long idPrueba, OpCalidad[] idOperario, Maquina[] idMaquina) {
 		super();
 		this.fecha = fecha;
-		Resultado = resultado;
+		this.Resultado = Resultado;
 		this.idPrueba = idPrueba;
 		this.idOperario = idOperario;
 		this.idMaquina = idMaquina;
