@@ -13,6 +13,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 import utils.Datos;
@@ -29,14 +30,14 @@ public class Trabajo {
 	protected LocalDate fechaEntrega;
 	// mínimo 3 caracteres, máximo 25
 	protected String tipoRelieve;
-	protected Cliente[] idCliente;
-	protected Maquina[] idMaquina;
+	protected long idCliente;
+	protected long idMaquina;
 
-	public Cliente[] getCliente() {
+	public long getCliente() {
 		return idCliente;
 	}
 
-	public void setClientes(Cliente[] idCliente) {
+	public void setClientes(long idCliente) {
 		this.idCliente = idCliente;
 	}
 
@@ -325,11 +326,7 @@ public class Trabajo {
 		} while (!validarelieve);
 		ret.setTipoRelieve(tipoRelieve);
 
-		System.out.println("Introduce la fecha de solicitud");
-		ret.fechaSolicitud = Utilidades.leerFecha();
 
-		System.out.println("Introduce la fecha de entrega");
-		ret.fechaEntrega = Utilidades.leerFecha();
 
 		return ret;
 
@@ -384,6 +381,23 @@ public class Trabajo {
 
 	public void setTipoRelieve(String tipoRelieve) {
 		this.tipoRelieve = tipoRelieve;
+	}
+	
+
+	public long getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(long idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public long getIdMaquina() {
+		return idMaquina;
+	}
+
+	public void setIdMaquina(long idMaquina) {
+		this.idMaquina = idMaquina;
 	}
 
 	@Override

@@ -8,7 +8,6 @@ import validacion.validador;
 
 public class Poster extends Trabajo {
 	// Variable auxiliar para asignar el id automaticamente
-	public static int numPoster = 0;
 	private long idPoster;
 	private double ancho; // dado que nos pide que es en centimetros
 	private double alto; // lo mismo
@@ -19,8 +18,7 @@ public class Poster extends Trabajo {
 //Constructor por defecto de la clase Póster
 	public Poster() {
 		super();
-		numPoster = numPoster + 1;
-		this.idPoster = numPoster;
+
 
 	}
 
@@ -69,8 +67,7 @@ public class Poster extends Trabajo {
 
 	public Poster(long idPoster, double ancho, double alto, int numCopiasPoster) {
 		super();
-		numPoster = numPoster + 1;
-		this.idPoster = numPoster;
+
 
 	}
 
@@ -86,16 +83,11 @@ public class Poster extends Trabajo {
 	public Poster(long idPoster, double ancho, double largo, int numCopiasPoster, int fechaSolicitud, int fechaEntrega,
 			String tipoRelieve, Trabajo idTrabajo, Cliente idCliente) {
 		super();
-		numPoster = numPoster + 1;
-		this.idPoster = numPoster;
-	}
 
-	public static int getNumPoster() {
-		return numPoster;
 	}
 
 	public static void setNumPoster(int numPoster) {
-		Poster.numPoster = numPoster;
+
 	}
 
 	public long getIdPoster() {
