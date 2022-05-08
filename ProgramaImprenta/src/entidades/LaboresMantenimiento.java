@@ -12,9 +12,9 @@ public class LaboresMantenimiento {
 	private long idLab;
 	private LocalDate fechaReal;
 	private String descripcion;
-	private Maquina[] idMaquina;
-	private OpMaquina[] idOperario;
-	
+	private Maquina maquina;
+	private Operario operario;
+
 // Constructor por defecto de la clase laboresmantenimiento	
 	public LaboresMantenimiento() {
 		numLab = numLab + 1;
@@ -22,16 +22,14 @@ public class LaboresMantenimiento {
 	}
 
 // Constructores con atributos de la clase laboresmantenimiento	
-	public LaboresMantenimiento(long id, LocalDate FechaReal, String descripcion, Maquina idMaquina,
-			OpMaquina idOperario) {
+	public LaboresMantenimiento(long id, LocalDate FechaReal, String descripcion, Maquina maquina, Operario operario) {
 		this.idLab = id;
 		this.fechaReal = fechaReal;
 		this.descripcion = descripcion;
 
 	}
-	
-	public LaboresMantenimiento(long id, LocalDate FechaReal, Maquina idMaquina,
-			OpMaquina idOperario) {
+
+	public LaboresMantenimiento(long id, LocalDate FechaReal, Maquina idMaquina, Maquina idOperario) {
 		this.idLab = id;
 		this.fechaReal = fechaReal;
 
@@ -45,10 +43,9 @@ public class LaboresMantenimiento {
 		long id = -1;
 		String descripcion = "";
 		LocalDate fechaReal = null;
-		Maquina idMaquina = null;
-		OpMaquina idOperario = null;
-		
-		
+		Maquina maquina = null;
+		Operario operario = null;
+
 		boolean validarId = false;
 		do {
 			System.out.println("introduce el id (>0)");
@@ -66,15 +63,15 @@ public class LaboresMantenimiento {
 		} while (!validades);
 
 		System.out.println("introduce el id de la maquina a la que se la hace la labor");
-		idMaquina = Maquina.nuevaMaquina();
-		
+		Maquina mq = Maquina.nuevaMaquina();
+
 		System.out.println("introduce el id del operario que lleva a cabo esta labor");
-		idOperario = (OpMaquina) OpMaquina.nuevoOperario();
-		ret = new LaboresMantenimiento (id, fechaReal, descripcion, idMaquina, idOperario);
+		Operario op = operario.nuevoOperario();
+		ret = new LaboresMantenimiento(id, fechaReal, descripcion, maquina, operario);
 		return ret;
 
 	}
-	
+
 // Getters y Setters de los atributos de la clase laboresmantenimiento
 	public long getIdLab() {
 		return idLab;
@@ -100,25 +97,36 @@ public class LaboresMantenimiento {
 		descripcion = consistio;
 	}
 
-	public static int getNumLab() {
-		return numLab;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public static void setNumLab(int numLab) {
-		LaboresMantenimiento.numLab = numLab;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
-	public OpMaquina[] getidOperario() {
-		return idOperario;
+	
+
+public Maquina getMaquina() {
+		return maquina;
 	}
 
-	public void setidOperario(OpMaquina[] idOperario) {
-		this.idOperario = idOperario;
+	public void setMaquina(Maquina maquina) {
+		this.maquina = maquina;
 	}
 
-// Metodo toString()
+	public Operario getOperario() {
+		return operario;
+	}
+
+	public void setOperario(Operario operario) {
+		this.operario = operario;
+	}
+
+	@Override
 	public String toString() {
-		return idLab + "|" + fechaReal + "|" + descripcion + "|" + idOperario + "|" + idMaquina;
+		return "LaboresMantenimiento [idLab=" + idLab + ", fechaReal=" + fechaReal + ", descripcion=" + descripcion
+				+ ", maquina=" + maquina + ", operario=" + operario + "]";
 	}
 
 }

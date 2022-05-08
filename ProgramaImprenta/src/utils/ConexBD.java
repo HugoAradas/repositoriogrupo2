@@ -14,7 +14,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 public class ConexBD {
 	// Datos de la conexion a la BD
-	static final String DB_URL = "jdbc:mysql://localhost:3306/bdfederacion";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/bdimprenta";
 	static final String USER = "root";
 	static final String PASS = "";
 

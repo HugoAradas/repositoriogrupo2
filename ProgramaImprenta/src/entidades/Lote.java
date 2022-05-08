@@ -10,7 +10,7 @@ public class Lote {
 	public static int numLotes = 0;
 	protected long idLote;
 	protected String nombreLote;
-	private Departamento[] idDep;
+	private Departamento departamento;
 
 	public Lote() {
 		numLotes = numLotes + 1;
@@ -77,17 +77,20 @@ public class Lote {
 		this.nombreLote = nombreLote;
 	}
 
-	public Departamento[] getidDep() {
-		return idDep;
+	
+	
+
+	public Departamento getDepartamento() {
+		return departamento;
 	}
 
-	public void setidDep(Departamento[] idDep) {
-		this.idDep = idDep;
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	@Override
 	public String toString() {
-		return idLote + "|" + nombreLote + "|" + idDep;
+		return "Lote [idLote=" + idLote + ", nombreLote=" + nombreLote + ", departamento=" + departamento + "]";
 	}
 
 }
