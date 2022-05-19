@@ -61,16 +61,16 @@ public class ClienteDAO implements OperacionesCRUD<Cliente> {
 			int resultadoInsercion = pstmt.executeUpdate();
 
 			if (resultadoInsercion == 1) {
-				String consultaSelect = "select id from clientes where (nombre=? and apellidos=?)";
+				String consultaSelect = "select idCliente from clientes where (nombre=? and apellidos=?)";
 				PreparedStatement pstmt2 = conex.prepareStatement(consultaSelect);
 				pstmt2.setString(1, c.getNombre());
 				pstmt2.setString(2, c.getApellido());
 
 				ResultSet result = pstmt2.executeQuery();
 				while (result.next()) {
-					long id = result.getLong("id");
-					if (id != -1)
-						ret = id;
+					long idCliente = result.getLong("id");
+					if (idCliente != -1)
+						ret = idCliente;
 				}
 				result.close();
 				pstmt2.close();
