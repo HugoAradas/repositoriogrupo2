@@ -51,7 +51,7 @@ public class ClienteDAO implements OperacionesCRUD<Cliente> {
 	@Override
 	public long insertarSinID(Cliente c) {
 		long ret = -1;
-		String consultaInsertStr = " insert into clientes (nombre,apellido) values (?,?) ";
+		String consultaInsertStr = " insert into clientes (nombre,apellidos) values (?,?) ";
 		try {
 			if (this.conex == null || this.conex.isClosed())
 				conex = ConexBD.establecerConexion();
@@ -61,7 +61,7 @@ public class ClienteDAO implements OperacionesCRUD<Cliente> {
 			int resultadoInsercion = pstmt.executeUpdate();
 
 			if (resultadoInsercion == 1) {
-				String consultaSelect = "select id from clientes where (nombre=? and apellido=?)";
+				String consultaSelect = "select id from clientes where (nombre=? and apellidos=?)";
 				PreparedStatement pstmt2 = conex.prepareStatement(consultaSelect);
 				pstmt2.setString(1, c.getNombre());
 				pstmt2.setString(2, c.getApellido());
